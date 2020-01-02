@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- link a(anchor) : URL / -->
+<p>
+<a href="http://www.naver.com">Naver</a>
+</p>
+<a href="index2.html">index2.html로 이동하기</a>
+
+
+</body>
+</html>

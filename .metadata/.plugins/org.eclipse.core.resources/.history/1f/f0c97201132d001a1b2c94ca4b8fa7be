@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- link a(anchor) : URL / 원하는 html 문서로 이동가능
+- target="_self" : 현재 창에서 이동 (default임)
+- target="_blank" : 새 창에서 열림
+ -->
+<p>
+<a href="http://www.naver.com">Naver</a>
+</p>
+<a href="./index2.html">index2.html로 이동하기</a>
+<br>
+
+<a href="./index3.html" target="_self">기존창으로 index3.html로 이동하기</a>
+<br>
+
+<a href="./index4.html" target="_blank">새창으로 index4.html로 이동하기</a>
+<br>
+
+
+<br><br><br><br><br>
+<br><br><br><br><br>
+
+
+
+
+</body>
+</html>

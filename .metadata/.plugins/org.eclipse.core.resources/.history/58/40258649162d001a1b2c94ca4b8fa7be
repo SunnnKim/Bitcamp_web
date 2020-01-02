@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- img tag -->
+<img alt="이미지가 없을때 나오는 문자열" src="pic.jpg">
+<br>
+
+<img alt="이미지가 없을때 나오는 문자열" src="huk.gif">
+<br>
+
+<img alt="이미지가 없을때 나오는 문자열" src="hk.gif">
+<br>
+
+
+<a href="http://www.naver.com">
+	<img alt="이미지가 없을때 나오는 문자열" src="huk.gif">
+</a>
+<br>
+
+<img alt="이미지가 없을때 나오는 문자열" src="pic.jpg" width="500" height = "300">
+
+
+<img alt="이미지가 없을때 나오는 문자열" src="pic.jpg" width="500" height = "300" border="2">
+
+<br><br>
+
+<img alt="이미지가 없을때 나오는 문자열" src="pic.jpg" width="500" height = "300" align="right"hspace="10">
+오제국립공원(尾瀬国立公園)은 일본 최대 산악 습지대이다. 
+주변 자연 경치와 함께 하이킹 즐기기에 좋으며, 하이킹 루트 정비 상태도 좋다. 
+주변 자연환경과 계절 꽃이 만들어낸 멋진 경치를 즐기고 싶다면 5월부터 10월 사이가 좋다.
+산으로 둘러싸인 습지대 풍경은 오제 지역만의 매력이다. 
+관광의 중심지 오제국립공원은 동서로 12km, 남북으로 9km 뻗어있다. 
+관광지와 연결된 하이킹 코스는 잘 정비되었고, 주변 환경과도 조화롭다. 
+오제 지역 방문 시즌은 봄이 시작되는 5월 중순부터 단풍이 끝나는 10월 말까지다.
+
+<br clear="right">
+
+
+</body>
+</html>

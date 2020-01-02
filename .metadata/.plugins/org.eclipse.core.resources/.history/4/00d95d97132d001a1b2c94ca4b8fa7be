@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- link a(anchor) : URL / 원하는 html 문서로 이동가능
+- target="_self" : 현재 창에서 이동 (default임)
+- target="_blank" : 새 창에서 열림
+- <a href ="#"> : 현재 페이지의 맨 위로 이동
+				* # : id의미, . -> class 의미
+- 
+ -->
+<p>
+<a href="http://www.naver.com">Naver</a>
+</p>
+<a href="./index2.html">index2.html로 이동하기</a>
+<br>
+
+<a href="./index3.html" target="_self">기존창으로 index3.html로 이동하기</a>
+<br>
+
+<a href="./index4.html" target="_blank">새창으로 index4.html로 이동하기</a>
+<br>
+
+
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<a href ="#">현재 페이지의 맨 위로 이동</a>
+
+<p>				<!-- * # : id의미, . -> class 의미 -->
+	<a href = "#move">chapter 4로 이동</a>
+</p>
+
+<h3>chapter 1</h3>
+<p>여기가 chpater 1입니다</p>
+<br><br><br><br><br>
+
+<h3>chapter 2</h3>
+<p>여기가 chpater 2입니다</p>
+<br><br><br><br><br>
+
+<h3>chapter 3</h3>
+<p>여기가 chpater 3입니다</p>
+<br><br><br><br><br>
+
+<h3 id = "move">chapter 4</h3>
+<p>여기가 chpater 4입니다</p>
+<br><br><br><br><br>
+
+<h3>chapter 5</h3>
+<p>여기가 chpater 5입니다</p>
+<br><br><br><br><br>
+
+</body>
+</html>

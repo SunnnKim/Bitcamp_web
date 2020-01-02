@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- font, div 
+1. font
+- attribute : size, color, 
+-->
+<font size="1" color="blue">폰트크기 1, 폰트컬러 blue</font>
+<br>
+<font size="2" color="#ff0000">폰트크기 2, 폰트컬러 red</font>
+<br>
+<font size="3">폰트크기 3</font>
+<br>
+폰트크기 3
+
+</body>
+</html>

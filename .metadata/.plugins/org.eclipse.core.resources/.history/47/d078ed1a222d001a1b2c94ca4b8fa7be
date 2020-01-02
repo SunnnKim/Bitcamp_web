@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		td {
+			text-align: center;
+		}
+		/* 모든 td태그가 가운데 정렬되는 태그 */
+	</style>
+</head>
+<body>
+<div align="center">
+<table border="1">
+	<col width = "50"><col width = "100"><col width = "200"><col width = "50">
+	<!-- <col width = "20%"><col width = "3	0%"><col width = "40%"><col width = "10%"> -->
+	<tr>
+		<th>번호</th>
+		<th>성</th>
+		<th>이름</th>
+		<th>나이</th>
+	</tr>
+	<tr>
+		<th>1</th>
+		<td>홍</td>
+		<td>길동</td>
+		<td align="center">24</td>
+	</tr>
+	<tr>
+		<th>2</th>
+		<td>일</td>
+		<td>지매</td>
+		<td>21</td>
+	</tr>
+	<tr>
+		<th>3</th>
+		<td>성</td>
+		<td>춘향</td>
+		<td>25</td>
+	</tr>
+
+</table>
+</div>
+<br>
+<br>
+
+<table border="2" style="width:80%">
+	<caption>주소록</caption>
+
+</table>
+
+
+
+</body>
+</html>

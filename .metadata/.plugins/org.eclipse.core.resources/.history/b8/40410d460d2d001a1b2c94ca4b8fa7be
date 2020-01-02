@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- Tag안에 Tag를 사용할 수 있는 Tag :
+ - br : 띄어쓰기
+ - b, strong : 텍스트 볼드
+ - i : 이탤릭(기울기)
+ - em : 강조 
+ - mark : 강조(하이라이트)
+ - del : 삭제선(텍스트 중간에 선그어져있음)
+ - sup / sub : 위첨자 / 아래첨자
+-->
+<p>보통의 텍스트</p>
+
+<p> <b>두꺼운 텍스트 b </b> </p>
+
+<p> <strong>두꺼운 텍스트 strong </strong> </p>
+
+<p style="font-size: 200%"><b> p + 속성 + bold </b></p>
+
+<p><i> italic text </i></p>
+
+<p> 나는 성공할 것입니다. 그 점을 <em>강조</em>하고 싶습니다.</p>
+
+<h2>Html <mark>Markup</mark> Language</h2>
+
+<p>보시는 글을 <del>삭제</del>된 글입니다.</p>
+
+<p>이것은 <sub>아래첨자</sub>입니다</p>
+
+<p>이것은 <sup>위첨자</sup>입니다</p>
+<br>
+
+
+
+</body>
+</html>

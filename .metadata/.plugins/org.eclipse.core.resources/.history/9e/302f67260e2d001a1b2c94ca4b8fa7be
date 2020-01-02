@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- font, div 
+1. font
+- attribute : size(크기, 기본크기는 3), color, 
+-->
+<font size="1" color="blue">폰트크기 1, 폰트컬러 blue</font>
+<br>
+<font size="2" color="#ff0000">폰트크기 2, 폰트컬러 red</font>
+<br>
+<font size="3">폰트크기 3</font>
+<br>
+<pre>
+JYP엔터테인먼트 측 역시 ““확인 결과 두 사람은 연예계 선후배로 친하게 지내오다 
+최근 호감을 갖고 만나는 사이가 됐다”라고 밝혔다.
+</pre>
+
+
+</body>
+</html>

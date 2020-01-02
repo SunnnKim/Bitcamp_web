@@ -1,0 +1,28 @@
+<!DOCTYPE html><!-- 도큐먼트 타입 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>제목</title>
+		<!-- 이부분에 들어갈 것들
+		Jsvasript(함수선언) / 
+		CSS(디자인) 설정
+		Link집어 넣기 
+		정적 처리부분 추가
+		 -->
+	</head>
+	<body>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+		Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+		when an unknown printer took a galley of type and scrambled it to make a type
+		specimen book. It has survived not only five centuries, but also the leap 
+		into electronic typesetting, remaining essentially unchanged. It was 
+		popularised in the 1960s with the release of Letraset sheets containing Lorem
+		Ipsum passages, and more recently with desktop publishing software like Aldus 
+		PageMaker including versions of Lorem Ipsum.	
+		
+		<!-- 
+			<태그명 속성(attribute)값설정가능> 태그 효과 문자열</문자열>
+		 -->
+			
+	</body>
+</html>

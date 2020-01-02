@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- img tag -->
+<img alt="이미지가 없을때 나오는 문자열" src="pic.jpg">
+<br>
+
+<img alt="이미지가 없을때 나오는 문자열" src="huk.gif">
+<br>
+
+<a href="http://www.naver.com">
+	<img alt="이미지가 없을때 나오는 문자열" src="huk.gif">
+</a>
+<br>
+
+<img alt="이미지가 없을때 나오는 문자열" src="pic.jpg" width="500" height = "300">
+
+
+
+</body>
+</html>

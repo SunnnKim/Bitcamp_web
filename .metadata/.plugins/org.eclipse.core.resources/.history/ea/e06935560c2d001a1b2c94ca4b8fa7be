@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- Tag안에 Tag를 사용할 수 있는 Tag :
+ - br : 띄어쓰기
+ - b : 텍스트 볼드
+-->
+<p>보통의 텍스트</p>
+<p> <b>두꺼운 텍스트</b> </p>
+<p> <strong>두꺼운 텍스트</strong> </p>
+
+<br>
+
+
+
+</body>
+</html>

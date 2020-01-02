@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body style="background-color: yellow">
+<!-- attribute = 속성 
+		- style="" : attribute
+		- "background-color: yellow" : property
+	property = 특성 -->
+<h1 style="color: blue">여기가 h1태그 입니다</h1>
+</body>
+</html>

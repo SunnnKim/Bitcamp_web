@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body style="background-color: gray">
+<!-- attribute = 속성 
+ 	 property = 특성 
+	- style="" : attribute
+	- "background-color: yellow" : property
+	
+	inline 방식의 attribute 설정
+-->
+<h1 style="color: white">여기가 h1태그 입니다</h1>
+<h2 style="background-color: #00ff00">여기가 h2태그 입니다</h2>
+<h3 style="font-family: console">여기가 h3태그입니다.</h3>
+<h4 style="font-size:300%">여기가 h4태그입니다.</h4>
+
+<p style="text-align: right">
+여기가 p태그 입니다.
+</p>
+
+</body>
+</html>

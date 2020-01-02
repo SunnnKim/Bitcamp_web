@@ -1,0 +1,51 @@
+<!DOCTYPE html><!-- 도큐먼트 타입 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>제목</title>
+		<!-- 이부분에 들어갈 것들
+		Jsvasript(함수선언) / 
+		CSS(디자인) 설정
+		Link집어 넣기 
+		정적 처리부분 추가
+		 -->
+	</head>
+	<body>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
+		Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>
+		when an unknown printer took a galley of type and scrambled it to make a type
+		specimen book. It has survived not only five centuries,<br> 
+		but also the leap 
+		into electronic typesetting, remaining essentially unchanged. It was <br> 
+		popularised in the 1960s with the release of Letraset sheets<br> 
+		containing Lorem Ipsum passages,<br> and more recently with desktop publishing software like Aldus 
+		PageMaker including versions of Lorem Ipsum.	
+		
+		<!-- 
+			<태그명 속성(attribute)값설정가능> 태그 효과 문자열</문자열>
+		 -->
+		
+		 <!-- <br> : 띄어쓰기, 뒤에 닫는태그 없음 ,- --> 
+		 <br>
+		 <!--  <Heading> : 제목 태그 -->
+		 <h1>hello Html</h1>
+		 <h2>hello Html</h2>
+		 <h3>hello Html</h3>
+		 <h4>hello Html</h4>
+		 <h5>hello Html</h5>
+		 <h6>hello Html</h6>
+		 
+		 <!-- Paragraph : 단락으로 짜르기 -->
+		 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+		 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+		 
+		 <!-- pre formatted : 보고 있는대로 태그 -->
+		 <pre>
+		 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+		 Lorem Ipsum has been the industry's standard dummy 
+		 text ever since the 1500s, 
+		 when an unknown printer took a galley 
+		 </pre>
+		 
+	</body>
+</html>

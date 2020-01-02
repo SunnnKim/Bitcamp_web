@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- img tag -->
+<img alt="이미지가 없을때 나오는 문자열" scr="pic.jpg">
+
+
+
+
+</body>
+</html>

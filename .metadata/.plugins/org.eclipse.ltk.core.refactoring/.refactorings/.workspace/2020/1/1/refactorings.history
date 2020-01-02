@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Sample01&apos; to &apos;Bitcamp_200102&apos;" description="Rename resource &apos;Sample01&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Sample01" name="Bitcamp_200102" stamp="1577938578899" updateReferences="true"/>
+</session>
