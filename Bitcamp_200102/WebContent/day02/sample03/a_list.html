@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.cls li{
+	display: inline; /* 리스트의 가로모드 */
+}
+/*
+. = 클래스를 의미
+.cls li -> cls라는 이름의 클래스 속의 li에 적용
+ */
+
+
+</style>
+</head>
+<body>
+
+list
+<ul> <!-- 1. unordered list (순서없는 목록 -->
+	<li>coffee</li>
+	<li>tea</li>
+	<li>milk</li>
+</ul>
+
+disc : 동그라미 (default값)
+<ul style="list-style-type: disc">
+	<li>coffee</li>
+	<li>tea</li>
+	<li>milk</li>
+</ul>
+
+square : 네모 버튼
+<ul style="list-style-type: square">
+	<li>coffee</li>
+	<li>tea</li>
+	<li>milk</li>
+</ul>
+
+none : 아무것도 없음
+<ul style="list-style-type: none">
+	<li>coffee</li>
+	<li>tea</li>
+	<li>milk</li>
+</ul>
+
+list안에 anchor(a)넣을 수 있음
+<ul style="list-style-type: none">
+	<li>
+		<a href="#">coffee</a>
+	</li>
+	<li>tea</li>
+	<li>milk</li>
+</ul>
+
+ol: 순서가 있는 목록 (ordered list)
+<ol>
+	<li>Apple</li>
+	<li>Pear</li>
+	<li>Banana</li>
+</ol>
+
+중간 숫자부터 표현하기 (html4)<br>
+type ----> html4에서 사용함 <br>
+<ol type="2">
+	<li>Apple</li>
+	<li>Pear</li>
+	<li>Banana</li>
+</ol>
+type ="A" (알파벳기호), "I"(로마자기호)
+<ol type="A">
+	<li>Apple</li>
+	<li>Pear</li>
+	<li>Banana</li>
+</ol>
+<ol type="I">
+	<li>Apple</li>
+	<li>Pear</li>
+	<li>Banana</li>
+</ol>
+
+중간 숫자부터 표현하기(html5)<br>
+start ----> html5에서 사용함
+<ol start="3">
+	<li>Apple</li>
+	<li>Pear</li>
+	<li>Banana</li>
+</ol>
+
+list안에 list
+<ul>
+	<li>coffee</li>
+		<ol>
+			<li>black</li>
+			<li>milk</li>
+		</ol>
+</ul>
+
+CSS사용해서 list 가로로 표현하기 (가로로 표현되면 앞에 붙는 기호가 사라짐)
+<p>좋아하는 과일은?</p>
+<ol class = "cls">
+	<li>1. Apple</li>
+	<li>2. Pear</li>
+	<li>3. Banana</li>
+</ol>
+
+
+
+
+
+</body>
+</html>

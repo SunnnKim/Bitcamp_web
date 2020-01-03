@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+link -> anchor <a href="이동하고 싶은 파일 또는 URL">표시 문자열 또는 이미지</a><br>
+form -> 링크로 이동함<br>
+<!-- * 
+	form
+		event resource와 같이 많이 사용
+		입력 데이터 등을 전송할 수 있다
+		
+	id : #, 현재 페이지에서 1개만을 인식. javaScript(=JQuery)에서 많이 사용
+	class : . , 다중 인식. CSS(디자인), JavaScript(=JQuery)
+	name : link용, 값을 전송할 때 변수의 역할. 데이터를 jsp파일 등으로 넘겨줄 수 있고 디비와 연결하여 사용할 수 있다.
+
+<form action="이동을 하고 싶은 URL 또는 파일">
+submit : 이동, form하나당 submit은 하나만 존재 <br>
+중간에는 입력 리소스들 존재
+	<input type="submit" value="클릭">
+	type="submit" : submit 버튼을 생성한다
+	value : 특정 입력 타입을 만들고 안에 들어갈 텍스트 입력
+	
+</form>
+
+-->
+
+<h3>index.html</h3>
+<form action="NewFile.html">
+	<input type="submit" value="클릭">
+</form>
+<br><br>
+<!-- input태그 
+1. button(submit)
+2. checkBox
+3. radioButton
+4. textField
+및 기타 등등 툴바 
+-->
+
+
+
+<form action="NewFile.html">
+name: <input type="text" value="여기에 입력" size="12">
+<br>
+age: <input type="text" value="" size="10">
+<br>
+<input type="submit" value="submit">
+<input type="button" value="button">
+<input type="reset" value="초기화">
+</form>
+<br><br>
+
+input과 form 은 반드시 연결되있을 필요는 없음(종속적인 것-리셋/서밋은 form안에 들어있어야 기능이 수행된다.)<br>
+또한, button은 독립적으로 기능을 수행하는 일반적인 버튼이고, submit은 페이지 이동 등의 기능을 수행하는 종속적인 버튼
+name: <input type="text" value="여기에 입력" size="12">
+<input type="submit" value="이동">
+<input type="reset" value="초기화">
+
+<br><br>
+<br><br>
+로그인 화면<br>
+<form action="NewFile.jsp">
+	id: <input type="text" name="id" value="" size="12">
+	<br>
+	password: <input type="password" name="pwd" size="12">
+	<br>
+	<input type="submit" value="이동">
+</form>
+<br><br><br>
+
+
+form 안에 테이블 넣어서 구조 짜기 <br>
+<form action="NewFile.jsp">
+<table border="1">
+<tr align="right">
+	<td>id:</td>
+	<td>
+		<input type="text" name="id" value="" size="12">
+	</td>
+</tr>
+<tr align="right">
+	<td>password:</td>
+
+	<td>
+		<input type="password" name="pwd" size="12">
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<input type="submit" value="이동">
+	</td>
+<tr>
+</table>	
+</form>
+
+<br><br><br><br><br><br>
+
+<!-- form - html 5
+number : 숫자
+date : 달력 포맷
+
+
+
+-->
+<form action="NewFile1.jsp">
+number: <input type="number" name="num" max="5" min="1">
+<br>
+date: <input type="date" name="date">
+<br>
+color: <input type="color" name="color">
+<br>
+range: <input type="range" max="10" min="0" name="range">
+<br>
+search: <input type="search" name="search">
+<br>
+<input type="submit" value="선택">
+
+</form>
+
+<br><br><br>
+
+CheckBox
+<form action="NewFile2.jsp">
+<input type="checkbox" name="job" value="패션">패션<br>
+<input type="checkbox" name="job" value="음악">음악<br>
+<input type="checkbox" name="job" value="게임">게임<br>
+<input type="submit" value="이동">
+</form>
+
+<br><br><br>
+
+
+RadioButton<br>
+<input type="radio" name="car" value="벤츠">벤츠<br>
+<input type="radio" name="car" value="BMW" checked="checked">BMW<br>
+<input type="radio" name="car" value="아우디">아우디<br>
+
+<br><br><br>
+
+
+	  = choice, comboBox (swing)<br><br>
+<select name="cars">
+	<option value="볼보">Volvo</option>
+	<option value="사브">Saab</option>
+	<option value="피아트">Fiat</option>
+	<option value="프리우스">Prius</option>
+</select>
+select  multiple = "multiple" : 여러개 중복선택함 (데이터 받을떄는 반드시 배열로 받아야함)<br><br>
+<select name="cars" multiple="multiple">
+	<option value="볼보">Volvo</option>
+	<option value="사브">Saab</option>
+	<option value="피아트">Fiat</option>
+	<option value="프리우스">Prius</option>
+</select>
+<br><br><br>
+
+
+
+textArea <br>
+<textarea rows="20" cols="30">초기값 설정하고 싶을 때</textarea>
+<br><br><br>	
+
+button Tag 비교하기 : input tag / button tag<br>
+input<br>
+<input type="button" value="버튼"><br>
+button<br>
+<button type="button" onclick="alert('클릭했음')">버튼</button>
+
+
+
+
+</body>
+</html>
