@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo">p tag</p>
+
+<script type="text/javascript">
+//var d = new Date();
+//alert(d);
+
+//setter
+// 날짜 설정하기
+
+//1번 방법
+// var d = new Date("October 12, 2020 12:32:33");
+// alert(d);
+
+//2번
+var d = new Date(2020,4,4,6,10,32,0);	// 년 월 일 시 분 초 밀리세컨 
+// --> 2020년5월4일 6:10:32:00
+// alert(d);
+// 설정한 부분의 월은 0~11까지 존재하므로, 원하는 월을 출력하려면 -1로 입력해준다.
+
+
+// getter
+// 각각의 값을 불러오기
+
+document.getElementById("demo").innerHTML
+//	= d.getFullYear();	// 년도 구하는 함수
+//	= d.getMonth() +1;	// 월, 원하는 월은 +1해주어야 한다.
+//	= d.getDate();		// 일 구하는 함수
+//	= d.getHours();		// 시 구하는 함수
+//	= d.getMinutes();	// 분 구하는 함수
+//	= d.getSeconds();	// 초 구하는 함수
+	= d.getDay();		// 요일 구하는 함수(숫자로 나옴) 0: 일요일 ~ 7 :토요일
+
+
+// 캘린더 플러그인이 있어서 사용할 수 있음
+
+
+
+</script>
+
+
+</body>
+</html>

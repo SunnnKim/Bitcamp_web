@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3 id="h3tag"><b>h3 Tag</b></h3>
+<br><br>
+<p id="ptag">p Tag</p>
+<br><br>
+입력: <input type="text" id="text">
+<br><br>
+<button type="button" onclick="btnClick()">버튼</button>
+
+<script type="text/javascript">
+function btnClick() {
+	
+//	var str = document.getElementById("h3tag").innerHTML;	
+// <b>태그까지 모두 가져옴
+//	document.getElementById("ptag").innerHTML = str;
+
+	var str = document.getElementById("text").value;	
+	document.getElementById("h3tag").innerHTML = parseInt(str) * 10;	
+	// 문자열을 숫자로 바꿔야할 때는 parseInt
+	// 스트링 
+    //input이나 입력을 받는 부분은 value로 받고 
+    //나머지 h3나 p 태그 등에서는 innerHTML
+
+	
+	
+}
+
+
+</script>
+
+
+</body>
+</html>

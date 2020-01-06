@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 함수 호출하기  -->
+<p id = "demo">p tag</p>
+<h3 id = "demo">p tag</h3> 
+<!--  id는 1개밖에 인식되지 않아서 가장 처음에 지정한 아이디에 이벤트가 들어간다. -->
+
+
+<button type="button" onclick="btnClick()">버튼타이틀</button>
+<!-- onclick의 함수명으로 click()은 사용할 수 없다 -->
+<br><br>
+
+<button type="button" onclick="btnClick1( 7 )">매개변수있는 버튼</button>
+<button type="button" onclick="btnClick2()">return있는함수를 호출하는 버튼</button>
+
+
+
+
+<script type="text/javascript">
+/*
+	id : 자바스크립트에서 가장 많이 사용함
+		 현 페이지에서 1개만을 인식
+	class : 
+	name
+*/
+// button을 클릭했을때 
+function btnClick() {
+	// alert("btnClick");	// 항상 이벤트 확인하고 다음 작업하는것이 좋음
+	document.getElementById("demo").innerHTML = "버튼을 눌렀음<br>버튼을 눌렀음ㅎ";
+	
+}
+// 매개변수가 있는 함수
+function btnClick1( num ) {
+	document.getElementById("demo").innerHTML = num + " * 6=" + (num * 6);
+}
+
+// 리턴값이 있는 함수
+function func( x, y ) {
+	return x * y;	// return 적으면 반환값있고 안쓰면 void
+}
+function btnClick2() {
+	document.getElementById("demo").innerHTML = "func를 호출하는 함수: " + func(5,6);
+} // func를 호출하는 함수
+
+
+
+
+
+
+
+</script> 
+
+</body>
+</html>

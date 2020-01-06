@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="D:\html\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\html\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Assignment2" path="/Assignment2" reloadable="true" source="org.eclipse.jst.jee.server:Assignment2"/><Context docBase="D:\html\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Sample05" path="/Sample05" reloadable="true" source="org.eclipse.jst.jee.server:Sample05"/><Context docBase="D:\html\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Bitcamp_200102" path="/Bitcamp_200102" reloadable="true" source="org.eclipse.jst.jee.server:Bitcamp_200102"/></Host>
+      <Context docBase="D:\html\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\html\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Bitcamp_200102" path="/Bitcamp_200102" reloadable="true" source="org.eclipse.jst.jee.server:Bitcamp_200102"/></Host>
     </Engine>
   </Service>
 </Server>

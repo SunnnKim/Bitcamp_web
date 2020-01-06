@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+변수 (Variable)
+<p id="demo"> p tag </p>
+
+<script type="text/javascript">
+/*
+ var : int, double, String, Object, character 등이 모두 
+ 	   Variable(var)로 통합
+ 
+ 자바 변수(객체) 선언방법
+ MyClass cls = new MyClass();
+ 또는
+ Object obj = new MyClass();
+ 사용할때 -> ((MyClass)obj).method();
+
+ 위 처럼 자바스크립트도 편리하게 사용하기 위해 var로 변수가 통합됨 
+ 
+ */
+ 
+ 
+ // 1. 일반 변수
+ var pi = 3.141592;
+ var name = "홍길동";
+ var answer = "Yes | No";
+ var number = 123;
+ var updown = true;
+ 
+ var per = "일지매", num = 123 + 1;
+ // 앞의 변수는 String, 뒤의 변수는 숫자
+ // 넣는 값에 따라 변수형이 정해진다.
+ 
+ num = "성춘향"; // 처음에는 숫자형을 집어넣었지만 나중에 String형이 대입됨
+ // ==> 변수 타입이 Stirng으로 바뀐다.
+ 
+ alert("per:" + per + " num: " + num);
+ 
+ var nn = "5" + 3 + 1;	// 문자열로 통합 ( = 531)
+ alert(nn);
+ var nn = 3 + 1 + "5";	// 앞의 숫자 더한 뒤, 문자열로 통합 ( = 45)
+ alert(nn);
+ 
+ 
+ // 2. 일반 변수
+ var cars = [ "Saab", "Volvo", " BMW" ]; // {} 아니고 [] 안에 배열 데이터 쓰기
+ // node.js 방식임 ( Vue, react )
+ // 그 다음 사용법은 자바와 같음
+ alert(cars[0]);	// 변수명[인덱스];
+ 
+ // 또는
+ var cars = new Array(3);	// [배열의길이] 아니고 (배열의길이)
+ // (비교) String cars[] = new String[3];
+ // 그 다음 사용법은 자바와 같음
+ cars[0] = "Volvo";
+ cars[1] = "Benz";
+ cars[2] = "BMW";
+ alert(cars[1]);
+ 
+ 
+ // 3. 제어문
+ for (var i = 0; i < cars.length; i++) { // i의 변수타입(var) 생략가능
+	console.log(cars[i]);
+}
+ // for-each문
+ for (i in cars) { // :(콜론) 대신 in 예약어를 사용함 (in은 변수명으로 사용불가) 
+	 console.log(cars[i]);
+}
+ 
+ 
+ // 4. Object == class -> json방식 (key:value 방식)
+ 
+ // 클래스 인스턴스와 비슷한 개념의 Object
+ var obj = {
+		 firstname:"길동",
+		 lastname:"홍",
+		 age:24,
+		 funcName:function(){	// 함수이름:function(){ 함수 내용 }
+			 alert("funcName() 호출");
+			 alert("lastname: " + this.lastname);
+		 }
+ // 클래스를 축소한 느낌
+ };
+ 
+ // Object 호출하기 
+ console.log(obj.firstname + " " + obj.lastname + " " + obj.age);
+ // object객체이름.object변수명 -> 호출된다
+ obj.funcName();	// Object의 함수 호출하기
+ 
+ 
+ // 지수
+ var y = 123e2;		// 123 * 10 * 10 -> 123 * 10^2 = 12300
+ var y = 123e-2;	// 123 * 0.1 * 0.1 -> 123 * 10^-2 = 1.23 
+ 
+ // 변수 타입 별 HTML 태그에 출력하는 방법
+ var up = true;
+ document.getElementById("demo").innerHTML 
+ 	= "홍길동: " + typeof "홍길동" + "<br>" // 	홍길동: string
+ 	+ "325: " + typeof 325 + "<br>"		// 	325: number
+ 	+ "3.141592: " + typeof 3.141592 + "<br>"	//	3.141592: number
+ 	+ "true: " + typeof up + "<br>" 	// 	true: boolean
+ 	+ "array: " + typeof [1,2,3] + "<br>"		//	array: object
+ 	+ "Object: " + typeof { num:1, name:"abc" }; //	Object: object
+ 
+ 
+ // * typeof 변수 : 해당 변수의 타입을 출력하는 예약어 
+
+
+ 	
+
+
+ 
+</script>
+</body>
+</html>

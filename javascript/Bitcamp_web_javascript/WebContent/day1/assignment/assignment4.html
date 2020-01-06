@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>과제4</h1>
+<h2>체육관 이용요금</h2>
+기본사용료(2면,4시간) 40,800원<br>
+
+<form name="frm">
+<input type="checkbox" id="ck1" onclick="nightlight()" value="20000">야간 조명(20,000원)<br>
+<input type="checkbox" id="ck2" onclick="net(1)" value="4000">배구 네트x2면(4,000원)<br>
+<input type="checkbox" id="ck3" onclick="vallyball()" value="5000">배구x10개(5,000원)<br>
+<br>
+합계금액 : <input type="text" id="sum" size="5" value="40800">원형
+</form>
+
+
+<script type="text/javascript">
+ 
+ //1번째 방법
+ var total = parseInt(document.getElementById("sum").value);
+ 
+function nightlight() { 
+	var result  = parseInt(document.getElementById("ck1").value);
+	var checked  = document.getElementById("ck1").checked;
+	if(checked){
+		total += result;
+	}else{	
+		total -= result;
+	}
+		document.getElementById("sum").value = total;
+} 
+
+
+// 2번째 방법
+// form 이용하기
+var arr = new Array(3);
+arr[0] = parseInt(document.getElementById("ck1").value);
+arr[1] = parseInt(document.getElementById("ck2").value);
+arr[2] = parseInt(document.getElementById("ck3").value);
+
+function net( n ) {	// form이름으로 찾기
+	var total = parseInt(document.frm.elements[3].value);
+	if(document.frm.elements[n].checked){
+		total += arr[n];
+	}else{
+		total -= arr[n];
+	}
+	document.frm.elements[3].value = total;
+	
+}
+
+// 태그의 아이디설정이 안되어있을 때 ( document.getElementsByTagName )
+var v = document.getElementsByTagName("body")[0];
+alert(v.getElementsByTagName("h1")[0].innerHTML);
+
+
+function vallyball() {
+		var total = parseInt(document.getElementsByTagName("input")[3].value);
+	if(document.getElementsByTagName("input")[2].checked){
+		total += arr[2];
+	}else{
+		total -= arr[2];
+	}
+	document.frm.elements[3].value = total;
+}
+
+
+
+
+</script>
+
+</body>
+</html>

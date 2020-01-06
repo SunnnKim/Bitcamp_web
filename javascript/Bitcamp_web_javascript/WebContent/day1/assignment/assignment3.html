@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>과제3</h1>
+<h3>변수의 연산</h3>
+a : <input type="text" size="10" id="varA"> 
+<p id="oper" style="margin-left: 70px">?</p>
+b : <input type="text" size="10" id="varB">
+<br><br>
+변수 a와 b에 대해서 <br>
+계산 결과를 표시합니다.<br>
+<br>
+<button type="button" onclick="plus()">덧셈</button>
+<button type="button" onclick="minus()">뺄셈</button>
+<button type="button" onclick="multiply()">곱셈</button>
+<button type="button" onclick="divide()">나눗셈</button>
+<button type="button" onclick="percent()">나머지</button>
+<br><br>
+<p id="result"> = </p>
+
+
+
+<script type="text/javascript">
+var a,b;
+
+function getElement() {
+	a = parseInt(document.getElementById("varA").value);
+	b = parseInt(document.getElementById("varB").value);
+}
+
+function plus() {
+	getElement();
+	document.getElementById("oper").innerHTML = "+";
+	document.getElementById("result").innerHTML = a + b;
+	
+	
+}
+function minus() {
+	getElement();
+	document.getElementById("oper").innerHTML = "-";
+	document.getElementById("result").innerHTML = a - b;
+}
+function multiply() {
+	getElement();
+	document.getElementById("oper").innerHTML = "x";
+	document.getElementById("result").innerHTML = a * b;
+}
+function divide() {
+	getElement();
+	if(b==0) {
+		alert("0으로 나눌 수 없습니다.");
+	}else{
+		document.getElementById("oper").innerHTML = "/";
+		document.getElementById("result").innerHTML = a / b;
+	}
+	
+}
+function percent() {
+	getElement();
+	if(b==0) {
+		alert("0으로 나눌 수 없습니다.");
+	}else{
+		document.getElementById("oper").innerHTML = "%";
+		document.getElementById("result").innerHTML = a % b;
+	}
+	
+	
+}
+
+</script>
+
+
+
+</body>
+</html>
