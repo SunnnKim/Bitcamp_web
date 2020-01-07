@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>(문제)</h1>
+영어 속담으로 "1일 1개씩 먹으면 의사 필요없다"라고 하는 과일은?<br>
+<ul type="square">
+<li>영어(소문자)로 답한다</li>
+</ul>
+답: <input type="text" size="10">
+<button type="button" onclick="func()">답</button>
+<script type="text/javascript">
+function func() {
+	var str = document.getElementsByTagName("input")[0].value;
+	if(str === "사과"){
+		alert("정답입니다!");
+	}
+	else{
+		alert("틀렸습니다! 정답은 사과입니다");
+	}
+}
+
+</script>
+</body>
+</html>

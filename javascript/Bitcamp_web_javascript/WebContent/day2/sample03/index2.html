@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body bgcolor="#00ff00">
+<h2>여기는 index2.html입니다.</h2>
+
+
+<!-- history.back() : 이전 페이지로 돌아가는 함수 -->
+<input type="button" value="이전으로 돌아가기" onclick="history.back()">
+
+<!-- location.reload() : 현재 페이지를 refresh -->
+<input type="button" value="현재 페이지를 갱신" onclick="location.reload()">
+
+<!-- history.forward() : 페이지 앞으로 가기(갔던 페이지 없을 경우 변화없음) -->
+<input type="button" value="진행" onclick="history.forward()">
+
+<button type="button" onclick="gopage()">index3.html로 이동</button>
+
+
+<script type="text/javascript">
+function gopage() {
+	// 자바스크립트로 링크 이동하기 : location.href
+	location.href = "index3.html";
+	// form에서는 페이지 이동 전에 데이터가 들어있는지 확인이 번거롭다.
+	// 데이터를 확인하고 그 데이터를 가지고 링크를 이동하기 위해서는 
+	// 자바스크립트에서 데이터 확인을 거치고 직접 보내주는 것이 좋다
+	
+	
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- String, Number -->
+
+<p id="demo">zz</p>
+<p id="p1">Lorem Ipsum is simply dummy text of the 
+printing and typesetting industry. Lorem Ipsum 
+has been the industry's standard dummy text ever since the 1500s, </p>
+<script type="text/javascript">
+
+var str = document.getElementById("p1").innerHTML;
+
+// str = str.indexOf("dummy");	
+// str = str.lastIndexOf("dummy");	
+// str = str.search("dummy");
+// str = str.substring(0,4);
+// str = str.charAt(0);
+
+// 
+str = "aa,bb,cc,dd";
+var arr = str.split(",");
+str = arr[1];
+
+
+document.getElementById("demo").innerHTML = str;
+</script>
+
+
+
+</body>
+</html>

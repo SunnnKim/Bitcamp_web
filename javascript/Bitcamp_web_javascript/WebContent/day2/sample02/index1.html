@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script type="text/javascript">
+document.getElementById("demo").innerHTML = 
+/*	
+ // parseInt	
+ 	parseInt("10") + "<br>" + 
+	parseInt("23.4") + "<br>" +	// 에러는 없고 숫자가 23까지 짤려서 나옴
+	parseFloat("23.4") + "<br>" +	// parseFloat = 실수형
+	parseFloat("23 4") + "<br>";	// .을 안붙이면 뒤에 소수부가 잘림
+	
+*/
+	Number(true) + "<br>" + // = 1
+	Number(false) + "<br>"+ // = 0
+	Number(new Date()) + "<br>" +	// 시스템 타임이 나옴 
+	Number(123) +"<br>"+		// 수치 123이 나온다
+	Number(123.456) + "<br>";	// 형변환 구분필요 다 나옴	
+
+
+</script>
+
+
+
+</body>
+</html>

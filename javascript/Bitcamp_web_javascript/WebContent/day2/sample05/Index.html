@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- <body onload="checkMessage()">
+
+onload 예제1
+<p id="p1"></p>
+
+<script type="text/javascript">
+function checkMessage() {
+	document.getElementById("p1").innerHTML = "checkMessage() 호출";
+}
+
+</script>
+</body> -->
+<!-- <body onload="viewScroll()">
+onload 예제2
+<h1>양준일 “우리는 모두 실수한다”…‘팬카페 논란’에 쓴 글</h1>
+<pre>
+양준일의 팬카페 ‘판타자이’ 측은 지난 5일 “오늘부터 카페 재정비를 위해 
+2일 정도 글쓰기를 제한하고 신입회원을 받지 않을 예정”이라고 밝혔다.
+
+가수 양준일이 팬카페 운영을 돌연 중단해 논란을 일으킨 운영진을 감싸 안았다.
+양준일은 6일 오후 인스타그램에 “우리는 모두 실수를 한다”며 
+“우리가 실수를 넘어 진심을 볼 수 있기를 바란다”고 적었다. 
+이어 “제발 도움이 필요한 사람에게 이해와 친절을 베풀어 달라”고 덧붙였다.
+
+양준일의 팬카페 ‘판타자이’ 측은 지난 5일 
+“오늘부터 카페 재정비를 위해 2일 정도 글쓰기를 제한하고 신입회원을 받지 않을 예정”이라고 밝혔다. 
+갑작스러운 소식을 들은 카페 회원들은 운영진이 독단적으로 결정을 내렸다며 비판했다. 
+이미 판타지아 내에서는 기존 팬과 신규 팬의 갈등, 정산 논란 등을 두고 잡음이 일었던 것으로 알려졌다.
+
+논란이 거세지자 판타자이 운영진은 “여러분의 동의 없이 카페 게시판을 닫은 점 사과드린다. 
+너무 여러 의혹이 쏟아져 정리하기 위한 시간이 필요했다”고 해명했다.
+
+또 “카페지기를 내려놓겠다. 
+사심을 갖고 카페를 운영한 적은 결단코 없다”며 
+“카페가 폐쇄 위기를 겪었을 때 그저 양준일 가수의 추억이 담긴 이곳이 폐쇄되는 것이 두려워
+여러분의 투표로 카페지기가 됐고 한 달 사이에 커지는 팬카페의 덩치를 실감하기도 전에 
+팬미팅 등 당면 과제만 해결해보자는 마음으로 버텼을 뿐”이라고 말했다.
+
+</pre>
+<script type="text/javascript">
+var posY = 0;
+function viewScroll() {
+	window.scroll(0,posY);
+	posY = posY + 2;
+	if(posY == 300) posY = 0;
+	setTimeout("viewScroll()", 100);
+	// 저절로 아래로 스크롤이 내려가는 함수 만들기
+	// setTimeout : setInterval함수와 비슷, 정해진 초마다 함수 갱신해주는 함수 
+}
+
+</script>
+</body> -->
+
+<body>
+
+<!-- onblur : 포커스가 이동했을 때 --> 
+나이 : <input type="text" onblur="isRegNum()" size="10" maxlength="3"> 세
+<br>
+<!-- 
+<script type="text/javascript">
+function isRegNum() {
+	alert("onblur 실행");
+	// 포커스가 다른 곳으로 맞춰지면 함수가 실행됨
+	// 반드시 입력해야하는 곳에서 실행하면 됨
+	
+}
+</script> -->
+
+<!-- onchange : 입력값이 바뀌고 포커스가 다른곳으로 이동했을 때 바로 실행됨 -->
+
+우편번호 입력란 :<br>
+T: <input type="text" size="5" maxlength="3" onchange="isPostNum(this)">
+- <input type="text" size="5" maxlength="3" onchange="isPostNum(this)">
+<br>
+<script type="text/javascript">
+
+function isPostNum(obj) {	// 오브젝트가 들어옴
+	var str = obj.value;
+//	str = obj.size();	// size 등 다른 attribute도 접근 가능함
+//	alert(str);
+	if(str.match(/[^0-9]/g)){	// 숫자가 아닌 문자가 포함되어있는 경우 나오도록 설정 
+		alert("숫자가 아닌 문자가 포함되어 있습니다.");
+	}
+ }
+
+
+</script>
+
+<br><br>
+
+<!-- onkeydown, onkeypress -->
+
+<input type="text" name="title">
+
+<script type="text/javascript">
+//이벤트 발생시킴
+// A와 a구분 없이 같은 수(대소문자 구분 x)
+/* 
+ document.getElementsByName("title")[0].onkeydown = function (event) {
+	console.log("keydown = keycode: " + event.keyCode);
+}
+*/
+// 대소문자 구분되는 알파벳
+document.getElementsByName("title")[0].onkeypress = function (event) {
+	console.log("keypress = keycode: " + event.keyCode);
+}
+</script>
+<br><br>
+
+<!-- onMouseDown, onMouseUp, onMouseOver, onMouseOut -->
+
+<input type="image" src="san0.gif" 
+	onmousedown="mouseDown(this)"
+	onmouseup="mouseUp(this)"
+	onmouseover="mouseOver(this)"
+	onmouseout="mouseOut(this)">
+
+
+<script type="text/javascript">
+// 클릭했을 때 발생하는 이벤트
+function mouseDown( obj ) {
+	obj.src="san1.gif";
+}
+// 마우스 클릭을 풀었을 때
+function mouseUp( obj ) {
+	obj.src="san0.gif";
+}
+// 마우스가 태그 범위에 들어왓을 때
+function mouseOver( obj ) {
+	obj.src="san2.gif";
+}
+// 마우스가 태그 범위를 벗어났을때
+function mouseOut( obj ) {
+	obj.src="san0.gif";
+}
+</script>
+<br><br>
+
+<a href="#" onmouseover="document.box.src='surprise.gif'"
+			onmouseout="document.box.src='box.gif'">
+	<img alt="" src="box.gif" name="box">
+</a>
+
+</body>
+
+</html>

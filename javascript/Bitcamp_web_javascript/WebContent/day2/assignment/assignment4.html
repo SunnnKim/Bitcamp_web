@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>2개의 주사위</h1>
+버튼을 클릭하면 2개의 주사위가 랜덤으로 나옵니다.<br>
+<img alt="" src="./images/sai_1.gif">
+<img alt="" src="./images/sai_6.gif">
+<br>
+<button type="button" onclick="randomDice()">주사위를 굴린다.</button>
+
+
+<script type="text/javascript">
+	var diceNum = 1;
+	var diceNum2 = 6;
+	var count = 10;
+	var time = 0;
+	
+	
+function throwDice() {
+	count = count - 1; // 타이머 선택 숫자에서 -1씩 감산함(갱신되기 때문)
+	
+	if(count != 0) { 
+		// 그림1
+		diceNum = diceNum+1;
+		if(diceNum == 7) diceNum = 1;
+		var imgsrc = document.getElementsByTagName("img")[0];
+		var str = "./images/sai_"+diceNum+".gif";
+		imgsrc.src = str;
+		
+		// 그림1
+		diceNum2 = diceNum2 - 1;
+		if(diceNum2 == 0) diceNum2 = 6;
+		var imgsrc2 = document.getElementsByTagName("img")[1];
+		var str2 = "./images/sai_"+diceNum2+".gif";
+		imgsrc2.src = str2;
+	}
+	else if(count==0){
+		clearInterval(time);
+		// 난수 생성
+		var num = Math.floor(Math.random()*6)+1;
+		var num2 = Math.floor(Math.random()*6)+1;
+		//alert(num + " " + num2);
+		// 주사위1바꾸기
+		var imgsrc = document.getElementsByTagName("img")[0];
+		var str = "./images/sai_"+num+".gif";
+		imgsrc.src = str;
+		
+		// 주사위2 바꾸기
+		var imgsrc2 = document.getElementsByTagName("img")[1];
+		var str2 = "./images/sai_"+num2+".gif";
+		imgsrc2.src = str2;
+		
+		
+	}
+	
+}
+function randomDice() {
+	count = 10;
+	clearInterval(time);
+	time = setInterval("throwDice()",100);
+	
+}
+
+
+
+</script>
+</body>
+</html>

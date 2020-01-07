@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 예제: 진수 -->
+<h1>예제1</h1>
+10진수 : <input type="text" size="10" id="dec">
+<button type="button" onclick="func()">버튼</button>
+
+<p id="bin">2진수: </p><br>
+<p id="oct">8진수: </p><br>
+<p id="hex">16진수: </p><br>
+
+<script type="text/javascript">
+function func() {
+	var num = parseInt(document.getElementById("dec").value);
+	document.getElementById("bin").innerHTML = "2진수: " + num.toString(2);
+	document.getElementById("oct").innerHTML = "8진수: " + num.toString(8);
+	document.getElementById("hex").innerHTML = "16진수: " + num.toString(16);
+}
+</script>
+
+</body>
+</html>

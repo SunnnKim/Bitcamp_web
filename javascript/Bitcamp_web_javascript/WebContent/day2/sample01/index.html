@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- id, class, name -->
+<p id="pid">p id pid</p> 
+<br><br>
+
+
+<p class="pclass">p class pclass</p>	
+<br><br>
+<h3 class="pclass">class는 중복값이 허용된다.</h3>
+<br><br>
+
+
+<p name="pname">p name pname</p>	
+<br><br>
+	
+id, name : input 태그에서 많이 사용함
+
+
+<!-- class는 중복값을 허용한다 -->
+<button type="button" onclick="func()">button</button>
+<br><br>
+<input type="text" id="_str" name="str">
+
+
+<script type="text/javascript">
+// class 와 name은 중복이 가능하다
+// id는 자바스크립트에서 확인용,                         
+// name은 jsp 전송용으로,
+// 같은 이름을 주고 _등의 기호로 구분하여 사용함
+
+
+
+function func() {
+	/* alert("func()"); 함수 동작 확인용*/
+	// id 처리
+//	var text = document.getElementById("pid").innerHTML;
+//	document.getElementById("_str").value = text;
+	
+	// class 처리 : document.getElementsByClassName("classname")[index]
+//	var text = document.getElementsByClassName("pclass")[0].innerHTML;
+	// alert(text); --> 정상작동
+	
+	
+	// name 처리 : getElementsByName("name")[index];
+	var text = document.getElementsByName("pname")[0].innerHTML;
+	document.getElementsByName("str")[0].value = text;
+	 
+}
+</script>
+	
+	
+</body>
+</html>

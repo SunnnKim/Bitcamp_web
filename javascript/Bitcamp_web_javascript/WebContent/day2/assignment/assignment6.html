@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+td{
+padding: 10px;
+}
+
+</style>
+</head>
+<body bgcolor="#000000" text="white">
+<h1>풍경사진</h1>
+※ 이미지 위로 마우스를 이동하면 그 이미지가 컬러로 표시됩니다.
+<br>
+<table>
+<tr>
+	<td><img alt="" src="./images/m_nature01.jpg" onmouseover="colorPic(this)" onmouseout="greyPic(this)"></td>
+	<td><img alt="" src="./images/m_nature02.jpg" onmouseover="colorPic(this)" onmouseout="greyPic(this)"></td>
+	<td><img alt="" src="./images/m_nature03.jpg" onmouseover="colorPic(this)" onmouseout="greyPic(this)"></td>
+</tr>
+<tr>
+	<td><img alt="" src="./images/m_nature04.jpg" onmouseover="colorPic(this)" onmouseout="greyPic(this)"></td>
+	<td><img alt="" src="./images/m_nature05.jpg" onmouseover="colorPic(this)" onmouseout="greyPic(this)"></td>
+	<td><img alt="" src="./images/m_nature06.jpg" onmouseover="colorPic(this)" onmouseout="greyPic(this)"></td>
+</tr>
+</table>
+
+<script type="text/javascript">
+function colorPic( obj ) {
+	var selectimg = obj.src;
+	var imgnum = selectimg.charAt(selectimg.length-5);
+	console.log(imgnum);
+	selectimg = "./images/nature0"+imgnum+".jpg";
+	obj.src = selectimg;
+}
+function greyPic( obj ) {
+	var selectimg = obj.src;
+	var imgnum = selectimg.charAt(selectimg.length-5);
+	console.log(imgnum);
+	selectimg = "./images/m_nature0"+imgnum+".jpg";
+	obj.src = selectimg;
+}
+
+</script>
+
+
+
+</body>
+</html>
