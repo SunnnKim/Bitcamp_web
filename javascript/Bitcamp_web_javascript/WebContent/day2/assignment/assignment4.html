@@ -7,17 +7,21 @@
 <body>
 
 <h1>2개의 주사위</h1>
-버튼을 클릭하면 2개의 주사위가 랜덤으로 나옵니다.<br>
-<img alt="" src="./images/sai_1.gif">
-<img alt="" src="./images/sai_6.gif">
+버튼을 클릭하면 2개의 주사위가 랜덤으로 나옵니다.<br><br>
+<table>
+<tr>
+	<td style="padding-right: 15px;"><img alt="" src="./images/sai_1.gif"> </td>
+	<td><img alt="" src="./images/sai_6.gif"> </td>
+</tr>
+</table>
 <br>
 <button type="button" onclick="randomDice()">주사위를 굴린다.</button>
 
 
 <script type="text/javascript">
 	var diceNum = 1;
-	var diceNum2 = 6;
-	var count = 10;
+	var diceNum2 = 10;
+	var count = 5;
 	var time = 0;
 	
 	
@@ -62,7 +66,7 @@ function throwDice() {
 function randomDice() {
 	count = 10;
 	clearInterval(time);
-	time = setInterval("throwDice()",100);
+	time = setInterval("throwDice()",50);
 	
 }
 

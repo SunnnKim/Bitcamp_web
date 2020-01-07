@@ -12,15 +12,26 @@
 </ul>
 답: <input type="text" size="10">
 <button type="button" onclick="func()">답</button>
+<br>
+<p id="p1"></p>
 <script type="text/javascript">
 function func() {
 	var str = document.getElementsByTagName("input")[0].value;
-	if(str === "사과"){
+	if(str == "") {
+		alert('답을 입력하세요.');
+		return;
+	}
+	str = str.toLowerCase();
+	if(str === "apple"){
 		alert("정답입니다!");
+		document.getElementById("p1").innerHTML = "정답";
 	}
 	else{
-		alert("틀렸습니다! 정답은 사과입니다");
+		alert("틀렸습니다! 정답은 apple입니다");
+		document.getElementById("p1").innerHTML = "오답";
+	
 	}
+	document.getElementsByTagName("input")[0].value = "";
 }
 
 </script>

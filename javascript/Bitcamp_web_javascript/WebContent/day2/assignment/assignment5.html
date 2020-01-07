@@ -6,17 +6,20 @@
 </head>
 <body>
 <h1>환영합니다</h1>
-※ 현재시각은 <input type="text" size="5" id="time">입니다.
+※ 현재시각은 <input type="text" size="10" id="time">입니다.
 
 <script type="text/javascript">
-var now = new Date();
-var strTime = 
-	now.getHours() + ":" + 
-	now.getMinutes() + ":" +
-	now.getSeconds();
+setInterval("mytime()", 1000);
+function mytime(){
+	var now = new Date();
+	var strTime = 
+		now.getHours() + ":" + 
+		now.getMinutes() + ":" +
+		now.getSeconds();
 
-document.getElementById("time").value = strTime;
+	document.getElementById("time").value = strTime;	
 
+}
 </script>
 
 </body>
