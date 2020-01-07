@@ -9,12 +9,52 @@
 다음 버튼을 클릭하여 생일을 입력하면,<br>
 다음 생일까지 남은 일수를 볼 수 있습니다.
 <br>
-생일 : <input type="text" size="10"> 
+생일 : <input type="text" id="mydate" maxlength="4"> 
 <button type="button" onclick="calBday()">계산하기</button>
+<br>
+<p id="p1"></p>
 <script type="text/javascript">
+
 function calBday() {
-	
+    
+    var str = document.getElementById("mydate").value;
+    if(str < 4){
+        alert('날짜를 모두 입력하세요!');
+        return;
+    }
+    if(str.match(/[^0-9]/g)){
+        alert('숫자만 입력하세요!');
+        return;
+    }
+    var today = new Date();
+
+    var month = parseInt(str.substr(0,2))-1;
+    var day = str.substr(2,2);
+    var mydate = new Date(today.getFullYear(), month, day);
+    var dayAsMillisec = mydate.getTime() - today.getTime();
+
+   // alert(mydate);
+   // alert(dayAsMillisec);
+    if(dayAsMillisec < 0 ){
+        mydate.setFullYear(mydate.getFullYear()+1);
+        dayAsMillisec = mydate.getTime() - today.getTime();
+        //alert(mydate.getFullYear());
+    }
+
+    var getDay = dayAsMillisec / (1000 * 60 * 60 * 24);
+    getDay = parseInt(getDay);
+    document.getElementById("p1").innerHTML = "다음 생일까지 남은 날 : " + getDay + "일";
+    
+    
+  //  alert(day);   
+  //  alert(getDay);
+
+
+
+       
+
 }
+
 </script>
 
 </body>
