@@ -12,8 +12,10 @@
 setInterval("mytime()", 1000);
 function mytime(){
 	var now = new Date();
+	var hour = now.getHours() % 13 ;
+	var minute = now.getMinutes()<10? "0"+now.getMinutes():now.getMinutes();
 	var strTime = 
-		now.getHours() + ":" + 
+		hour + ":" + 
 		now.getMinutes() + ":" +
 		now.getSeconds();
 

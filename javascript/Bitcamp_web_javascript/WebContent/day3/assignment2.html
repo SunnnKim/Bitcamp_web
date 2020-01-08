@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	width: 50%;
+}
+</style>
+</head>
+<body>
+<h1>단가 x 수량 일람표</h1>
+
+<table border="1" id="tb">
+<tr>
+	<th>개수</th>
+	<th>제품A</th>
+	<th>제품B</th>
+	<th>상품C</th>
+</tr>
+
+</table>
+
+<script type="text/javascript">
+ for (var i = 1; i <= 10; i++) {
+	 	// th태그 만들기
+		var thtag = document.createElement("th");	
+		thtag.innerHTML = i;
+		
+		// td태그 만들기
+		var td1 = document.createElement("td");	
+		td1.innerHTML = 300*i +"원";
+		var td2 = document.createElement("td");	
+		td2.innerHTML = 450*i +"원";
+		var td3 = document.createElement("td");	
+		td3.innerHTML = 520*i +"원";
+		
+		// tr태그 만들고 th,td를 tr에 추가하기
+		var trtag = document.createElement("tr");
+		trtag.appendChild(thtag);
+		trtag.appendChild(td1);
+		trtag.appendChild(td2);
+		trtag.appendChild(td3);
+		
+		// 새로운 테이블 만들어 기존 테이블(id="tb")에 데이터 추가하기
+		var table = document.createElement("table");
+		tb.appendChild(trtag);
+
+ }
+
+
+	
+
+</script>
+
+</body>
+</html>

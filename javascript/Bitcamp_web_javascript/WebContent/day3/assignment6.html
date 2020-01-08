@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body bgcolor="black" text="white">
+<h1>사진들</h1>
+<table>
+<tr>
+	<td>
+	<img alt="" src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82537/82537_320.jpg" style="background-color: #F5DA81; margin-right: 10px;padding: 10px;" align="left"
+				id="imgtag">
+	</td>
+ 	<td valign="top" style="padding-left: 10px">
+		<form name="frm">
+		영화 선택 <br>
+		<select id="sel" name="picture" onchange="func();">
+			<option>영화제목</option>
+			<option value="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82537/82537_320.jpg">스타워즈</option>
+			<option value="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82531/82531_320.jpg">닥터 두리틀</option>
+			<option value="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82747/82747_320.jpg">백두산</option>
+		</select>
+		</form>
+	</td>
+</tr>
+
+</table>
+
+
+
+
+
+<script type="text/javascript">
+function func() {
+	var index = document.frm.picture.selectedIndex;
+	if(index != 0){
+	var srcurl = document.frm.picture.options[index].value;
+	document.getElementById("imgtag").src=srcurl;
+
+	}
+}
+
+</script>
+
+
+</body>
+</html>

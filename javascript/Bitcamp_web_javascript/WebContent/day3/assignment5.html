@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.pagename{
+background-color:green;
+color: white;
+}
+tr{
+height: 50px;
+}
+table{
+text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>포털 사이트</h1>
+"열기"버튼을 클릭하면 해당 홈페이지를 볼 수 있습니다.<br>
+<table border="1" style=" width:40%; margin: 10px;" id="tb">
+<col style="width: 35%">
+<col style="width: 35%">
+<col style="width: 30%">
+<tr>
+	<td class="pagename">네이버</td>
+	<td>http://www.naver.com/</td>
+	<td><input type="button" onclick="func(0)" value="열기"></td>
+</tr>
+<tr>
+	<td class="pagename">다음</td>
+	<td>http://www.daum.net/</td>
+	<td><input type="button" onclick="func(1)" value="열기"></td>
+</tr>
+<tr>
+	<td class="pagename">줌</td>
+	<td>http://zoom.com/</td>
+	<td><input type="button" onclick="func(2)" value="열기"></td>
+</tr>
+
+
+</table>
+<script type="text/javascript">
+function func( index ) {
+	var url = document.getElementById("tb").rows[index].cells[1].innerHTML;
+	window.open(url);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>(문제)</h1>
+<p>사나이들의 영화인 탑건은 군인영화입니다. 그러면 육군, 해군, 공군 중 어느 군의 영화일까요?</p>
+<button type="button" onclick="func()">답을 보다</button>
+<br>
+※ 버튼을 한 번 클릭하면 힌트가 표시됩니다.<br>
+※ 버튼을 두 번 클릭하면 답이 표시됩니다.
+<script type="text/javascript">
+var clicknum=0;
+function func() {
+	clicknum= clicknum+1;
+	if(clicknum==1){
+		alert('힌트 : ㅎㄱ');
+	}else{
+		alert('답 : 해군');
+		clicknum = 0;
+	}
+	
+}
+</script>
+</body>
+</html>

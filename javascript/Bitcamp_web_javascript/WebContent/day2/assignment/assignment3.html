@@ -8,7 +8,7 @@
 
 <h1>미술관 및 박물관의 링크</h1>
 
-<select id="sel">
+<select id="sel"  onchange="gotoSite()">
 	<option value="">대상을 선택</option>
 	<option value="http://sema.seoul.go.kr/">서울시립미술관</option>
 	<option value="http://www.mmca.go.kr/">국립현대미술관</option>
@@ -23,12 +23,12 @@
 
 <script type="text/javascript">
 function gotoSite() {
-	var site = document.getElementById("sel").value;
-	if(site ==""){
+	var url = document.getElementById("sel").value;
+	if(url ==""){
 		alert('사이트를 선택해주세요!');
 	}
 	else{
-		location.href = site;
+		location.href = url;
 	}
 }
 /*
