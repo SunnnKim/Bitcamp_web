@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- Java Script에서 CSS적용하기 -->
+
+<div id="demo">Hello CSS World!</div>
+<br>
+<button type="button" onclick="func()">적용</button>
+
+<script type="text/javascript">
+function func() {
+	
+	obj = document.getElementById("demo");
+
+	// css 적용하기
+	
+	obj.style.color= "white";
+	obj.style.backgroundColor = "blue";
+	obj.style.textAlign = "center";
+	obj.style.borderStyle = "double";
+	obj.style.borderColor ="#00ff00";
+	obj.style.fontFamliy = "MS PGOTHIC";
+	obj.style.fontStyle = "italic";
+	obj.style.fontSize = "24pt";
+}
+
+</script>
+</body>
+</html>
