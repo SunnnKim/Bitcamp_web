@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- JQuery : table -->
+
+<h1>수영시합</h1>
+<button type="button" id="woman">여성부</button>
+<button type="button" id="man">남성부</button>
+<br><br>
+
+<table border="1" id="result">
+<tr> <!-- tr:0번지 -->
+	<th>title</th>
+	<th>name</th>
+	<th>time</th>
+</tr>
+<tr>
+	<th>우승</th>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<th>2위</th>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<th>3위</th>
+	<td></td>
+	<td></td>
+</tr>
+
+</table>
+
+<script type="text/javascript">
+// file을 읽어왔다고 가정
+var woman = [	// 테이블에 넣을 배열 임의적으로 작성하기
+	["", ""],
+	["김영희", "01:06:11"],
+	["이수빈", "01:08:31"],
+	["박진희", "01:16:55"]
+];
+var man = [
+	["", ""],
+	["홍길동", "01:07:11"],
+	["일지매", "01:08:55"],
+	["정수동", "01:10:32"]
+];
+
+$(function () {
+	
+//	$("tr:even").css("background-color", "green");	// even : 짝수에 함수 적용하기 , odd :홀수
+//	$("tr:eq(1) td:eq(0)").html("이름");
+//	$("tr:eq(1) td:eq(1)").html("데이터");
+	//eq = equals(번지수)
+	
+	// 배열 데이터를 테이블에 넣기
+	$('#woman').click(function () {	// woman 버튼 눌렀을 때 적용
+		//데이터 넣기
+		for (var i = 0; i < woman.length; i++) {
+			for (var j = 0; j < woman[i].length; j++) {
+				$("tr:eq("+i+") td:eq("+j+")").html(woman[i][j]);
+			}	
+		}
+		
+	});
+	$('#man').click(function () {	// man버튼 눌렀을 때 적용
+		//데이터 넣기
+		for (var i = 0; i < man.length; i++) {
+			for (var j = 0; j < man[i].length; j++) {
+				$("tr:eq("+i+") td:eq("+j+")").html(man[i][j]);
+			}	
+		}
+	});
+	
+	// 마우스 오버 적용하기
+	$("td").mouseover(function () {
+	//	$(this).css("background-color", "#ffff00");
+	//	$(this).css("color", "#000");
+		$(this).css({"background-color":"#ffff00","color":"#000"})
+		//json으로 표현한 css key:value
+	});
+	// 마우스 오버 적용하기
+	$("td").mouseout(function () {
+		$(this).css("background-color", "#666666");
+		$(this).css("color", "#fff");
+	});
+	
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>

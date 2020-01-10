@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- mouseover / mouseout -->
+<!-- JS 방식 -->
+<h3 onmouseover="mouseOver()" onmouseout="mouseOut()"> mouseover in JS</h3>
+ java script > jQuery : 자바스크립트가 우선시 됨
+
+<h3 class="cls" style="background-color: green;">h3 tag class cls</h3>
+
+<script type="text/javascript">
+// 자바스크립트 방식
+function mouseOver() {
+	//alert('범위에 들어왔습니다.');
+}
+
+
+// jQuery 방식 : 핸들러 아니고 cls로 처리함
+// - mouseover 함수 사용
+$(document).ready(function () {
+	$(".cls").mouseover(function () {
+		//alert('범위에 들어왔습니다.');
+		$(".cls").css("background","#ffff00");	// 클래스명으로 접근
+		$(this).css("background","#0000ff");	// 또는 this 사용하기 
+	});
+	
+	$(".cls").mouseout(function () {
+		$(".cls").css("background","green");	// 클래스명으로 접근
+		$(this).css("background","green");	// 또는 this 사용하기 
+		
+	})
+	
+});
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

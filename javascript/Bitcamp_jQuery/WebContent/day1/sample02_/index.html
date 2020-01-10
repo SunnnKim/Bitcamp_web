@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<p>p tag</p>
+<div>
+<p>p tag1 in div</p>
+
+<p>p tag2 in div</p>
+<p class="cls">p tag3 class cls in div</p>
+</div>
+<script type="text/javascript">
+$(function () {
+	
+	/* 
+	// 모든 p태그 클릭시 호출
+	$("p").click(function () {
+		alert("p tag click")
+	}); 
+	*/
+	
+	// div 태그 안에 있는 p태그만 적용
+	/* $('div p').click(function () {
+		alert("div p tag click")
+	}); 
+	*/
+	/* 
+	// div안에 클래스명이 cls인 태그에만 적용 
+	$('div .cls').click(function () {
+		alert("div p tag click")
+	});
+	*/
+	
+	// this
+	$('p').on("click",function(){
+		// $(this).hide();	// this : 클릭한 부분의 오브젝트 
+		// 현재 클릭한 부분을 숨김
+		
+		//jquery에서 css접근하기
+//		$(this).css( "property명", "property값");	// setter
+		$(this).css( "background", "red");	// setter : background
+		
+		// getter
+		var color = $(this).css("background");
+		alert(color);
+	});
+	
+	
+	
+});
+</script>
+
+
+
+</body>
+</html>

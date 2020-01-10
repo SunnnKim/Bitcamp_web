@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- JQuery 링크  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Java Script 문법
+	<p id="ptag" onclick="func()">p tag</p>
+	<br>
+	<button type="button" onclick="func()">버튼</button>
+	
+	<script type="text/javascript">
+	function func() {
+		alert('클릭되었음');
+	}
+	</script>
+ -->
+ 
+JQuery 문법
+
+<p id="ptag">p tag</p>
+<br>
+<button type="button">버튼</button>
+
+
+
+<script type="text/javascript">
+/* 
+ $(document).ready(function func() {
+});	
+ */
+// 도큐먼트 먼저 다 읽은 후에 함수 불러오기
+// 위 또는 아래 방식
+$(function() {
+	/* $("#ptag").click(function() {
+		alert('click');
+	});
+	
+	$("button").click(function() {
+		alert("button click");
+	});
+	$("#ptag").on("click", function () {
+		alert("p tag");
+	});
+	 */
+	 // 자바스크립트 function불러오기  ()없음
+	$("button").on("click", buttonClick);
+	
+});
+ // 자바 스크립트 함수 
+ function buttonClick() {
+	 alert("button on click");
+}
+ 
+// 함수부터 불러오기
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

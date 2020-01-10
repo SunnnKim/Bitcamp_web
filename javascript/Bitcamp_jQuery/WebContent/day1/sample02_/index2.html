@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- 일반태그, 아이디, 클래스, 네임 -->
+<p>p tag</p>
+<p id="pid"> p tag id pid</p>
+<p class="cls">p tag class cls</p>
+<p name="_name">p tag name _name</p>
+
+<button type="button">click</button>
+ 
+<script type="text/javascript">
+$(document).ready(function() {
+	// p 태그 클릭시 이벤트 
+	$("p").click(function () {
+		console.log( $(this).text() ); // 클릭하면 일반 태그의 값(텍스트)을 가져옴
+	});
+
+	// 버튼 클릭 시 이벤트
+	$("button").click(function () {
+		// $("p").hide();	// 모든 p태그 사라짐
+		// $("*").hide();	 	// 모든 태그들이 다 사라짐
+		// $("#pid").hide();	// 아이디가 pid만 사라짐	
+		// $('p.cls').hide();		// 클래스가 cls만 사라짐
+		$('[name=_name]').hide();	// [name=이름명] : name설정했을 때 JQuery 적용방법
+	});
+});
+
+</script>
+
+</body>
+</html>

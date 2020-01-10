@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="ptag"> p tag id ptag</p>
+
+<h3 class="h3tag" >h3 tag class h3tag</h3>
+
+<input type="text" id="text" value=""><br>
+
+<button type="button">button</button>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	$("button").click(function () {
+	
+	// id	
+		// setter 
+		$("#ptag").html("<b>새로운 p 태그의 문자열</b>");
+		
+		// getter
+		var v = $("#ptag").text();
+		//alert(v);
+		
+	// class
+		// setter
+		$(".h3tag").text("새로운 h3 태그의 문자열");
+		// getter
+		var va = $(".h3tag").html();
+		// alert(va);
+		
+	// input태그의 값 설정하기 / 가져오기 : val
+		//setter
+	//	$("#text").val("여기에 기입");
+		//getter : input - text에서 주로 사용함
+		var va = $("#text").val();
+		alert(va);
+		
+	});
+});
+
+</script>
+
+<script type="https://code.jquery.com/jquery-3.4.1.min.js">
+
+	</script>
+</body>
+</html>

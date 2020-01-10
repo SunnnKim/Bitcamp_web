@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- list에 접근하는 방법 : list안에 list 존재할 경우의 접근-->
+
+<ul id="list">
+	<li>Coffee
+		<ol type="1">
+			<li>black</li>
+			<li>milk</li>
+		</ol>
+	</li>
+	<li>Tea</li>
+	<li>Milk</li>
+</ul>
+
+<button type="button" id="btn">선택 or 감추기</button>
+<button type="button" id="btn1">보이기</button>
+
+
+<script type="text/javascript">
+$(function () {
+	$("#btn").click(function () {
+		// $("#list").hide();	// 모든 리스트 다 삭제 
+		
+		//같은결과
+		// $('ul li:first').hide();	// ul의 첫번째 리스트에 함수 적용
+		// $('#list li:first').hide();	// ul의 첫번째 리스트에 함수 적용
+		
+		//같은결과
+		// $('ul ol li:first').hide();			//ul 안의 ol의 첫번째 리스트에 적용
+		// $('ul ol li:first-child').hide();	//ul 안의 ol의 첫번째 리스트에 적용
+		$('ul ol li:nth-child(2)').hide();		// li:nth-child(숫자) ul 안의 ol의 n번째 리스트에 적용
+		
+		
+		
+	});
+	
+	$("#btn1").click(function () {
+		// 보이기
+		$('ul ol li:nth-child(2)').show();		// li:nth-child(숫자) ul 안의 ol의 n번째 리스트에 적용
+		
+	});
+});
+
+</script>
+
+<!-- 진행 순서
+	JQuery -> Ajax (Json) -> Server(Java)	(list, hashmap)
+ -->
+
+
+
+</body>
+</html>
