@@ -1,0 +1,29 @@
+자바스크립트 공부
+
+1. 타입을 공부해라
+    - var, let, const
+2. 함수 만들어서 사용해보기 (함수의 다양한 선언과 구현)
+    -  function func() {}
+    -  var func = function () {}
+    etc...
+3. hoisting 공부하기
+
+4. prototype 공부하기
+    - prototype
+
+5. One-page 개념 알기
+    - Facebook을 예시로
+    - React(프레임워크) 장점: 리액트만의 독자적인 문법이 많지 않음(바닐라자바스크립트 위주)
+    - Vue, Angular: 얘들을 사용하기 위한 문법 익혀야함
+
+6. JSON 공부하기
+
+7. REST API 개념 공부하기
+
+
+CSS 공부
+
+1. flex, grid 공부
+    - display: flex, grid 두 가지
+
+2. clone 코딩 해보기

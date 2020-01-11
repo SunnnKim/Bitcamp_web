@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a9726fbbf3.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .title {
+            
+        }
+        .slide-box {
+            width: 200px;
+            height: 500px;
+            border: 1px solid gainsboro;
+            box-shadow: 0px 0px 10px 4px gray;
+            position: absolute;
+            top: 300px;
+            left: 500px;
+        }
+        .fa-arrow-down,
+        .fa-arrow-up {
+            color: cadetblue;
+        }
+        .menu-container {
+            display: grid;
+            grid-template-rows: repeat(1fr);
+            height: 90%;
+            
+        }
+        .menu-container > div {
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <p>
+            CDN: Content Delivery Network. 온라인으로 플러그인을 불러옴.<br>
+            로컬: 프로젝트에 저장된 플러그인을 불러옴.
+        </p>
+        <p>
+            fontawesome은 i태그를 통해 아이콘 이미지를 불러옴<br>
+            class명으로 사이즈 조절이 가능.
+        </p>
+    </div>
+    <div>
+        <i class="fab fa-apple fa-4x"></i>
+    </div>
+    <div class="slide-box">
+        <div class="box-button">
+            <div class="arrow-button">
+                <i class="fas fa-arrow-up fa-2x"></i>
+            </div>
+        </div>
+        <div class="menu-container">
+            <div><p>menu1</p></div>
+            <div><p>menu2</p></div>
+            <div><p>menu3</p></div>
+            <div><p>menu4</p></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let arrowBtnFlag = false;
+        $(".arrow-button").click(function () {
+            let $arrow = $(this).children("i");
+            console.log($arrow);
+            if(!arrowBtnFlag) {
+                $arrow.attr("class", "fas fa-arrow-up fa-2x");
+                arrowBtnFlag = true;
+            }else {
+                $arrow.attr("class", "fas fa-arrow-down fa-2x");
+                arrowBtnFlag = false;
+            }
+            
+            $(".menu-container").slideToggle(300);
+        });
+    </script>
+</body>
+</html>
