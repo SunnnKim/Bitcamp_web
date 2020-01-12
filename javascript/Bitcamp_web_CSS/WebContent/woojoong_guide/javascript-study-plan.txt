@@ -27,3 +27,41 @@ CSS 공부
     - display: flex, grid 두 가지
 
 2. clone 코딩 해보기
+
+jQuery
+
+chaining
+$(태그명(클래스 or 아이디)).이벤트이름(함수).이벤트이름(함수);
+
+$("#id").mouseover(...);
+$("#id").click(...);
+
+$("#id").mouseover(...).click(...);
+
+<div id="granfa">
+    <div id="father">
+        /* 동적 생성된 태그 */
+        <div id="son">
+        </div>
+    </div>
+</div>
+
+$("#granfa").children("#father").children("#son");
+
+$("#son") --> 찾을 수 없음. 왜? 동적 생성됐기 떄문
+    Ex> .html("<div id="son"></div>"), append(...) ...
+
+$("#granfa").click( function () {
+    //이 방법 보다는...
+    $(this).children("#father").children("#son").css("color", "red");
+    $(this).children("#father").children("#son").addClass("red-color");
+    ...
+    
+    //이 방법으로
+    var $son = $(this).children("#father").children("#son");
+
+    $son.css(...)
+        .addClass(...)
+        .attr(...);
+
+});

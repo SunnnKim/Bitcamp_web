@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .text-box {
+            width: 300px;
+            height: 600px;
+            border: 1px solid red;
+            /* overflow: visible; -> default */
+            overflow: hidden;
+            /* overflow: scroll; -> 세로 스크롤 */
+            /* overflow-x: scroll; overflow-y: hidden;  내부 p태그에 width 속성이 필요.. style="width: 1000px" */
+        }
+        .input-text-box {
+            width: 400px;
+            height: 200px;
+            border: 1px solid blue;
+            /* overflow: auto; -> 내부 텍스트 길이가 부모 영역을 벗어나게 되면 스크롤바가 생성됨 */
+            overflow: scroll; /* 내부 텍스트 길이 상관없이 스크롤바가 생성됨 */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="text-box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nulla vero cupiditate aperiam eius autem quaerat distinctio dicta molestias deserunt explicabo adipisci nostrum libero tempora, dolore alias nobis perferendis delectus. At ad cumque aliquam debitis, reiciendis molestias perspiciatis, nesciunt, voluptas incidunt dignissimos alias ducimus in? Veritatis similique officia harum. Dolorum quis quibusdam distinctio dolor repellendus, excepturi sed quaerat minima expedita aut molestiae nobis commodi voluptate quos animi nihil. Iste facere amet dignissimos rem? Facilis optio reiciendis ipsam odio aspernatur reprehenderit, quaerat quasi harum amet! Cupiditate, vel molestiae nobis doloribus ipsum animi. Adipisci autem repudiandae ullam nostrum laborum dignissimos, rem repellat neque aliquid vitae quo laboriosam alias temporibus, deleniti quis ex ab? Nihil, dicta tempore tempora neque similique velit suscipit incidunt necessitatibus exercitationem quam ducimus at ut accusantium repellat illo officiis commodi nemo animi molestias quisquam recusandae dolorem nisi architecto nesciunt? Aliquid expedita delectus eos totam quibusdam eligendi quo. Quo a voluptate, voluptatum vitae dicta officia laboriosam, qui quisquam voluptas magni est facilis earum et! Ex, minus architecto molestiae repudiandae nam obcaecati fuga reiciendis repellendus quibusdam cumque doloremque quidem fugiat voluptatem ratione commodi provident nihil nemo molestias, hic incidunt. Nihil odio, recusandae ullam, ab nam corporis quisquam dolores soluta voluptates saepe iusto mollitia eveniet iure quasi vel ea suscipit? Aliquam non ea vero neque ut consequatur veniam nulla id sequi laborum officiis tempore repellat consectetur minima dolor, ipsum cupiditate? Sequi sit repellendus quis dolorum animi dicta similique cupiditate exercitationem fuga aut, cum corporis necessitatibus non quos, suscipit quam voluptatem qui. Delectus nostrum sapiente amet excepturi quod accusantium recusandae modi deserunt odit eligendi sed aut quo, quae impedit fuga, dolore ipsum quidem distinctio reiciendis rerum voluptatibus, sint omnis corrupti cum. Architecto quae fuga pariatur corporis? Inventore illo nesciunt molestiae magni dicta vel porro, corrupti itaque sed magnam nulla officia id excepturi ab.
+        </p>
+    </div>
+    <div class="input-text-box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, repellat!
+        </p>
+    </div>
+</body>
+</html>

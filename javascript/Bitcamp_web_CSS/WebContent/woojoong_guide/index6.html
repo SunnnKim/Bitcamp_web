@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/a9726fbbf3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .visible {
+            display: block;
+        }
+        .invisible {
+            display: none;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+            position: absolute;
+            top: 300px;
+            left: 500px;
+        }
+        .btn {
+            width: 100px;
+            height: 40px;
+        }
+        .fa-envelope{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box visible"><i class="far fa-envelope"></i></div>
+    <input type="text" class="text-id" placeholder="url('https://via.placeholder.com/300.png/09f/fff
+
+    C/O https://placeholder.com/')">
+    <button class="btn">버튼</button>
+    <script type="text/javascript">
+        var btnFlag = false;
+        $(".btn").click(function () {
+            if(!btnFlag) {
+                $(".box").removeClass("visible").addClass("invisible");
+                // $(".box").css.
+                btnFlag = true;
+            }else {
+                $(".box").removeClass("invisible").addClass("visible");
+                btnFlag = false;
+            }
+        });
+    </script>
+</body>
+</html>
