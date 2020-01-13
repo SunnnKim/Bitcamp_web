@@ -29,13 +29,14 @@
         .fa-envelope{
             color: white;
         }
+        .text_input{
+            background-image: url("envelope.svg");
+        }
     </style>
 </head>
 <body>
     <div class="box visible"><i class="far fa-envelope"></i></div>
-    <input type="text" class="text-id" placeholder="url('https://via.placeholder.com/300.png/09f/fff
-
-    C/O https://placeholder.com/')">
+    <input class="text-input" type="text" class="text-id" >
     <button class="btn">버튼</button>
     <script type="text/javascript">
         var btnFlag = false;
@@ -49,6 +50,9 @@
                 btnFlag = false;
             }
         });
+        $(.text_input).click{
+
+        }
     </script>
 </body>
 </html>

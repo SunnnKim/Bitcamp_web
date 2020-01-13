@@ -45,7 +45,7 @@ for ( i = 0; i < arrPtag.length; i++) {
 */
 
 
-<!-- JQuery 실행코드-->
+// <!-- JQuery 실행코드 -->
 $(document).ready(function () {
 	//alert('jquery 실행');
 	/*
@@ -58,7 +58,7 @@ $(document).ready(function () {
 	*/
 
 	// 태그 안의 내용 바꾸기
-	//1. html : 일반태그에 사용
+	// 1. html : 일반태그에 사용, html 태그를 새로 만들 수 있음
 //	$("p").html("hello p tag");	// setter == innerHTML과 비슷한 역할, ""안의 문자열을 html로 인식함
 //	$("p").html("<b>hello p Tag</b>");		// 모든 p태그에 관해서 적용, 태그도 안에 넣으면 적용됨
 	
@@ -82,7 +82,7 @@ $(document).ready(function () {
 //	var str = document.getElementById("demo").innerHTML;
 //	alert(str);
 	
-	// jquery
+	// jquery setter
 	$(".cls").text("class cls인 태그입니다");
 	
 	var cls = $(".cls").text();
