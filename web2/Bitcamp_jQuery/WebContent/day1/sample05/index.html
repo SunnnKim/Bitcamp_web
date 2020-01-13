@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- 
+    * 링크 거는 방법 
+
+<a href=""></a> -> 단순이동 (데이터 없이 이동함)
+
+<form action=""></form> -> 짐을 가지고 이동(데이터 가지고 이동함)
+
+javascript = 
+location.href=""; -> 데이터 존재하는지 검사 후 (짐이있으면 짐을 가지고) 이동
+
+-->
+
+<form action="NewFile.jsp">
+    ID : <input type="text" name="_id" id="id" placeholder="ID를 입력하세요">
+    <!-- <input type="submit" value="버튼제목">   // 순수한 html 방식-->
+    <!-- <button type="button" onclick="btnClick()">버튼제목</button>    // js방식-->
+    
+    <!-- JQuery방식 -->
+    <button type="button" id="btn">버튼제목</button> 
+<!--    스크립트에 적기 
+    location.href="NewFile.jsp="+id; -->
+    
+</form>
+
+
+
+<script>
+// js에서 데이터 받아서 검사하는 방법
+function btnClick(){
+    var id = document.getElementById("id").value;
+    if(id == ""){
+        // 빈문자열이면 함수 종료
+        return;
+    }
+    // 아이디 정보를 가지고 페이지이동
+/*     location.href() */
+    location.href="NewFile.jsp="+id;
+}
+
+// jquery 방식
+
+$("#btn").click(function(){
+    // alert("button click");
+    location.href = "NewFile.jsp?id="+ $("#id").val();
+});
+
+
+</script>
+
+</body>
+</html>

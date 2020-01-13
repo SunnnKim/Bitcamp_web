@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>라디오버튼 데이터 jsp로 넘기기</h1>
+
+
+<!-- radio : 무조건 name으로 속성 지정하고 묶어야 한가지만 선택할 수 있도록 됨-->
+<ul>
+	<li><input type="radio" name="radio_test" value="사과">사과</li>
+	<li><input type="radio" name="radio_test" value="배" checked="checked">배</li>
+	<li><input type="radio" name="radio_test" value="바나나">바나나</li>
+</ul>
+<button type="button" id="choice">선택</button>
+
+<script type="text/javascript">
+
+$("#choice").click(function () {
+	
+	//radio버튼의 getter
+	var radioVal = $("input[name='radio_test']:checked").val();
+	// alert(radioVal); // 값 확인하기
+
+	//radio버튼의 Setter
+	$("input[name='radio_test']").val(['사과']);	
+	// 버튼을 누르면 checked의 최종 값이 사과로 바뀌게됨
+	
+	
+	// getter로 값을 가져와서 전송한다
+
+
+});
+// null 값 나올 확률이 낮아서 문제발생될 여지가 적다
+</script>
+
+
+<input type="checkbox" id="che">그림 그리기
+<br>
+<input type="button" id="mycheck" value="체크">
+<br>
+
+<script type="text/javascript">
+ $("#mycheck").click(function () {
+
+	// getter
+	// 	var check = $("#che").is(":checked");
+	// 	alert(check);
+
+	// 또는
+	// var check1 = $("input:checkbox[id='che']").is(":checked");
+	// alert(check1);
+
+
+	// setter
+	$("#che").prop("checked", true);
+	// 사용처 : 모두 선택 버튼을 눌렀을때 모든 체크박스가 체크되도록 설정할때
+
+	// * 참고 *
+	// prop() :  property의 값을 가져오거나 설정/추가할때 사용하는 함수
+});
+
+</script>
+
+
+</body>
+</html>

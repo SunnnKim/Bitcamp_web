@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+<!--     
+    Document Object Model
+
+    JavaScript : innerHTML / value
+
+    JQuery : html(),  text(), val(), css(), attr(), prop();
+
+        - setter : 
+            - css("background-color", "#ff0000");
+            // 값을 2개 이상 넣고 싶을 때? : {} 안에 property : value로 배치하여 사용
+            - css( { 
+                "background-color":"#ff0000",
+                "border" : "3px solid"
+                } );
+    
+        - getter : css ( "background-color"); // setter부분만 쓰지 않으면 가능
+            - var v = $(#id).css("background-color");
+            // 변수 v에 id 값의 배경색을 가져옴
+        
+        
+
+        - input 태그에 해당 될 때
+            -setter 
+            - $( id / class / name / tagNa(값).css( "특성명", "값");
+            - $( id / class / name / tagName ).val(값);
+            -getter
+                * 값을 val()로 가져옴
+                - $( id / class / name / tagNa(값).css("특성명");
+                - $( id / class / name / tagName ).val(); 
+
+        - form 태그에서 가져올 때
+            //setter
+            - %( id / class / name / tag).attr("속성명", "값");
+            // 데이터 넘기기
+            - %( id / class / name / tag).submit();
+            
+
+
+// 데이터를 넘겨줄 때 검사는 js나 jquery에서 진행 
+
+
+        -->       
+
+<p id="demo">Lorem ipsum, <b>dolor</b> sit amet consectetur adipisicing elit. Eveniet, incidunt?</p>
+<button id="btnText">show text</button>
+<button id="btnHtml">show HTML</button>
+<script>
+$(document).ready(function () {
+    // 일반 태그
+
+    // text() (getter일때) text만 가져옴 (html무시)
+    $("#btnText").click(function () {
+        var text = $("#demo").text();
+        alert(text);
+    });
+
+    // html() (getter일때) html코드로 가져옴
+    $("#btnHtml").click(function () {
+        var html = $("#demo").html();
+        alert(html);
+    });
+
+    // setter일때는
+    // text() 함수는 html 코드도 모두 문자열로 추가하고
+    // html() 함수는 html 코드를 적용시켜 태그에 추가한다.
+
+});
+</script>
+
+<!-- 입력(input, select) 태그 -->
+<input type="text" id="text" placeholder="입력주제">
+<button type="button" id="btnInput">show value</button>
+
+<script>
+$(function () {
+   $("#btnInput").click(function () {
+
+        // getter
+        var v = $("#text").val();
+        alert(v); // v값 출력함
+    }); 
+});
+</script>
+<br><br>
+
+<!-- attr -->
+
+<p>
+    <a href="http://www.naver.com" id="naver">Naver Link</a></a>
+</p>
+
+<button type="button" id="btnAttr">Attribute(속성)</button>
+<script>
+$(function () {
+    $("#btnAttr").click(function () {
+        
+        // getter
+        var attrVal = $("#naver").attr("href"); // naver의 href속성을 가져옴
+        alert(attrVal); // naver홈페이지주소 출력
+
+        // setter
+        $("#naver").attr("href","http://www.daum.net"); // href 속성변경
+        $("#naver").text("다음 홈페이지"); // 텍스트 변경
+    });
+});
+
+</script>
+
+</body>
+</html>

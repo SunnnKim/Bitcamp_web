@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>JQuery</h3>
+
+<form>
+이름: <input type="text" id="name"><br>
+나이: <input type="text" id="age"><br>
+주소: <input type="text" id="address"><br>
+<button type="button" id="btn">전송</button>
+</form>
+<script type="text/javascript">
+
+$(function () {
+	//$("#btn").click(function () {
+	//	
+	//});
+	
+	$("#btn").on("click", function () {
+		alert("click");
+		location.href = "NewFile1.jsp?name=" + $("#name").val() + "&age=" + $("#age").val() +
+						"&address=" + $("#address").val();
+	});
+	
+});
+
+
+</script>
+
+<br><br><br>
+<!-- 위의 방식은 여러 데이터가 있을때(배열) 모두 넘어가지 않으므로 
+아래 방법을 사용하는 것이 좋다 -->
+
+
+
+
+<form id="frm" action="NewFile1.jsp">
+이름: <input type="text" id="_name" name="name"><br>
+나이: <input type="text" id="_age" name="age"><br>
+주소: <input type="text" id="_address" name="address"><br>
+<button type="button" id="_btn">전송</button>
+</form>
+
+
+<script type="text/javascript">
+
+// 아래 코드는 select에서 여러개의 선택자가 있을 때나 다양한 데이터를 전송해야할때 사용하면 유용함
+$(function () {
+	$("#_btn").click(function () {
+	//	$("#frm").attr("action", " NewFile1.jsp").submit();
+		// form태그 frm의 데이터를 모두 가지고 action(링크이동하는 attribute)를 실행하는데
+		// 이동 주소는 다음 파라미터에 넣는다
+		// submit() : 전체 데이터를 특정 링크로 넘겨주는 함수
+
+	// 또는
+	// frm 태그 내에 액션 값을 기입한 후에 submit만 호출
+	$("#frm").submit();
+	
+	});
+});
+
+//attr() : 선택한 요소의 특성(attribute)을 가져오거나 값을 추가하는 함수
+//ex > $("div").attr("class");	---> div의 클래스 값을 가져옴 (getter)
+//		$("div").attr("class", "text-box");	---> div의 클래스 이름을 추가함(setter)
+
+</script>
+
+
+</body>
+</html>

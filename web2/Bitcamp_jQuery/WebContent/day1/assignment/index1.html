@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    .address{
+        width: 300px;
+        height: 100px;
+        overflow-y: scroll;
+    }
+    .box{
+        width: 80px;
+        float: left;
+    }
+</style>
+</head>
+<body>
+ <!-- 문제1 -->
+<!-- form을 사용 -->
+
+ <h1>송부정보의 입력</h1>
+<form id="frm" action="NewFile.jsp">
+
+    <div class="box">이름 :</div><input type="text" id="name" name="name"><br><br>
+
+
+    <div class="box">우편번호 :</div><input type="text" id="_post" name="post">
+
+
+    <button type="button" id="addrbtn">주소변환</button><br><br>
+    <div class="box">주소 :</div><textarea class="address" id="_address" name="address"></textarea><br><br>
+
+
+    <div class="box">전화번호 :</div>
+        <input type="text" id="_call1" name="call1" style="width:60px"> - 
+        <input type="text" id="_call2" name="call2" style="width:60px"> - 
+        <input type="text" id="_call3" name="call3" style="width:60px"> <br><br>
+
+
+    배달시간 : 
+    <select name="sel" multiple="multiple">
+        <option value="지정하지 않음">지정하지 않음</option>
+        <option value="10:00 ~ 12:00">10:00 ~ 12:00</option>
+        <option value="12:00 ~ 15:00">12:00 ~ 15:00</option>
+        <option value="15:00 ~ 17:00">15:00 ~ 17:00</option>
+        <option value="17:00 ~ 20:00">17:00 ~ 20:00</option>
+    </select>
+    <br><br>
+
+    영수증요청 : <input type="checkbox" id="recipt" name="recipt">
+    <br><br>
+
+    매일 매거진을 수신 :
+    <input type="radio" class="radio" name="megazine" value="신청" checked> 신청
+    <input type="radio" class="radio" name="megazine" value="신청하지 않음"> 신청하지 않음
+    <br><br>
+
+    <button type="button" id="btn">확인 화면으로 진행</button>
+</form>
+
+
+
+
+<script>
+
+$(document).ready(function () {
+
+    
+
+    $("#addrbtn").click(function () {
+        
+    // 주소 조회하는 것은 내일 알려줌
+    });
+    
+    $("#btn").click(function () {
+        
+        $("#frm").submit();
+    });
+    
+
+});
+
+</script>
+
+
+</body>
+</html>

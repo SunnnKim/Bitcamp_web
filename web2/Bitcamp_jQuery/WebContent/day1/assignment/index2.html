@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    .img{
+        float: left;
+        margin: 10px;
+        padding-bottom: 100px;
+    }
+</style>
+</head>
+<body>
+
+    <h1>Room image</h1>
+<img alt="" src="image/b_pic05.jpg" id="img">
+
+
+<script>
+$(function () {
+    $("#img").click(function () {
+       $("#img").attr("src", "image/b_pic01.jpg");
+    });
+});
+
+</script>
+<br>
+<br>
+<br>
+
+<h1>사진들</h1>
+<img alt="" src="image/img01.jpg" class="img" id="i1">
+<img alt="" src="image/img02.jpg" class="img" id="i2">
+<img alt="" src="image/img03.jpg" class="img" id="i3">
+<img alt="" src="image/img04.jpg" class="img" id="i4">
+
+<br><br><br>
+
+<script>
+$(function () {
+    $(".img").click(function () {
+       var v = $(this).attr("id");
+       if(v == "i1"){
+           alert("성당 외부사진");
+       }
+       else if(v == "i2"){
+           alert("성당 내부사진");
+       }
+       else if(v == "i3"){
+           alert("은행 사진");
+       }
+       else {
+            alert("가로등");
+
+       }
+       
+    });
+    
+
+    
+});
+
+</script>
+</body>
+</html>

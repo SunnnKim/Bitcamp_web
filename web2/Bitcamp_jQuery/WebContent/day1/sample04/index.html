@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+이름:<input type="text"><br><br>
+
+이메일:<input type="text"><br><br>
+
+<p>여기가 p tag 1입니다</p>
+
+<p>여기가 p tag 2입니다</p>
+<br>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	// 해당 태그로 포커스가 맞춰졌을때 호출
+	$("input").focus(function () {
+		$(this).css("background-color", "#ffff00");		
+	});
+
+	// 해당 태그에서 포커스가 벗어났을 때 호출
+	$("input").blur(function () {
+		$(this).css("background-color", "#fff");
+	});
+	
+	// = focus()
+	$("p").mouseover(function () {
+		$(this).css("background-color", "#ff0000");
+	});
+	
+	// = blur()
+	$("p").mouseout(function () {
+		$(this).css("background-color", "#ffffff");
+	});
+	
+	// dblclick() : 더블클릭시 호출
+	$("p").dblclick(function() {
+		alert( $(this).text() );	
+	});	
+});
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .frame{
+            border-left: 8px solid #930610;
+            border-right: 8px solid #930610;
+            border-top: 8px solid #930610;
+            border-bottom: 8px solid #930610;
+        }
+    
+    </style>
+</head>
+<body>
+    
+<button type="button" id="b1">class의 추가</button>
+<button type="button" id="b2">class의 삭제</button>
+<button type="button" id="b3">class의 추가/삭제</button>
+<br><br>
+<img alt="" src="b_pic01.jpg" class="pic">
+    
+<script>
+
+$(function () {
+   $("#b1").click(function () {
+      //  $(".pic").css("border" , "10px solid #0000ff");
+    // 선을 주고 싶을 때
+/*
+    $(".pic").css({
+        "border-left":"10px solid #0000ff",
+        "border-right":"10px solid #00ff00",
+        "border-top":"10px solid #ff0",
+        "border-bottom":"10px solid #f00"
+    });
+*/
+
+    // addClass() : 특정 태그 또는 클래스/아이디에 새로운 클래스를 추가하는 함수
+    $(".pic").addClass("frame");
+    // 바디 밖에다가 css설정 미리 모아서 해둔 다음에 addClass함수를 통해서 
+    //  
+
+    });
+
+
+    $("#b2").click(function () {
+        // 클래스 삭제
+        // removeClass() : 특정 클래스를 삭제하는 함수, addClass의 반대되는 함수
+        $(".pic").removeClass("frame");
+    });
+
+    // toggle
+    $("#b3").click(function () {
+        // toggleClass() : 번갈아가며 특정 클래스를 지웠다가 보여줬다가 하는 함수
+        $(".pic").toggleClass("frame");
+    });
+
+});
+
+</script>
+</body>
+</html>

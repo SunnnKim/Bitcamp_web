@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- createElement(java script에서 태그 생성하기) -->
+
+<!-- JQuery로 태그 생성하기 -->
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quis.</p>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+
+
+<ol>
+    <li>사과</li>
+    <li>배</li>
+    <li>바나나</li>
+</ol>
+
+<br>
+
+<select id="food">
+    <option value="햄버거">햄버거</option>
+    <option value="피자">피자</option>
+    <option value="치킨">치킨</option>
+</select>
+<br><br>
+
+<button type="button" id="btn1">추가 텍스트(뒤)</button>
+<button type="button" id="btn2">추가 텍스트(앞)</button>
+
+<script>
+
+$(function () {
+    // 1. append / prepend
+    $("#btn1").click(function () {
+
+        // append() : "" 안의 요소를 추가하는 함수
+        // $("p").append("<br>append 추가요소(element) 입니다");  
+
+        // list에 append로 추가하기
+        // $("ol").append("<li>포도</li>");
+
+        // select안에 콤보박스 데이터 뒤에 추가하기
+        $("select").append("<option value='스테이크'>스테이크</option>");
+
+    });
+
+    $("#btn2").click(function () {  
+        
+        // prepend() : "" 안의 요소를 추가하는 함수
+        // $("p").prepend("<br>prepend 추가요소(element) 입니다"); 
+
+
+        // list에 prepend로 추가하기
+        // $("ol").append("<li>오렌지</li>");
+
+        // select안에 콤보박스 데이터 앞에 추가하기
+        $("select").prepend("<option value='떡볶이'>떡볶이</option>");
+
+    });        
+    // 위처럼 아이디를 지정하지 않으면 해당하는 모든 태그에 추가가 된다.
+    
+
+
+    // 2. list
+});
+</script>
+
+
+
+</body>
+</html>

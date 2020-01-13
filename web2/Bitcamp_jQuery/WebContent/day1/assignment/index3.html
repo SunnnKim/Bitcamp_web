@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<h1>이미지 자동삽입</h1>
+다음 그림은 "jquery"에 의해 자동 삽입되어 있습니다.<br>
+이미지를 클릭하면 삭제할 수 있습니다<br>
+
+
+<script>
+
+$(document).ready(function () {
+   
+    for( i=1; i<=9; i++){
+        $("body").append("<img alt='' src='image/photo_"+i+".jpg'>");
+    }
+    // $("body").append("<img alt='' src='image/photo_2.jpg'>");
+    // $("body").append("<img alt='' src='image/photo_3.jpg'>");
+    // $("body").append("<img alt='' src='image/photo_4.jpg'>");
+    // $("body").append("<img alt='' src='image/photo_5.jpg'>");
+    // $("body").append("<img alt='' src='image/photo_6.jpg'>");
+    // $("body").append("<img alt='' src='image/photo_7.jpg'>");
+    // $("body").append("<img alt='' src='image/photo_8.jpg'>");
+    // $("body").append("<img alt='' src='image/photo_9.jpg'>");
+    
+    $("img").attr("class", "imgs");
+    $(".imgs").css("padding-bottom", "20px");
+    $("img").mouseover(function () {
+        $(this).css("cursor","pointer");
+    });
+    $(".imgs").click(function () {
+        $(this).remove(); 
+    });
+
+});
+
+</script>
+
+
+
+
+</body>
+</html>
