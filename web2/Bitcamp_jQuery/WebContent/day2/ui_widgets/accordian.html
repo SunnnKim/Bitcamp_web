@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+      .sec{
+        border: 1px solid;
+        width:300px;
+      }
+      
+  </style>
+</head>
+<body>
+    <div id="sec1" class="sec">
+        <h3>section 1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quis non placeat quia perferendis. Reiciendis expedita quibusdam, exercitationem animi voluptatum inventore, ducimus ullam harum praesentium aspernatur, fugiat error quos in.</p>
+    </div>
+
+    <div id="sec2" class="sec">
+        <h3>section 2</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, error.</p>
+
+    </div>
+    
+    <div id="sec3" class="sec">
+        <h3>section 3</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolore impedit tenetur ipsam, esse obcaecati!</p>
+    </div>
+    
+
+<script>
+   $("div").click(function () { 
+        $(this).accordion({
+            collapsible: true
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id="div1" style="width: 500px; height: 150px; border: 1px solid blue; background-color:olivedrab ;">
+
+    <p id="pid">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, culpa assumenda.</p>
+    <p class="cls">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    <h3 class="cls">Lorem ipsum dolor sit, amet consectetur.</h3>
+
+</div>
+
+<button type="button">클릭</button>
+
+<script>
+
+$(function () {
+    
+    // 
+    $("button").click(function () {
+        // $("#div1").hide(3000);   // 숨기는 시간을 3000(3초)로 맞춤
+        // $("*").remove();         // 지우기
+        // $("#div1").remove();     // 특정 태그가 지워짐
+        // $("#div1").empty();      // 특정 태그/아이디 안의 태그들만 삭제
+        // $(".cls").remove();         // 특정 클래스만 삭제
+
+        $("p").remove("#pid, .cls");  //pid(p-id)와 cls(p-class)만 지워지고 cls(h3-class)는 남아있음   
+        // remove의 "" 안쪽에 ,로 지울 태그의 아이디명/클래스명을 적어주면 해당하는 태그만  ㅠ지워짐
+    });
+
+});
+
+
+
+</script>
+
+</body>
+
+</html>

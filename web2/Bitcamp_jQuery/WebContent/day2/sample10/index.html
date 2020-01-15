@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="news">로딩중</div>
+    
+
+<script>
+    $(document).ready(function () {
+
+    // $(window).resize(function () {
+    //     alert('$(window).resize(): window 크기를 변경하면 호출되는 함수')
+    // });
+
+    
+    // 1. 우편번호, 데이터들 가지고 오기
+    // * 데이터 수집 -> 저장(db/파일) -> 분석 -> 통계 -> 시각화(웹/어플 등)
+
+    // 텍스트 파일 불러오기
+    // load() : 파일 불러오는 함수
+    $("#news").load("news.txt",function (txt, status) { //파일명, function( txt, status)
+        // alert(status);  // status -> success//fail 불러오기 성공/실패 확인
+        // alert(txt);     // txt : 파일의 내용확인
+    });    
+
+    
+
+
+});
+
+</script>
+
+</body>
+</html>

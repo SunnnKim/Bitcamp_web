@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Bitcamp_jQuery" path="/Bitcamp_jQuery" reloadable="true" source="org.eclipse.jst.jee.server:Bitcamp_jQuery"/></Host>
+      <Context docBase="Bitcamp_jQuery" path="/Bitcamp_jQuery" reloadable="true" source="org.eclipse.jst.jee.server:Bitcamp_jQuery"/><Context docBase="Sample09" path="/Sample09" reloadable="true" source="org.eclipse.jst.jee.server:Sample09"/></Host>
     </Engine>
   </Service>
 </Server>

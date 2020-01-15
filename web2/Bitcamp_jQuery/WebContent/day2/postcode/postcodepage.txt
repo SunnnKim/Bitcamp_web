@@ -1,0 +1,12 @@
+
+우편번호 API 사이트 
+1. https://www.poesis.org/postcodify/
+- git 주소 클릭해서 다운로드 
+- 압축풀고 api, lib폴더를 webcontents에 저장하기 
+- default.html과 popup.html도 복사해서 붙여넣기
+- 위에 사이트는 실제로 사용하기엔 어려움이 있음(횟수제한있음)
+
+
+2. http://postcode.map.daum.net/guide
+- 무료 api, key필요없음, 상업적으로 사용가능 
+

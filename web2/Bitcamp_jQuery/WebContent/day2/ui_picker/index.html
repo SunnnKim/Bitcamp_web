@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+  
+</head>
+<body>
+    <!-- 달력보기 -->
+    <h1>JQuery-UI 달력</h1>
+    <h2>Date Picker</h2>
+    <p>선택날짜: <input type="text" id="date"></p>
+    <p>text박스를 클릭하면 달력이 표시됩니다</p>
+
+    연도: <input type="text" id="year"><br>
+    월: <input type="text" id="month"><br>
+    일: <input type="text" id="day"><br>
+    요일: <input type="text" id="week"><br>
+
+    <script>
+        $( function() {
+            var week= ['일','월', '화', '수', '목','금', '토'];
+
+          $( "#date" ).datepicker({
+                dateFormat:"yy-mm-dd",  // 날짜 출력형식
+                dayNamesMin: week,      // 요일 출력형식
+                monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                //월 출력형식
+                //
+                onSelect:function( d ){ // 날짜 선택시 d(date 데이터) 를 다루기
+                    // alert(d);   // 확인용
+                    
+                    var arr = d.split("-"); // 형식대로 날짜 자르기
+
+                    $("#year").val( arr[0].trim() );
+                    $("#month").val( arr[1].trim() );
+                    $("#day").val( arr[2].trim() );
+
+                    var weekday = new Date($("#date").datepicker({ dateFormat:"yy-mm-dd" }).val() );
+                    // alert(weekday.getDay()); // 요일 번호가 나옴 0:일 ~ 6:토
+                    // #date의 datepicker({ dateFormat:"yy-mm-dd" })(날짜형식 yy-mm-dd)의 value를 가져와서
+                    // weekday 변수에 집어넣음
+                    // weekday.getDay() : 선택한 요일을 숫자로 불러옴
+
+                    // 요일 배열번호를 시스템 요일숫자와 같도록 쓴 뒤 불러오기
+                    $("#week").val( week[weekday.getDay() ]);
+                }
+          });
+
+
+        } );
+    </script>
+</body>
+</html>

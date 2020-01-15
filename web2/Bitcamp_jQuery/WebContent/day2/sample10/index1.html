@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+    
+   <!-- list에 대해 알아보기  -->
+    <ul id="list">
+        <li>커피</li>
+        <li>홍차</li>
+        <li>우유</li>
+        <li>쥬스</li>
+        <li>녹차</li>
+    </ul>
+
+    <p id="len">리스트의 요수 수 (길이)</p>
+    선택한 항목 : <input type="text" id="choice">
+    <br><br>
+    
+    추가항목 : <input type="text" id="col"><br>
+    <button type="button">추가</button>
+<script>
+$(function () {
+
+    // 클릭한 항목
+    // 1번
+    //children() : 특정 태그의자식 객체들에 적용하는 함수 
+    // $("ul#list").children().click(function () {
+    //     alert($(this).text());
+        
+    // });
+
+    // 2번
+    // ul#list li -> ul의 하위에있는 #list에 li 태그에접근
+    // $("ul#list li").click(function () {
+    //     $("#choice").val( $(this).text() );
+    // });
+
+
+    // 3번
+    // 나중에 추가한 li들도 선택 가능하도록 만들기
+    $(document).on("click", "ul#list li", function () {
+        $("#choice").val( $(this).text() );
+    });
+
+
+
+    $("button").click(function () {
+        
+        if($("#col").val()== ""){
+            alert("추가할 요소를 적어주세요!");
+            return;
+        }
+         // 추가항목
+         var append = $("<li></li>").text( $("#col").val() );
+        $("ul#list").append(append);
+        // length : 
+        var len = $("ul#list").children().length;
+        $("#len").text( len+ "개의 요소가 있습니다" );
+    
+       
+    });
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+    .aaa {
+        color:#F00;
+    }
+    .ccc {
+        padding:10px;
+        border:#000 2px solid;
+        background-color: red;
+    }
+    .q24_a {
+        text-decoration:underline;
+        color:#00F;
+    }
+    .q27_b{
+        text-decoration:underline;
+        color:#00F;
+    }
+    #q29 {
+        background:#FaF;
+        width:100px;
+        height:100px;
+    }            
+    .button {
+        padding: 5px 10px;
+        border:#666 solid 1px;
+        background:#FFF;
+        display:block;
+        width:100px;
+        text-align:center;
+    }
+    </style>
+</head>
+<body>
+
+    <p id="q01">Hello JQuery</p>
+    <p id="q02"> Hello JQuery </p>
+    <p id="q03"></p>
+    <p id="q05">하이</p>
+    <ul id="q6">
+        <li id="deleteThis">리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+    </ul>
+    <p id="q9"></p>
+    
+    <p id="q10">반드시</p>
+    
+    <p id="q11">나는 성공한다. 내 이름은 </p>
+
+    <ul id="q12">
+       <li>커피</li>
+    </ul>
+    <ul id="q13">
+        <li>커피</li>
+    </ul>
+
+     
+    <p id="q20">최선을 다해서</p>
+    <div class="ccc">
+        <p id="q201">최선을 다해서</p>
+    </div>
+
+    <p class="q21">가가가</p>
+    <p>나나나</p>
+    <p class="q21">다다다</p>
+    <p>라라라</p>
+    <p class="q21">마마마</p>
+
+  
+    <p class="q24">Ｑ24</p>
+
+
+    <p class="q25"><a href="#">aaa</a></p>
+    <p><a href="#">bbb</a></p>
+    <p class="q25"><a href="#">ccc</a></p>
+    <p><a href="#">ddd</a></p>
+    <p class="q25"><a href="#">eee</a></p>
+
+
+    <p class="q26"><a href="#">AAA</a></p>
+    <p><a href="#">BBB</a></p>
+    <p class="q26"><a href="#">CCC</a></p>
+    <p><a href="#">DDD</a></p>
+    <p class="q26"><a href="#">EEE</a></p>
+
+    <p class="q27_a">Ｑ２７</p>
+
+    <form>
+        <input type="text" value="입력하지 마십시오">
+    </form>
+
+    <p id="q29">Ｑ２９</p>
+
+
+    <p class="button">버튼</p>
+    <ul id="q30">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+    </ul>
+
+
+    <button type="button">Jquery 함수적용하기</button>
+<script>
+$(function () {
+    $("button").click(function () {
+        // 1. id의 "q01"텍스트 색상을 빨간색으로 변경하라.
+        $("#q01").css("color","red");
+        
+        // 2. id 명 "q02"텍스트 색상을 파랑으로, 배경색을 노란색으로 변경하라
+        $("#q02").css({
+            "background-color":"yellow",
+            "color": "blue"
+        });
+        
+        // 3. id명 "q03" 에 텍스트 “JQuery"를 추가하라
+        $("#q03").append("JQuery");
+
+        // 4. id명 q05의 “하이”의 내용을 <a hraf="#"> 태그를 포함한 “안녕하세요”로 대체하라
+        $("#q05").html("<a href='#'>안녕하세요</a>");
+        
+        // 5. ul 요소에 class 명 "aaa"를 추가하라
+        $("#q6").addClass("aaa");
+
+        // 6. li 요소를 제거하라
+        $("#q6 li").remove("#deleteThis");
+
+
+        // 7. 스크립트 변수 q6에 대입 문자의 색상 값을 p #q9에 출력하라
+        $("#q9").text( $("#q6").css("color"));
+
+        // 8. 텍스트의 앞에 “나는 성공한다” 를 추가하라
+        $("#q10").prepend("나는 성공한다 ");
+
+        // 9. p 요소의 끝에 자싞의 명을 추가하라
+        $("#q11").append("ㅋㅋㅋ");
+
+        // 10. ul 요소의 li 태그 앞에 li 태그에 “홍차”를 추가하라
+        $("#q12 li").before("<li>홍차</li>");
+
+        // 11. li 태그의 끝에 li 태그에 "홍차"를 추가하라
+        $("#q13 li").after("<li>홍차</li>");
+
+        // 12. id 명 "q20"요소의 부모 요소 class 명 "ccc"를 추가하십시오
+        $("#q20").wrap("<div class='ccc'></div>");
+
+        // 13. id 명 "q20"요소의 부모 요소 class 명 "ccc"를 제거하십시오
+        $("#q201").parent().removeClass("ccc");
+
+        // 14. class 명 "q21"가있는 모든 요소 모두를 'xxx„ p 요소(<p>xxx</p>)로 대체하십시오
+        $(".q21").text("xxx");
+
+        // 15. class 명 "q24"요소의 class 명을 "q24_a"로 고쳐 기입하십시오
+        $(".q24").attr("class","q24_a");
+
+        // 16. class 명 "q25"를 가진 요소의 a 태그의 href 속성을 제거하라
+        $(".q25 a").removeAttr("href");
+
+        // 17. class 명 "q26"를 가진 요소의 a 태그에 새로운 창으로 표시되도록 하는 속성을 추가하라.
+        $(".q26 a").attr("target","_blank");
+
+        // 18. class 명 "q27_a"요소를 class 명 "q27_b"로 변경하라.
+        $(".q27_a").attr("class", "q27_b");
+
+        // 19. 양식에 입력 값을 "입력해 주십시오“로 변경하십시오
+        $("form input").attr("value","입력해 주십시오");
+
+        // 20. id 명 "q29"의 요소를 브라우저 150px 300px 값으로 표시하라.
+        $("#q29").css({"width": "150px", "height":"300px"});
+
+        
+    });
+    // 21. p 요소를 클릭하면 바로 아래 ul의 자식 요소를 모두 비우도록 하라
+    $(".button").click(function () {
+        $("#q30 li").remove();
+    });
+
+
+
+
+});
+
+
+</script>
+    
+</body>
+</html>

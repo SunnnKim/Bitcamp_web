@@ -1,0 +1,131 @@
+	<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+.q5{
+    color: brown;
+}
+.q8{
+    padding: 10px;
+    border: #000 2px solid;
+    background-color: gray;
+}
+
+</style>
+</head>
+<body>
+    <!-- 총정리-->
+<button type="button">실행</button>
+
+<p id="q01">Hello JQuery</p>
+
+<p id="q02">Hello JQuery</p>
+
+<p id="q03">Hello JQuery</p>
+
+<p id="q04">Hello JQuery</p>
+
+<ul id="q05">
+    <li>사과</li>
+    <li>배</li>
+    <li>포도</li>
+</ul>
+
+<p id="q06">최선을 다함으로</p>
+
+<ul id="q07">
+    <li>커피</li>
+</ul>
+
+<p id="q08">q08 : 나는 최선을 다할 것입니다.</p>
+
+<div class="q8">
+    <p id="q09">q09: 나는 최선을 다할 것입니다.</p>
+</div>
+
+<p id="q10" class="q10">클래스명 변경하기(q10->q10_1)</p>
+
+<p id="q11">
+    <a href="http://www.naver.com">Naver</a>
+</p>
+
+
+
+<script>
+    // 버튼 클릭시 호출
+$("button").click(function () {
+
+    // 1. 폰트 컬러 변경하기 (css)
+    $("#q01").css("color", "red");
+
+    // 2. 폰트의 컬러와 백그라운드 컬러값 변경하기
+    $("#q02").css({
+            "color":"white",
+            "background-color":"black"});
+    
+    // 3. setter : text(문자열만), html(html코드적용가능)
+    $("#q03").text("헬로우 제이쿼리");
+    $("#q03").html("<b>헬로우</b> 제이쿼리");
+    
+    // 4. html()함수로 html코드 바꾸기
+    $("#q04").html("<a href='http://www.naver.com'>네이버로 이동</a>");
+
+    // 5. addClass() : 특정 태그에 class추가함
+    $("#q05").addClass("q5");
+    
+    // 6. append(): 태그에 태그 추가함 
+    var app = $("<li>").text("복숭아");
+    $("#q05").append(app);  // ul에 li 태그 추가함
+
+    // 7. remove() : 태그삭제
+    $("#q05 li").remove();
+
+
+    // 8. 문자열 새로 추가하기 
+    // append() / prepend()
+    $("#q06").prepend("<p>끝까지</p>");
+    $("#q06").append("<p>나는 성공할 것이다</p>");
+
+    // 9.리스트에 새로운 li태그 추가하기
+    // before() / after()
+
+    // 바로 li태그 추가하기
+    // $("#q07 li").before("<li>홍차</li>");
+    // $("#q07 li").before("<li>우유</li>");
+    
+    // children() 으로 추가하기
+    $("#q07").children().before("<li>홍차</li>");
+    $("#q07").children().before("<li>우유</li>");
+    
+    
+    // 10. wrap(): 파라미터에 있는 태그를 바깥에 씌워주는 태그
+    $("#q08").wrap("<div class='q8'></div>");
+
+    // 11. unwrap(): 바깥의 태그를 제거하기
+    $("#q09").unwrap("div.q8"); // "div.q8" : div 태그인 q8 클래스를 제거함
+
+
+    // 12. attr()로 class명 변경하기
+    $("#q10").attr("class", "q10_1");
+
+
+    // 13. removeAttr("제거할attr명") : attribute제거하기
+    $("#q11 a").removeAttr("href");
+
+
+    // 14. 
+
+
+
+});
+
+
+</script>
+
+</body>
+</html>

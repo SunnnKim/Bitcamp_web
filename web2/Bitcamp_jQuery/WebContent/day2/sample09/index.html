@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>Detail View</h3>
+<textarea rows="2" cols="20" placeholder="기본글"></textarea>
+<br><br>
+<button type="button" id="answer">답글입력</button>
+<br>
+<div id="answerForm"></div>
+
+<script type="text/javascript">
+
+$(function () {
+	
+	$("#answer").click(function () {
+		var txt = "<br>답글: <input type='text' id='answerText'>";
+		$("#answerForm").append(txt);
+		
+		var btn = "<br><br><button type='button' id='answerBtn'>답글작성완료</button>"
+		$("#answerForm").append(btn);
+	});
+
+
+	// 나중에 추가된 태그는
+	// 아래 코드가 실행이 안됨
+	// $("#answerBtn").click(function () {
+	// 	alert("answerBtn click");
+	// });
+
+
+
+	// $(document).on("함수명","적용할태그명","함수코드") :현재 도큐먼트를 읽은 다음에 함수 실행하기
+	// 
+	$(document).on("click","#answerBtn", function () {
+		
+		alert( $("#answerText").val() );
+	});
+
+
+
+});
+</script>
+
+
+
+</body>
+</html>

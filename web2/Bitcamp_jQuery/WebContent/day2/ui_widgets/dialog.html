@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+
+<button type="button" id="btn" style="margin-left: 50%; margin-top: 100px;">누르지마시오</button>
+
+<script>
+    // 애니메이션 있는 다이얼로그
+    $("<p id='opener'>누르지말라고~</p>").dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 500
+            },
+            hide: {
+                effect: "drop", 
+                duration: 300
+            }
+            // effect관련해서
+            // https://jqueryui.com/effect/ 
+            // 위 사이트에 다양한 예제가 있음
+    });
+    
+
+    $("#btn").click(function () {
+        // 일반 열기
+        // $("<p>누르지말라고~</p>").dialog("");    
+        $("#opener").dialog("open");   // 느리게 창열기 (애니메이션)
+        
+    });
+
+</script>
+    
+</body>
+</html>
