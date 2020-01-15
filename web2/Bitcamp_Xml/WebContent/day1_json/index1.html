@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function () {
+        if( xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            
+            // xml(json) 파일 불러와서 처리할 함수들
+            jsonFunc( xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET", "jsondata.json", true);
+    xmlhttp.send();
+
+function jsonFunc( resp ) {
+    
+    // 2차원 배열 넘어온다고 생각하면 됨
+    var arr = JSON.parse( resp );   // 일반문자를 json으로 만들어 줌 (parsing)
+    var txt = "";
+    // alert(arr.length);
+    
+
+    // key:value를 취득
+    for( i=0; i<arr.length; i++){
+        for(key in arr[i]){
+            txt += key + ":" + arr[i][key] + " ";
+        }
+        txt += "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = txt;
+
+}
+
+</script>
+    
+</body>
+</html>

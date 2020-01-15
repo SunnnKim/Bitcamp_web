@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+var xmlhttp = new XMLHttpRequest();
+
+xmlhttp.onreadystatechange = function () {
+	if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		jsonFunc( xmlhttp.responseText );
+	}	
+}
+xmlhttp.open("GET", "jsondata.json", true);
+xmlhttp.send();
+
+function jsonFunc( resp ) {
+	var arr = JSON.parse( resp );	// json으로 만들어 준다
+	var txt = "";
+	alert(arr.length);
+	
+	// key:value를 취득
+	/*
+	for(i = 0;i < arr.length; i++){
+		for(key in arr[i]){
+			txt += key + ":" + arr[i][key];
+		}
+		txt += "<br>";
+	}
+	*/
+	for(i = 0;i < arr.length; i++){
+		txt += arr[i].name + " " +
+				arr[i].age + " " +
+				arr[i].address + " " +
+				arr[i].phone + "<br>"; 		
+	}
+	
+	document.getElementById("demo").innerHTML = txt;
+}
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+

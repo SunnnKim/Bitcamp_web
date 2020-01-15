@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bookshelf>
+	<book>
+		<title>1일 1페이지, 세상에서 가장 짧은 교양 수업 365</title>
+		<author>데이비드 S. 키더</author>
+		<price>14400</price>
+	</book>
+	<book>
+		<title>지쳤거나 좋아하는 게 없거나</title>
+		<author>글배우</author>
+		<price>12150</price>
+	</book>
+	<book>
+		<title>여행의 이유</title>
+		<author>김영하</author>
+		<price>12150</price>
+	</book>
+	<book>
+		<title>날씨가 좋으면 찾아가겠어요</title>
+		<author>이도우</author>
+		<price>12420</price>
+	</book>
+
+
+</bookshelf>

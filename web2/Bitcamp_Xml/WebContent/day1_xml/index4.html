@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- xml연습 -->
+
+    <p id="demo"></p>
+
+<script>  // 기능이기 때문에 외울 필요x, 사용법 익혀두기
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+    
+        if(this.readyState == 4 && this.status == 200){
+            // 읽기가 끝나면 실행되는 문서 
+            getAuthor(this);
+        }
+    
+    };
+    
+    // xhttp.open("GET", "client.xml", true);
+    xhttp.open("GET", "vecomm.xml", true);    //웹상에서 데이터 가져오기
+    
+    xhttp.send();
+
+
+// channer - item - author
+
+function getAuthor( xml ) {
+    
+    var txt, xmlDoc;
+    var author;
+
+    xmlDoc = xml.responseXML;
+    var author = xmlDoc.getElementsByTagName("author");
+    // var len = arr.childNodes[0].length;
+    // alert(len);  // 확인용
+ 
+    // author = arr
+    txt = author[0].nodeName +"<br>";
+    txt += author[0].childNodes[0].nodeValue +"<br>";
+  
+
+
+    document.getElementById("demo").innerHTML = txt;
+
+
+    // var arr, xmlDoc, txt;
+    // txt = "";    // html에 출력하기 위한 태그
+
+    // xmlDoc = xml.responseXML;
+
+    // arr = xmlDoc.getElementsByTagName("item")[0];
+    // var len = arr.childNodes.length;
+    // alert(len);  // 확인용
+
+    // var fchild = arr.firstChild;
+
+    // for(i =0; i<2; i++){
+    //     if(fchild.nodeType==1){
+    //         txt += fchild.nodeName +" " + fchild.nodeValue + "<br>";
+    //     }
+    //     fchild = fchild.nextSibling;
+
+    // }
+
+    // document.getElementById("demo").innerHTML = txt;
+
+
+}
+
+
+</script>
+    
+    
+
+</body>
+</html>

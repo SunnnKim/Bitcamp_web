@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 
+    JSON -> Java Script Object Notation
+    (표기법)
+    데이터를 저장, 전송, 불러오기
+    - array에서 유래
+    - key:value의 한쌍으로 이루어짐(pair) <-> HashMap(java)
+    - : (콜론)으로 데이터명과 데이터값을 배치
+
+     Web(client)         Java(Server)
+        Json                HashMap/List
+ -->
+<p id="demo"></p>
+    
+<script>
+
+/*
+// 1차원배열
+var arr = [ 1, 2, 3 ];
+// 2차원배열 => json과 유사
+var arr2 = [
+    [1,2,3],
+    [4,5,6]
+];
+*/
+// JSon 데이터 만들기
+var arr = [
+    {   // [ ] 로 묶이면 2차원배열
+        "name" : "홍길동",
+        "age" : 24
+    },
+    {
+        "name" : "일지매",
+        "age" : 17
+    },
+    {
+        "name" : "성춘향",
+        "age" : 25
+    }
+];
+// JSon 데이터 불러오기
+document.getElementById("demo").innerHTML 
+    // = arr[0].name + " " + arr[0].age;    // 또는
+    = arr[0]["name"] + " " + arr[0]["age"];     //2가지의 방법이 있음
+
+// Stirng => Json
+var arrText = '{ "name": "홍길동", "age":24, "주소":"서울시" }';    //JSON아님
+// var arrText = { "name": "홍길동", "age":24, "주소":"서울시" };    //JSON
+// 문자열로 이루어진 것은 JSon은 아니고 String
+// 아래코드는 문자열로는 동작이 되지 않음 (JSon아니라서 접근 x)
+// String을 JSon데이터로 바꾸어주어야 읽을 수 있음
+
+var jsonObj = JSON.parse(arrText);
+// String을 Json으로 바꾸어줌
+
+
+document.getElementById("demo").innerHTML 
+    = jsonObj.name + " " + jsonObj.age+ " " + jsonObj.주소;
+
+
+// 참고
+var jsonObj2 = JSON.stringify(arrText);
+// Json => String
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<button type="button" onclick="loadXMLDoc()">내용변경</button>
+
+<p id="demo">p tag</p>
+
+<script>
+
+var xhttp = new XMLHttpRequest(); 
+// http 통신을 하기위한 객체 생성 (서버와 교류함)
+
+// XML 호출하는 함수 만들기
+function loadXMLDoc() {
+    
+    xhttp.onreadystatechange = function () {
+        // console.log( this.resposeText );     
+        // console.log( this.readyState );     
+        console.log( this.status );     
+        // this = xhttp 
+        if( this.readyState == 4 && this.status == 200 ) {
+            document.getElementById("demo").innerHTML = this.responseText;
+            // 파일에서 읽어들인 부분을 서버로 보내고, 다시 받아서 p태그에 뿌리기
+            // this.responseText : 서버로부터 txt파일을 받아옴
+        }
+
+    }
+    // onreadystatechange : XMLHttp 소속 함수
+
+    xhttp.open("GET", "test.txt", true);
+        console.log( "xhttp.open" );     
+    // GET 방식 : 제일 많이 사용하는 방식
+    // POST 방식 :
+    
+    // true : open방식을 설정하는지 지정(t/f)
+    
+    xhttp.send();
+    console.log( "xhttp.send" );     
+    
+    // onreadystatechange - console결과 :
+    // 1
+    // xhttp.open
+    // xhttp.send
+    // 2
+    // 3
+    // 4
+    // = onreadystatechange은 계속 동작하고 있다
+    
+    //
+/*
+    readystate: 0-4 까지 숫자로 처리단계 표시
+        0 : open() 메소드를 수행하기전에 출력
+        1 : loading 중...
+        2 : loading 완료
+        3 : server 처리 중...
+        4 : server 처리 완료 (끝)
+
+    status : 현재 처리 상태를 숫자로 표시  
+        200 : success
+        403 : 접근금지 에러
+        404 : fail (페이지 없음)
+        500 : 코드문법 에러
+
+*/
+}
+
+
+</script>
+
+
+
+    
+</body>
+</html>

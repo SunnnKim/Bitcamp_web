@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- 
+     과제1
+     자신이 읽을 책 :4 권
+        제목 저자 가격
+        xml . json
+    
+        -> 시각화 : table로 표현하기
+ -->
+<h3>JSON 데이터 시각화</h3>
+<table id="tb" border="1">
+    <colgroup>
+        <col style="width: 50px;">
+        <col style="width: 300px;">
+        <col style="width: 150px;">
+        <col style="width: 100px;">
+    </colgroup>
+    <tr>
+        <th>번호</th>
+        <th>title</th>
+        <th>author</th>
+        <th>price</th>
+    </tr>
+</table>
+
+ <script>
+    var num =1
+    var title, author, price;
+    
+    // xml로 하기
+    var xmlhttp = new XMLHttpRequest();
+    // http 통신을 하기위한 객체 생성 (서버와 교류함)
+
+    xmlhttp.onreadystatechange = function () {
+        if( this.readyState == 4 && this.status == 200 ) {  // 파일읽기 성공시
+            getData( xmlhttp.responseText );
+        }
+    
+    };
+        // onreadystatechange : XMLHttp 소속 함수
+        xmlhttp.open("GET", "mybooks.json", true);
+        xmlhttp.send();
+
+    
+
+    // json 받아오기
+    function getData( resp ) {
+        
+
+
+        var arr2d = JSON.parse( resp );
+        console.log(arr2d.length);
+        // arr2d
+
+        for(i = 0; i<arr2d.length; i++){
+           // for( key in arr2d[i] ){
+                var th = document.createElement("th");	
+                th.innerHTML = num;
+                
+                // td태그 만들기
+                var td1 = document.createElement("td");	
+                td1.innerHTML = arr2d[i].title;
+                var td2 = document.createElement("td");	
+                td2.innerHTML = arr2d[i].author;
+                var td3 = document.createElement("td");	
+                td3.innerHTML = arr2d[i].price;
+                
+                // tr태그 만들고 th,td를 tr에 추가하기
+                var trtag = document.createElement("tr");
+                trtag.appendChild(th);
+                trtag.appendChild(td1);
+                trtag.appendChild(td2);
+                trtag.appendChild(td3);
+                
+                // 새로운 테이블 만들어 기존 테이블(id="tb")에 데이터 추가하기
+                var table = document.createElement("table");
+                tb.appendChild(trtag);
+                num = num + 1;
+           // }
+        }
+        var keys = 
+        for( i=0; i<arr2d.length; i++){
+            for( key in arr2d[i] ){
+                console.log(i+" : "+ key + " " + arr2d[i][key]);
+            }
+        }
+
+
+    }
+
+
+ 
+ </script>
+
+</body>
+</html>

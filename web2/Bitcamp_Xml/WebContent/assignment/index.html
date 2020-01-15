@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- 
+     과제1
+     자신이 읽을 책 :4 권
+        제목 저자 가격
+        xml . json
+    
+        -> 시각화 : table로 표현하기
+ -->
+<h3>XML 데이터 시각화</h3>
+<table id="tb" border="1">
+    <colgroup>
+        <col style="width: 50px;">
+        <col style="width: 300px;">
+        <col style="width: 150px;">
+        <col style="width: 100px;">
+    </colgroup>
+    <tr>
+        <th>번호</th>
+        <th>title</th>
+        <th>author</th>
+        <th>price</th>
+    </tr>
+</table>
+
+<div id="demo"></div>
+ <script>
+    var num, title, author, price;
+    
+    // xml로 하기
+    var xmlhttp = new XMLHttpRequest();
+    // http 통신을 하기위한 객체 생성 (서버와 교류함)
+
+    xmlhttp.onreadystatechange = function () {
+        // this = xhttp 
+        if( this.readyState == 4 && this.status == 200 ) {  // 파일읽기 성공시
+            getData(this);
+            // 파일에서 읽어들인 부분을 서버로 보내고, 다시 받아서 p태그에 뿌리기
+            // this.responseText : 서버로부터 txt파일을 받아옴
+        }
+    
+    };
+        // onreadystatechange : XMLHttp 소속 함수
+        xmlhttp.open("GET", "mybooks.xml", true);
+        xmlhttp.send();
+
+    
+
+    // xml데이터 받아오기
+    function getData( xml ) {
+        
+        var xmlDoc, arr;
+
+        xmlDoc = xml.responseXML;
+
+        // root tag 취득
+        var rootTagName = xmlDoc.documentElement.nodeName;  // 루트태그 잡기
+        console.log(rootTagName);
+        
+        // node 명을 취득
+        var nodeNamel
+        var nodeArr = xmlDoc.documentElement.childNodes;
+        console.log(nodeArr);
+        console.log(nodeArr.length);
+        for(i=0; i<nodeArr.length; i++){
+            if( nodeArr[i].nodeType == 1){  // #text 거르기
+                nodeName = nodeArr[i].nodeName;
+                console.log(nodeName);
+            }
+        }
+        // table준비
+        var out = "<table border='1'>";
+        out+= "<col width: 100><col width: 140><col width: 100>";
+        out+="<tr>";
+        // column 명을 취득
+        nodeArr = xmlDoc.getElementsByTagName(nodeName)[0];
+        console.log(nodeArr);
+
+        var child = nodeArr.firstChild;
+        for(i=0; i<nodeArr.childNodes.length; i++){
+            if(child.nodeType == 1){
+                out += "<th>"+ child.nodeName + "</th>";
+                child = child.nextSibling;
+            }
+        } 
+        
+        // data 출력
+        var len = xmlDoc.getElementsByTagName(nodeName).length;
+
+
+        out += "</tr></table>";
+        document.getElementById("demo").innerHTML = out;
+        
+        
+        num = 1;
+        title = xmlDoc.getElementsByTagName("title");
+        author = xmlDoc.getElementsByTagName("author");
+        price = xmlDoc.getElementsByTagName("price");
+        
+        
+        
+
+        // 데이터 출력해보기
+        for( i=0; i< 4; i++){
+            
+            var th = document.createElement("th");	
+            th.innerHTML = num;
+            
+            // td태그 만들기
+            var td1 = document.createElement("td");	
+            td1.innerHTML = title[i].childNodes[0].nodeValue;
+            var td2 = document.createElement("td");	
+            td2.innerHTML = author[i].childNodes[0].nodeValue;
+            var td3 = document.createElement("td");	
+            td3.innerHTML = price[i].childNodes[0].nodeValue;
+            
+            // tr태그 만들고 th,td를 tr에 추가하기
+            var trtag = document.createElement("tr");
+            trtag.appendChild(th);
+            trtag.appendChild(td1);
+            trtag.appendChild(td2);
+            trtag.appendChild(td3);
+            
+            // 새로운 테이블 만들어 기존 테이블(id="tb")에 데이터 추가하기
+            var table = document.createElement("table");
+            tb.appendChild(trtag);
+            num = num + 1;
+
+        }
+        
+
+
+    }
+
+
+ 
+ </script>
+
+</body>
+</html>
