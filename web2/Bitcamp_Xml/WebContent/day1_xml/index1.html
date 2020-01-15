@@ -15,7 +15,7 @@
 <script>
 
 var xhttp = new XMLHttpRequest(); 
-// http 통신을 하기위한 객체 생성 (서버와 교류함)
+// http 통신을 하기위한 객체 생성 (서버와 교류함 - 비동기 통신)
 
 // XML 호출하는 함수 만들기
 function loadXMLDoc() {
@@ -39,7 +39,7 @@ function loadXMLDoc() {
     // GET 방식 : 제일 많이 사용하는 방식
     // POST 방식 :
     
-    // true : open방식을 설정하는지 지정(t/f)
+    // true : open방식을 설정하는지 지정(t/f) - 비동기여부 지정
     
     xhttp.send();
     console.log( "xhttp.send" );     

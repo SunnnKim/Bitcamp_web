@@ -65,3 +65,52 @@ $("#granfa").click( function () {
         .attr(...);
 
 });
+
+
+
+** 데이터 **
+JSON : Javascript Object Notation
+XML : eXtensible Markup Language
+
+JSON
+{key : value}
+
+XML
+<attr>value</attr>
+
+JSON < XML (JSON을 선호)
+
+xmlHttpRequest 왜 배워?
+    -> 비동기통신을 위해서
+
+비동기통신과 동기통신의 차이는?
+
+동기통신
+Background Thread : [Thread 0], [Thread 1], [Thread 2], [Thread 3]
+Main Thread 0-------[T-0][T-1][T-2][T-3]----------------------------->
+
+비동기통신
+Background Thread : [Thread 0], [Thread 1], [비동기 Thread 2], [Thread 3]
+Main Thread 0-------[T-0][T-1][T-3]----------------------------->
+                        [T-2] -> 요청을 보낸거니까 응답을 받을 때까지 기다림
+                            -> Callback hell
+
+xmlHttpRequest
+
+jQuery Ajax -> json 데이터 송수신
+$.ajax({
+    data: "",
+    method: "post",
+    url: "/",
+    function(response) {
+        ...
+    }
+}); 
+
+$.get(); / $.post().then();
+
+jQuery를 안씀 -> xmlHttpRequest, Axios
+
+get -> /asdasd/asdasda.do?key=value
+post -> /asdasd/asdasd.do
+
