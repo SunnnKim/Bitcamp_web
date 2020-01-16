@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <a href="hello?age=24">hello servlet</a>
+    <!-- anchor는 100% get방식 -->
+
+
+
+<p>Redirect 설정</p>
+
+<form action="hello" method="POST">
+<select name="url">
+    <option value="naver.com" selected>Naver</option>
+    <option value="google.com">google</option>
+    <option value="zum.com">Zum</option>
+
+</select>
+<input type="submit" value="송신">
+
+</form>
+
+
+<form action="world" method="GET">
+<select name="url">
+    <option value="naver.com" selected>Naver</option>
+    <option value="google.com">google</option>
+    <option value="zum.com">Zum</option>
+
+</select>
+<input type="submit" value="송신">
+
+</form>
+
+</body>
+</html>

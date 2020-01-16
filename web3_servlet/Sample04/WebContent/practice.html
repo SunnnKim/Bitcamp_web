@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Servlet Connection Practice</h1>
+    <p> GET </p>
+    <form action="practice" method="GET">
+        나이: <input type="text" name="name"><br>
+        이름: <input type="text" name="age"><br>
+        주소: <input type="text" name="addr"><br>
+        <input type="submit" value="GET">
+    </form>
+    <br>
+    <p> POST </p>
+    <form action="practice" method="POST">
+        이름: <input type="text" name="name"><br>
+        나이: <input type="text" name="age"><br>
+        주소: <input type="text" name="addr"><br>
+        <input type="submit" value="POST">
+    </form>
+    <!--
+        링크 걸기
+        1. < a href="이동할 링크">
+        2. < form submit(action="링크")>
+        
+        3. JavaScript : location.href="링크";
+            -> 데이터 넘기려면 링크주소로 만들어주어야 함 (기입할 양이 많음)
+             ( "hello?name="+name...)
+
+        4. JQuery : $("#formId").attr("action","이동할 url").submit();
+            -> form으로 하면 form안의 데이터가 모두 넘어간다 (많이 사용함)
+        5. Java에서 이동하기
+            ->
+        
+    -->
+
+
+
+
+</body>
+</html>

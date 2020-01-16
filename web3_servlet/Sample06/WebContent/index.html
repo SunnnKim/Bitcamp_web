@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    
+<h1>앙케이트 조사입니다.</h1>
+
+<form action="hello" method="GET" id="frm" >
+    <table>
+    <tr>
+        <td>이름</td>
+        <td><input type="text" name="name" value="홍길동"></td>
+    </tr>
+    <tr>
+        <td>나이</td>
+        <td><input type="text" name="age" value="24"></td>
+    </tr>
+    <tr>
+        <td>
+            <select name="fruits" multiple="multiple">
+                <option value="포도" selected="selected">포도</option>
+                <option value="딸기">딸기</option>
+                <option value="수박">수박</option>
+            </select>
+        </td>  
+    </tr>
+    </table>
+
+<button type="button" id="btn">제출</button>
+</form>
+
+<script>
+// jquery로 데이터 서버로 전송하기
+$(document).ready(function () {
+
+$("#btn").click(function () {
+    // alert('동작확인');
+    //name이 입력되었는지 조사하기
+    
+    $("#frm").submit();
+
+
+});
+
+
+});
+</script>
+
+</body>
+</html>

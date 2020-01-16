@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        Servlet : Server + Applet
+
+        Web(html, client) <== 통신 ==> Java (String, Object, server) <== 통신 ==> DB 
+        - Node.js : Web <==통신==> DB, 자바없이 바로 웹에서 디비와 통신하는 방식
+
+          Web Browser(client)              web Application Server(=System) = WAS
+
+                                         (Servlet: *.html, *.jsp, *.php)
+        client ---- request(요청)------ > Web Server + Web Container  <-(MyBatis)->  DB
+        * request :
+        - http://x.x.x.x:8090/project명/index.html 
+        - (url예시, 일반적으로 도메인네임 사용)
+        - (index라는 이름으로 자동적으로 접속이 됨) 
+        
+        * web server
+        - server(WAS)가 동작했을 때 자동 초기화되고 세팅되는 데이터 : web xml
+        - link (<a>태그 등으로 설정)로 만들 수 잇음
+        
+        * get /post방식
+        - get : 넘어가는 데이터가 링크에 보이도록 하는 방식, 가벼움(255바이트까지만 가능)
+        - post : 넘어가는 데이터가 보안이 적용되어 감추어지는 방식
+
+        
+        client < --------response(응답)---------- web server + container 
+
+        
+    -->
+
+<!-- 여기는 클라이언트 코드 -->
+
+    <h1>Servlet Basic</h1>
+
+    <form method="GET" action="location">   <!-- method의 default는 GET, link를 만들어서 서버쪽으로 데이터를 가지고 가야함 -->
+            <input type="submit" value="get 방식">
+    </form>
+    
+
+    <form method="POST" action="location">   <!-- method의 default는 GET, link를 만들어서 서버쪽으로 데이터를 가지고 가야함 -->
+            <input type="submit" value="post 방식">
+    </form>
+
+
+    
+</body>
+</html>

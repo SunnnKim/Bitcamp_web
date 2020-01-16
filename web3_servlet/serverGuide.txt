@@ -1,0 +1,122 @@
+Servlet : Sever + Applet
+
+Client : web ( <- html, js, css, jquery ), view와 관련된 언어
+
+client <------------ 통 신 ------------->  server (Tomcat)
+
+server 
+- WAS : Web Application Syetem, 웹 서버 안에 들어가있음
+- server : server + container
+- container는 session과 folder를 가지고 있음(파일 저장용)
+- 순서 :
+- client에서 request(요청)이 들어옴
+- 요청이 들어오면 서버에서 container에 들어있는 html코드를 찾는다
+- 찾은 코드를 다시 client에게 보내줌 (response)
+- server안에 servlet, jsp 내장되어있음
+- servlet 은 client의 요청을 해석하는 역할 
+- sever는 2가지 방식으로 나뉘어져 있음 (접근영역이 달라짐)
+   * GET / POST
+- client에서 server로 요청은 url로 하게됨
+- 현재 프로젝트를 확인하는 방식 : localhost / IPv4(+portnum) + project명  
+- web.xml?
+
+- 서버로 연결하는 방법
+1. 서블릿으로 설정할 자바 파일을 Java Resources 폴더에 클래스를 추가한다
+2. 서블릿 클래스는 HttpServlet 클래스를 상속하고, 
+   doGet, doPost 메소드를 오버라이딩한다.
+3. html 코드와 자바의 서블릿 코드를 연결하기 위해서는 반드시 web.xml 설정파일이 필요하다
+4. web.xml파일은 wenContent의 WEB-INF폴더에 반드시 같은 이름(=web.xml)으로 만들고
+5. Apache.Tomcat 파일의 conf폴더에 있는 web.xml에서 소스를 가져다 쓰면된다
+6. 아래와 같은 코드를 새로 만든 xml파일에 넣는다. 
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1">
+</web-app>
+
+7. 이동을 위해서는 서블릿 등록을 해두어야함
+
+<servlet>
+	<servlet-name>helloSerlvet</servlet-name>
+   ==> 서블릿 이름
+	<servlet-class>sample01.serv.HelloServlet</servlet-class>
+   ==> 서블릿 클래스가 들어있는 경로
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>helloSerlvet</servlet-name>
+   ==>서블릿 이름 (위와 같아야함, 중복되면 안됨)
+	<url-pattern>/loction</url-pattern>
+   ==> /loction : servlet 클래스로 설정한 곳으로 이동하도록 등록하기 
+                  /이름은 사용자지정, form에서 링크로 설정할때만 맞춰주면 됨
+                  중복되면 안됨!
+
+</servlet>
+
+
+- HttpServletRequest : sp에서 request.getParameter( "name" )와 비슷
+  서블릿은 HttpServletRequest 사용
+- HttpServletResponse : 응답을 보내기 위한 객체
+- 에러코드를 발견하기 용이
+- java안에 html 코드를 작성하기 때문에 복잡하고 한계가있음 
+response : 
+
+Servlet : java코드로 구성됨, java코드안에 html코드로 구성됨
+		 	JSP : html코드 안에 java코드로 구성됨
+		 	
+		 	JSP : MVC model 1, model 2가 있음
+		 	- servlet:model 2 에서만 사용함
+		 	
+		 	< MVC >
+		 	model1 : 
+		 	model2 : Servlet을 controller로 사용
+		 	
+ * get /post방식
+        - get : 넘어가는 데이터가 링크에 보이도록 하는 방식, 
+                가벼움(255바이트까지만 가능)
+        - post : 넘어가는 데이터가 보안이 적용되어 감추어지는 방식 
+                (로그인 등에 사용)
+- get / post는 client에게 더 중요하고, 
+  서버에서는 똑같이 코드를 만들어 보내면 되기 때문에 
+  html코드를 만드는 메소드를 만들어 사용하도록 한다.
+
+
+- 자바 프로젝트 우클릭 -> javaEE tool -> Generate Development Descriptor Stub
+  누르면 자동으로 web.html 생성됨 (안의 내용은 추가해야함)
+
+
+* InitParameter ()
+// xml파일에 상수값 설정해두기 (세율 등 계산시 용이)
+xml파일 내부에 
+<init-param>
+  			<param-name>tax</param-name>
+  			<param-value>0.15</param-value>
+</init-param>
+이런 식으로 상수값의 이름과 값을 설정해둘 수 있다
+
+* 접근 방법
+- 자바 서블릿 파일에서 get/post 함수에 this.getInitParameter로 접근가능
+ex> String tax = this.getInitParameter("<param-name>");
+
+-
+
+
+* 전체적인 순서
+html(name을 통해 전송한 데이터를 구분하도록 함)
+-> servlet 
+   - getParameter / getParameterValues 로 데이터(배열)을 받는다
+   - 
+-> servlet에서 servlet이동할 때
+   - forward + setAtttribute("이름", 데이터패키지 );
+   - 다른 서블릿 클래스에서는 getAttribute("이름"); 을 통해 던진 데이터를 받는다
+-> servlet에서 html 이동
+   - sendRedirect() : 짐 없이 단순 페이지 이동시 주로 사용
+
+html : <a href>, <form action=""> (submit)
+js : location.href, submit()
+Java
+   Response (resp) 소속 : sendRedirect
+   Request (req) 소속 : getRequestDispatcher.forward,
+               setAttribute / getAttribute
