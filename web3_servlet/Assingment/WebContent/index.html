@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+.label{
+	text-align: right;
+}
+td{
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+<!-- 제일 처음 화면 -->
+
+<h1>Assignment</h1>
+
+<form method="POST" id="frm">
+<table>
+	<col width="120">
+	<col width="120">
+	<col width="120">
+<tr>
+	<td class="label">N A M E : </td>
+	<td>
+		<input type="text" id="_name" name="name">
+	</td>
+</tr>
+<tr>
+	<td class="label">A G E : </td class="label">
+	<td>
+		<select name="age" id="_age">
+			<option value="10대" selected="selected">10대</option>
+			<option value="20대" >20대</option>
+			<option value="30대" >30대</option>
+			<option value="40대" >40대</option>
+			<option value="50대" >50대</option>
+		</select>
+	</td> 	
+</tr>
+<tr>
+	<td class="label">G E N D E R :</td>
+	<td>
+		<input type="radio" id="_gender" name="gender" value="man" checked="checked"> 남성
+		<input type="radio" id="_gender" name="gender" value="woman"> 여성
+	</td>
+	
+</tr>
+<tr>
+	<td class="label">H O B B Y :</td>
+	<td>
+		<input type="checkbox" id="_hobby" name="hobby" value="운동">운동
+		<input type="checkbox" id="_hobby" name="hobby" value="독서">독서<br>
+		<input type="checkbox" id="_hobby" name="hobby" value="요리">요리
+		<input type="checkbox" id="_hobby" name="hobby" value="음악듣기">음악듣기<br>
+		<input type="checkbox" id="_hobby" name="hobby" value="쇼핑">쇼핑
+		<input type="checkbox" id="_hobby" name="hobby" value="영화감상">영화감상<br>
+
+	</td>
+</tr>
+<tr>
+	<td></td>
+	<td>
+		<button type="button" id="btn">S U B M I T</button>
+	</td>
+</tr>
+
+</table>
+</form>
+
+
+<script>
+
+// 서블릿으로 전송하기
+$(document).on("click","#btn",function () {
+	
+	if( $("#_name").val() == "") {
+		alert('이름을 입력하시오');
+		$("#name").focus();
+		return;
+	}
+
+	// 데이터 들고 이동하기
+	$("#frm").attr("action", "hello").submit();
+
+
+
+});
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+(index.html)
+
+	** info **
+	name - text
+	age - select
+	gender - radio
+	hobby - checkBox
+	
+	submit -> HelloServlet
+
+(helloServlet) 
+	* setAttribute로 집어넣기
+	
+	-- 남성용 사이트로 이동
+	Dto <- 데이터 넣기 ( name, age, hobby만) ->session에 담아서 이동
+	resp.sendRedirect 사용
+	
+	-- 여성용 사이트로 이동
+	Dto <- 데이터 넣기 ( name, age, hobby만)
+	req.setAttribute 사용 
+	forward
+	
+	
+(ManServlet / WomanServlet)
+	- 받은 정보 출력하기
+
+	

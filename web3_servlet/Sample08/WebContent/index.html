@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+ <!-- 
+     
+web(client)  <==== 통신 ====> Java( server )
+-링크로 요청보내기
+1. html : 
+    1) anchor 태그    
+     <a href = "hello?name='홍길동'...">,   ====> request.getParameter("name") (String 으로 받음) 
+
+    2) form 태그
+    <form action="hello" method="GET">  // 보낼 링크(또는 서블릿 이름)과 메소드 방식(get/post) 지정
+        <input type="text" name="name"> // 데이터 입력받아서 name을 지정해 줌
+        <input type="submit" value="전송버튼">  // 데이터 보내는 버튼
+    
+2. Java Script
+    <script>
+        var name = document.getElementById("name").value;
+        location.href = "hello?name=" + name;
+3. JQuery
+    <script>
+    var name =  $("#name").val();
+    location.href = "hello?name=" + name;
+        또는 form으로 해뒀을 때
+    $("#form").attr("acton", "보낼 링크 씀 "); // setter
+    var action = $("#form").attr("action");  // getter
+    
+    $("#form").submit();    
+    // 링크 주소에 데이터를 써서 보내는 것보다 submit() 등으로
+    // 데이터를 통째로 보내는 것이 더 편리하고 오류가 날 가능성이 적다 
+
+
+* 웹 -> 자바 (DB) -> 웹 방식
+* Web <====> Java (server)  <====> Web(Client)
+  JS        - Controller
+            - Service
+            - Dao 
+            
+            - DB
+
+    * 웹에서 바로 DB로 접근하는 방식
+        web <-> JS(Server, DB)
+          (Node.js방식, 개발 속도가 빠름)
+    
+
+1. sendRedirect : 짐 (데이터) 없이 단순 이동일 때 주로 사용
+    
+    response.sendRedirect("helloServlet");
+    // helloServlet 파일은 web.xml 파일에 등록이 되어야 함
+    
+    response.sendRedirect("index.html");  ====> html파일로 이동
+
+    response.sendRedirect("index.jsp");  ====> jsp파일로 이동
+
+    response.sendRedirect("index.jsp?name='이름'"); 
+    // 위와 같은 방법으로 jsp파일로 다양한 데이터를 넘겨줄 수 있다.
+    // html 파일은 데이터를 받을 수 없으나, ajax 데이터는 받을 수 있다 
+    // 요즘 추세는 jsp 사용 안함, ajax로 함(Vue, React 등에서 사용)
+    // jsp에서는 
+    String name = request.getParameter("name");
+    // 이런식으로 받음 (받은 데이터는 모두 String 타입)
+
+
+    * 데이터를 보낼 때 : HttpRequest소속의 함수 setAttribute()
+    - request.setAttribute("지정문자열", Object);
+    * 데이터를 받을 때 :HttpRequest소속의 함수 getAttribute()
+    - Object obj = request.getAttribute("지정문자열");
+        // 캐스트 변환 필요
+    
+    setAttribute를 사용해서 다음 페이지로 데이터 패키지 보낼 때 : RequestDispatcher
+    - RequestDispatcher 소속의 forward 메소드를 통해 보낸다
+    - request.RequestDispatcher.forward("index.jsp"); // jsp파일로 보내기
+        // 또는 
+    - request.RequestDispatcher.forward("hello");   // 등록된 서블릿으로 보내기
+    
+
+
+-->
+
+<!-- 로그인 정보 전송하기 : JS + JQuery-->
+
+<form id="frm" method="POST">
+    <table>
+        <tr>
+            <td>이름: </td>
+            <td>
+                <input type="text" id="_name" name="name" size="20" placeholder="이름">
+            </td>
+        </tr>
+        <tr>
+            <td>나이: </td>
+            <td>
+                <input type="text" id="_age" name="age" size="5" placeholder="나이">
+            </td>
+        </tr>
+    </table>
+<button type="button" id="btn">전송</button>
+</form>
+
+<script>
+
+$(function () {
+
+
+   $("#btn").click(function () {
+    //   alert("check"); // 확인
+    // name 빈칸인지 확인
+    if($("#_name").val().trim() == ""){  
+        alert("이름을 입력해주십시오");
+        $("#_name").focus(); // #name으로 포커스 맞춰줌
+    }
+    // age 빈칸인지 확인
+    else if( $("#_age").val().trim() == ""){
+        alert("나이를 입력해주십시오");
+        $("#_age").focus(); // #name으로 포커스 맞춰줌
+    }else{
+        $("#frm").attr({"action":"hello", "target":"_blank"}).submit(); 
+        // form에 보내줄 servlet주소 쓰기
+    }
+
+   });
+
+});
+
+
+
+</script>
+
+
+<!--  
+	sample08 이동순서 :  
+	index.html -> Java(HelloServlet) -> Java (SampleServlet) -> 	detail.jsp 
+			  name					Object					 ->		detail.html (ajax 필요)		
+															Object
+ -->
+
+
+    
+</body>
+</html>
