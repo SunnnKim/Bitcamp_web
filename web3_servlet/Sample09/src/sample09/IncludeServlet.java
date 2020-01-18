@@ -31,7 +31,9 @@ public class IncludeServlet extends HttpServlet {
 		pw.println("</body>");
 		pw.println("</head>");
 		pw.println("</html>");
-//		pw.close();	// include할때는 close하면 안됨, 불어오는 부분의 뒷부분이 적용이 안되기 때문에  
+//		pw.close();	
+		// include할때는 close하면 안됨, 
+		//불어오는 부분의 뒷부분이 적용이 안되기 때문에  
 		
 		
 	}

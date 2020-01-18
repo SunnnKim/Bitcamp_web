@@ -40,18 +40,20 @@ public class VistiedCookie extends HttpServlet {
 					break;
 				}
 			}
-			
+			// visited 라는 이름의 쿠키가 있음
 			if(visitCookie != null) {
 				int count = Integer.parseInt( visitCookie.getValue()) +1 ;
 				pw.println("<p>"+count+"번째 방문입니다</p>");
 				
 				// 쿠키값을 갱신해서 넣는다
 				visitCookie.setValue(count+"");
-				visitCookie.setMaxAge(60);	// 기한 설정(초단위): 365 * 24 * 60 * 60 = 1년
+				visitCookie.setMaxAge(60);	
+				// 기한 설정(초단위): 365 * 24 * 60 * 60 = 1년
 				resp.addCookie(visitCookie);
 			}
+			
+			// visited 라는 이름의 쿠키가 없음
 			else {
-				// 쿠키가 하나도 없음
 				// 방문쿠키 생성하기 
 				pw.println("<p>첫 번째 방문입니다</p>");
 				Cookie newcookie = new Cookie("visited","1");

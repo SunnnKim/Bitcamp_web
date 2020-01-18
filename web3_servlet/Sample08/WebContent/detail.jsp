@@ -5,7 +5,7 @@
     // scriptlet : 자바영역
     Member mem = (Member)request.getAttribute("member");
 
-	System.out.println(mem.toString());
+	out.println(mem.toString());
 	
 %>
 

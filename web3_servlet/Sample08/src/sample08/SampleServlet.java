@@ -38,7 +38,8 @@ public class SampleServlet extends HttpServlet {
 		System.out.println("SampleServlet doPost");
 
 		
-		// 2번 : RequestDispatcher 는 post면 post, get이면 get으로 감 (데이터 보내준 서블릿의 메소드 방식을 따름)
+		// 2번 : RequestDispatcher 는 post면 post, get이면 get으로 감 
+		// (데이터 보내준 서블릿의 메소드 방식을 따름)
 		Object obj = req.getAttribute("dto");
 		Member mem = (Member)obj;
 		
