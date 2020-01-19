@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/a9726fbbf3.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
+    body{
+        background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    }
     .container{
         width: 50%;
         height: 300px;
@@ -18,15 +21,19 @@
     .loginText{
         
     }
-    .id{
-        background-image: url('idimage.svg');
+    .id, .pw{
         background-repeat: no-repeat;
         background-position: 10px;
         background-size: 15px;
         width: 200px;
         height: 30px;
         margin: 10px;
-    
+    }
+    .id{
+        background-image: url('idimage.svg');
+    }
+    .pw{
+        background-image: url('pwimg.svg');
     }
     </style>
 </head>
@@ -37,14 +44,10 @@
         <div>
         <input type="text" class="id" onfocus="this.style.backgroundImage='url(none)';" onblur="this.style.backgroundImage='url(idimage.svg)';">
         <br>
-        <input type="text" class="id" onfocus="this.style.backgroundImage='url(none)';" onblur="this.style.backgroundImage='url(idimage.svg)';">
+        <input type="text" class="pw" onfocus="this.style.backgroundImage='url(none)';" onblur="this.style.backgroundImage='url(pwimg.svg)';">
         </div>
     </div> 
 
-    <h1>
-    오늘 할일 (토) 
-    - 로그인 화면 만들기
-    - 우중이 예제 복습해보기
-    </h1>
+ 
 </body>
 </html>
