@@ -7,27 +7,34 @@
     <title>Document</title>
     <script src="https://kit.fontawesome.com/a9726fbbf3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <style>
     body{
-        background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+        background: #00b09b;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #96c93d, #00b09b);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #96c93d, #00b09b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
+
     .container{
-        width: 50%;
-        height: 300px;
+        width: 30% ;
+        height: 350px;
         background-color: rgba(255, 255, 255, 0.3);
-        
-        
+        border-radius: 10px;
     }
-    .loginText{
-        
+    .title{
+        color: white;
+        margin-top: 200px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     .id, .pw{
         background-repeat: no-repeat;
         background-position: 10px;
         background-size: 15px;
-        width: 200px;
-        height: 30px;
-        margin: 10px;
+        width: 250px;
+        height: 50px;
+        border-color:none;
     }
     .id{
         background-image: url('idimage.svg');
@@ -35,19 +42,54 @@
     .pw{
         background-image: url('pwimg.svg');
     }
+    .center{
+        text-align: center;
+        margin: 10px;
+        
+        margin-bottom: 20px;
+    }
+    .btn{
+        background-color: white;
+        width: 150px;
+        margin: 10px;
+        
+    }
     </style>
 </head>
 <body bgcolor="grey">
     
-    <div class="container">
-        <hi class="loginText">Welcome </hi>
-        <div>
+<div class="container">
+    <div class="title">
+        <h1 class="center">log in</h1>
+    </div>
+    <div class="center content">
         <input type="text" class="id" onfocus="this.style.backgroundImage='url(none)';" onblur="this.style.backgroundImage='url(idimage.svg)';">
         <br>
         <input type="text" class="pw" onfocus="this.style.backgroundImage='url(none)';" onblur="this.style.backgroundImage='url(pwimg.svg)';">
-        </div>
-    </div> 
+    </div>
+    <div class="center">
+        <input type="button" value="join" class="join btn">
+        <input type="button" value="login" class="login btn">
+    </div>
+</div> 
 
+<script>
+ $(".btn").mouseenter( function () {
+    $(this).css({ 
+        "backgroundColor": "linear-gradient(to right, #00F260, #0575E6)",
+        "background": "-webkit-linear-gradient(to right,#00F260, #0575E6)" ,
+        "background": "linear-gradient(to right,#00F260, #0575E6)"
+        });
+
+ });
+ $(".btn").mouseleave( function () {
+    $(this).css({
+        "backgroundColor": "white",
+        "background":"white"
+    });
+ });
+
+</script>
  
 </body>
 </html>
