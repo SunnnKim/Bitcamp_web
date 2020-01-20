@@ -9,6 +9,9 @@
 <body>
 
 <%
+
+
+
 // 내장객체 : 동적 할당하지 않고 바로 사용할수 있는 Object
 // request : 가장 많이 사용, getParameter, setAttribute, getAttribute 등 접근 가능
 // response : sendRedirect, 
