@@ -31,7 +31,7 @@ String address = "서울시";
 
 javaScript 이용해서 데이터 넘기기 <br>
 
-<form action="NewFile.jsp" method="post"><br>
+<form action="NewFile.jsp" method="get"><br>
 	<input type="text" id="name" value="홍길동"><br>
 	<input type="text" id="email" value="hgd@naver.com"><br><br>
 	<button type="button" onclick="sendData()">전송</button><br>
