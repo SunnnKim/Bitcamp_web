@@ -18,6 +18,7 @@ public class CustUserDao {
 		// JDBC
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("Driver Loading Success!");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -343,11 +344,15 @@ public class CustUserDao {
 	// TODO: JDBC 메소드
 	// JDBC연결하는 메소드
 	public Connection getConnection() throws SQLException {
-		String url = "jdbc:oracle:thin:@192.168.2.31:1521:xe";	// DB Development에 등록된 주소
+//		String url = "jdbc:oracle:thin:@:1521:xe";	// DB Development에 등록된 주소
+		
+		String url = "jdbc:oracle:thin:@192.168.0.2:1521:xe";	// DB Development에 등록된 주소
 		String user = "hr";
 		String password = "hr";
 		// JDBC
+		System.out.println("여기까지성");
 		Connection conn = DriverManager.getConnection(url,user, password); 
+		System.out.println("여기까지성");
 
 		return conn;
 	}
