@@ -110,41 +110,47 @@ data = ${ not empty data }	<!-- 있음(true) 없음(false) -->
 	
 %>
 
-<!-- 판정하기 -->
 <pre>
+* 판정하기 
 a: ${ a }
 b: ${ b }
 c: ${ c }
 
 a+b: ${ a+b }
 
-<!-- eq, == : 같을 때 -->
-eq: ${a eq b } <!-- : false -->
-eq: ${a == b } <!-- == 와 eq는 결과 동일 -->
+* eq, == : 같을 때 
+eq: ${a eq b } 
+ --> false 
+eq: ${a == b } 
+ == 와 eq는 결과 동일 
 
-<!-- ne, != : 같지 않을 때 -->
+* ne, != : 같지 않을 때 
 ne : ${a ne b }
 ne : ${a != b }
 
-<!-- gt > -->
+* gt : > 
 gt: ${ a gt b }
 gt: ${ a > b }
 
-<!-- lt < -->
+* lt : < 
 lt: ${ a lt b }
 gt: ${ a < b }
 
-<!-- le  -->
+* le : <=
 le: ${ a le b } <!-- <= -->
+* ge : >=
 ge: ${ a ge b } <!-- >= -->
 
-div: ${ a div b } <!-- 나누기 -->
+
+* 나누기  div
+div: ${ a div b }
+* 나머지 mod
 mod: ${ a mod b } <!-- 나머지 -->
 
-<!-- ! :  -->
+* ! : not
 c: ${ !c }
 
-<!-- true, true -->
+* &&, || (boolean반환)
 ${ a==10 && !c }
 
 
@@ -159,7 +165,7 @@ ${ a==10 && !c }
 %>
 <%= mem.getMsg() %>
 <br>
-<!-- 위의 코드와 똑같은 결과임, MemberDto의 변수 msg의 getter가 자동호출되는 방식   -->
+<!-- 위의 코드와 똑같은 결과임, MemberDto의 변수 msg의 getter가 자동 호출되는 방식   -->
 ${ mem.msg }
 
 <!-- 배열 표현방법 -->
@@ -168,6 +174,7 @@ ${ mem.msg }
 String array[] = { "hello", "world" };
 
 request.setAttribute("array", array);
+
 
 %>
 
