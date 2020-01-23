@@ -55,9 +55,8 @@ public class CustUser extends HttpServlet{
 		
 		
 		obj.put("map", map);
-		resp.setContentType("application/x-json; charset=UTF-8");
+		resp.setContentType("application/x-json; charset=UTF-8");	// 안쓰면 한글이 안됨
 		resp.getWriter().print(obj);
-		
 		
 	}
 
