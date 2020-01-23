@@ -1,0 +1,9 @@
+
+Model2 
+Client < ---- > controller(Servlet) < ---- > model < ---- > DB (back-end)
+									< ---- > view (front-end)
+
+- spring과 같은 구조  
+
+- 모든 view는 controller(servlet)을 무조건 지난다
+		
