@@ -4,54 +4,283 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/e11681bffc.js" crossorigin="anonymous"></script>
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="indexCss.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
     <style>
-    .logo{
-        padding: 10px;
-        padding-right: 30px;
-        border-right: 1px solid lightgray;
+    .font{ font-family: 'Nanum Gothic', sans-serif;}
+    main{
+        background-color: #f2f2f2;
+        padding-top: 40px;
+        padding-bottom: 60px;
     }
-    a:link{
-        text-decoration: none;
+    .main-content{
+        margin-left: 15%;
+        margin-right: 15%;
+        background-color: white;
+        width: 70%;
+        height: 450px;
+        margin-bottom: 30px;
+        /* padding: 20px; */
+        padding-top: 40px;
+        padding-bottom: 0px;
+        /* padding-right: 20px; */
+        /* border: 1px solid red; */
+        box-shadow: 1px 5px 1px 1px lightgray;
     }
-    .search{
-        background-image: url("img/searcing.svg"); 
-        background-size: 30px;
-        background-repeat:no-repeat;
-        width: 350px;
-        height: 30px;
-        border: 0;
-        border-bottom: 1px solid;
-        font-size: 20px;
-        padding-left: 50px;
-        padding-bottom: 15px;
+    .content-title{
         margin-left: 30px;
+        font-size: 25px; font-weight: 800; font-family: 'Nanum Gothic', sans-serif;
+        margin-bottom: 20px;
+        /* border: 1px solid green; */
+        
     }
-    header {
-       /* background-color: aquamarine;  */
+    .content-box{
+        margin-left: 30px;
+        /* border: 1px solid blue; */
+        display:flex;
+        margin-bottom: 10px;
+    }
+    .main-cbox{
+        /* border: 2px solid red; */
+        margin-right: 15px;
+    }
+    .main-cbox img{
+        padding-bottom: 20px;
+
+    }
+    .content-name{
+        font-size: 19px; font-weight: 900;
+        margin-bottom: 10px;
+    }
+    .content-loc{
+        margin-top: 10px;
+        font-size: 15px;
+        color: dimgray;
+    }
+    .content-food{
+        color: dimgray;
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+    .fa-heart{
+        font-size: 18px;
+    }
+    .content-button{
+        text-align: center;
+        border: 1px solid;
+        line-height: 35px;
+        height: 35px;
+        border-radius: 4px;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+    .content-button a:visited, a:link{
+        color: black;
+    }
+    .content-footer{
+        background-color: #ededed;
+        height: 70px;
+        padding-bottom: 8px;
+        border-top: 1px solid lightgray;
+        text-align: right;
+        line-height: 70px;
+    }
+    .circle{
+        background-color: dimgray; color: white; border-radius: 100% ;
+        /* padding-left:5px;
+        padding-right:5px; */
+        padding: 3px 6px 3px 6px;
+        font-size: 12px;
+        margin-left: 10px;
+        margin-right: 30px;
+    }
+    .content-linktext{
+        color: black;
     }
     </style>
 </head>
 <body>
 <header>
-<div> 
-    <a href="http://www.naver.com">
-        <img class="logo" alt="" src="/img/Logo-Text-Style-Mint.png" width="12%">
+<div class="header-content-1">
+    <a href="#" class="content logo">
+        <img alt="" src="./img/Logo-Text-Style-Mint.png" width="200px">
     </a>
 </div>
-<div>
-    <input type="text" class="search" placeholder="음식명으로 주변 맛집을 찾아보세요">
+<div class="header-content-2">
+    <input type="text" class="content search" size="40" placeholder="음식명으로 주변 맛집을 찾아보세요">
+</div>
+<div class="header-content-3">
+    <a href="#" class="content login">로그인</a>
+    <a href="#" class="content login">회원가입</a>
+</div>
+</header>
+
+<nav>
+    <div class="nav-menu">
+    <ul>
+        <li><a href="#">다이닝코드소개</a></li>
+        <li><a href="#">매거진</a></li>
+        <li><a href="#">다코뉴스</a></li>
+        <li><a href="#">FAQ</a></li>
+    </ul>
+    </div>
+    <div class="nav-loc">
+        <div class="nav-content">현위치 : 서울시 영등포구 신길동</div>
+        <img alt="" width="65px"
+        src="https://s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/common/btn-main-location-update@2x.png">
+    </div>
+</nav>
+<main>
+<div class="main-content">
+    <div class="content-title">내주변 점심식사 추천</div>
+    <div class="content-box">
+        <div class="main-cbox">
+            <img alt="" src="./img/food1.jpg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">후라이드참맛있는집</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">서울시 신길동 1.1km</div>
+            <div class="content-food">치킨</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        <div class="main-cbox">
+            <img alt="" src="./img/food2.jpg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">ShakeShack</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">서울시 강남구 3.5km</div>
+            <div class="content-food">패스트푸드</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        <div class="main-cbox">
+            <img alt="" src="./img/food3.jpg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">스테이크하우스</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">서울시 영등포구 0.1km</div>
+            <div class="content-food">양식</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        <div class="main-cbox">
+            <img alt="" src="./img/food4.jpg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">오츠커피</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">서울시 중구 7.8km</div>
+            <div class="content-food">커피</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        
+
+
+    </div>
+    <div class="content-footer">
+        <span class="font content-linktext" style="font-size:13px"> <b>'밥집'</b> 더보기</span><a href="#"><span class="circle">></span></a>
+    </div>
 </div>
 
-    
-</header>
-<main>
+<!-- 2번 -->
+<div class="main-content">
+    <div class="content-title">내주변 카페 추천</div>
+    <div class="content-box">
+        <div class="main-cbox">
+            <img alt="" src="./img/cafe1.jpeg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">Incheon Coffee</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">인천광역시 8.1km</div>
+            <div class="content-food">카페</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        <div class="main-cbox">
+            <img alt="" src="./img/cafe2.jpeg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">스타벅스</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">서울시 영등포구 여의도동 2.5km</div>
+            <div class="content-food">카페</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        
+        
 
+
+    </div>
+    <div class="content-footer">
+        <span class="font content-linktext" style="font-size:13px"> <b>'밥집'</b> 더보기</span><a href="#"><span class="circle">></span></a>
+    </div>
+</div>
+<!-- 3번 -->
+<div class="main-content">
+    <div class="content-title">내주변 맛집 추천</div>
+    <div class="content-box">
+        <div class="main-cbox">
+            <img alt="" src="./img/food1.jpg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">후라이드참맛있는집</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">서울시 신길동 1.1km</div>
+            <div class="content-food">치킨</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        <div class="main-cbox">
+            <img alt="" src="./img/food2.jpg" width="220px" height="150px">
+            <div>
+                <span class="font content-name">ShakeShack</span>
+                <i class="far fa-heart" style="float: right;"></i>
+            </div>
+            <div class="content-loc">서울시 강남구 3.5km</div>
+            <div class="content-food">패스트푸드</div>
+           <div class="content-button"> <a href="#">평가하기</a></div>
+        </div>
+        
+        
+
+
+    </div>
+    <div class="content-footer">
+        <span class="font content-linktext" style="font-size:13px"> <b>'밥집'</b> 더보기</span><a href="#"><span class="circle">></span></a>
+    </div>
+</div>
 
 </main>    
 <footer>
+<div class="footer-content">
 
+<span style="display: block; margin-bottom: 10px;">
+    <h4 class="footer-title"style="display: inline;">다이닝코드</h4>
+    <a href="#" class="rigth-line">개인정보취급방침</a>
+    <a href="#">이용약관</a>
+    <span style="float: right;">
+        <a href="https://www.instagram.com/diningcode/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/diningcode"><i class="fab fa-facebook-square"></i></a>
+        <a href="#" class="rigth-line"><i class="fab fa-twitter"></i></a>
+        <a href="#" class=><i class="fab fa-apple"></i></a>
+        <a href="#" class=><i class="fab fa-google-play"></i></i></a>
+    </span>
+</span>
+<div class="footer-info">상호: (주)다이닝코드 사업장소재지: 서울특별시 강남구 테헤란로507 8층 113호</div>
+<div class="footer-info">e-mail: contact@diningcode.com, Tel: 02-457-1304</div>
+<span class="footer-info">대표이사: 신효섭 개인정보책임자: 문치웅</span>
+<span class="footer-info" style="float: right;font-size: 12px;">ⓒ2014 - 2020 Diningcode</span>
+</div>
 
 </footer>
+
+
+
+<script>
+
+</script>
 </body>
 </html>

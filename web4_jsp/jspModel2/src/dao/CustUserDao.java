@@ -336,7 +336,7 @@ public class CustUserDao {
 	// TODO: JDBC 메소드
 	// JDBC연결하는 메소드
 	public Connection getConnection() throws SQLException {
-		String url = "jdbc:oracle:thin:@192.168.2.31:1521:xe";	// DB Development에 등록된 주소
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";	// DB Development에 등록된 주소
 		String user = "hr";
 		String password = "hr";
 		// JDBC
