@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>New Customer Infomation</title>
+    <style>
+   
+    td{
+        padding: 10px;
+    }
+    th{
+        text-align: right;
+    }
+    .content{
+        text-align: left;
+        padding-left: 20px;
+    }
+    
+    </style>
+</head>
+<body>
+    <h1 align="center">Add Customer</h1>
+    <div align="center">
+    <form action="custuseradd" method="get">
+    <input type="hidden" name="command" value="addAf"> 
+    <table>
+        <col width="100">
+        <col width="300">
+        <tr>
+            <td colspan="2" height="1" bgcolor="#00000"></td>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <td class="content">
+                <input type="text" size="30" name="id"> 
+            </td>
+        </tr>
+        <tr>
+            <th>NAME</th>
+            <td class="content">
+                <input type="text" size="30" name="name"> 
+            </td>
+        </tr>
+        <tr>
+            <th>ADDRESS</th>
+            <td class="content">
+                <input type="text" size="30" name = "address"> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" height="1" bgcolor="#00000"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="추가">
+                <input type="reset" value="모두 지우기">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" onclick="back()" value="뒤로가기">
+            </td>
+        </tr>
+    
+    </table>
+    </form>
+    </div>
+    <script type="text/javascript">
+    function back() {
+        location.href="custuserlist.html";
+    }
+    
+    </script>
+    
+    
+    
+</body>
+</html>

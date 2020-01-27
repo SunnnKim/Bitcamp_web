@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>customer user list</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 align="center">Customer List</h1>
+<div align="center">
+<form action="custuserdel" method="get" id="frm">
+<table style="width: 700" id="tb">
+<col width="100">
+<col width="300">
+<col width="300">
+	<tr>
+		<td height="2" bgcolor="#000000" colspan="3"></td>
+	</tr>
+	<tr>
+		<th bgcolor="#ffff00">
+			<input type="checkbox" name="alldel" onclick="deleteChecks(this.checked)">
+		</th>
+		<th>ID</th>
+		<th>NAME</th>
+	</tr>
+	<tbody id="tbody">
+	
+	</tbody>
+	
+
+<tr>
+	<td height="2" bgcolor="#000000" colspan="3"></td>
+</tr>
+<tr>
+	<!-- 다중삭제 버튼 -->
+	<td align="center" height="1" bgcolor="#c0c0c0" colspan="3">
+		<input type="hidden" name="command" value="multi">
+		<input type="button" id="delAllBtn" value="고객정보 삭제">
+	</td>
+</tr>
+<tr>
+	<td height="2" bgcolor="#000000" colspan="3"></td>
+</tr>
+	<!-- 회원추가 버튼 -->
+<tr bgcolor="#f6f6f6">
+	<td colspan="3">
+		<a href="custuseradd?command=add">고객정보추가</a>
+	</td>
+</tr>
+</table>
+</form>
+
+
+
+
+</div>
+<!-- 검색기능 -->
+<div align="center">
+<form action="custusersearchlist.html" id="searchfrm">
+<select id="option" name="option">
+	<option value="1" selected="selected">Id</option>
+	<option value="2">Name</option>
+	<option value="3">Address</option>
+</select>
+<input type="text" size="30px" name="search">
+<input type="button" id="searchBtn" value="검색">
+</form>
+
+</div>
+<script type="text/javascript">
+$("#searchBtn").click(function() {
+	
+	var choice = $("#option").val();
+	var search = $("input[name='search']").val();
+	if(search == ""){
+		alert("검색어를 입력하세요!");
+		return;
+	}else{
+		$("#searchfrm").submit();	
+	}
+		
+	});
+
+
+</script>
+
+
+
+<script type="text/javascript">
+// 메인 체크박스 클릭시 모두 클릭되도록 하기
+
+function deleteChecks( ch ) {
+	
+	var arrCheck = document.getElementsByName("delck");
+	for (var i = 0; i < arrCheck.length; i++) {
+		arrCheck[i].checked = ch;
+	}
+	
+}
+$("#delAllBtn").click(function() {
+	if( $("input:checkbox[name='delck']").is(":checked")){
+		msg ="선택한 항목을 삭제하시겠습니까?";
+		if(confirm(msg)){
+			$("#frm").submit();
+		}
+	}else{
+		alert('삭제할 이름을 체크하세요!');
+	}
+});
+
+</script>
+
+<!-- 
+<script>
+// javaScript
+	$.ajax( { 
+			// 송신용
+			url: "custuserlist",	// 가야할 공의 링크주소
+			type: "get",		// get/post
+			datatype:"json",
+			// 수신용
+			success: function( data ) {
+				if(data.length == 0){
+					document.getElementById("lineup").innerHTML 
+						= "<td height='2' bgcolor='#000000' colspan='3'></td>";
+					document.getElementById("listRow").innerHTML 
+						= "<td colspan='3' align='center' height='100'>고객 리스트가 존재하지 않습니다.</td>";
+					document.getElementById("linedown").innerHTML 
+						= "<td height='2' bgcolor='#000000' colspan='3'></td>";
+				}else{
+					for (var i = 0; i < data.length; i++) {
+						var str1 = 
+							"<td bgcolor='yellow' align='center'>" + 
+								"<input type='checkbox' name='delck' value='"+data[i].id+"'> </td>"
+							+ "<td align='center'>"+ data[i].id+"</td>"
+							+ "<td align='center'>"+ data[i].name+"</td>";
+							
+						document.getElementById("lineup").innerHTML 
+							= "<td height='2' bgcolor='#000000' colspan='3'></td>";
+						document.getElementById("listRow").innerHTML 
+							= str1;
+						document.getElementById("linedown").innerHTML 
+							= "<td height='2' bgcolor='#000000' colspan='3'></td>";
+					}
+				}
+			},
+			error: function (xhr, staus, error) {
+				alert("실패");
+				 
+			}
+		});		
+		
+    </script> 
+  -->
+
+<script>
+// JQuery
+	$.ajax( { 
+		
+		url:"custuserlist",	// to Servlet
+		datatype:"json",	// get Gson data
+		type:"get",			// method ="GET"
+		success: function ( data) {
+			if(data.length==0){
+				
+				$("#tbody").append("<tr><td height='2' bgcolor='#000000' colspan='3'></td></tr>");
+				$("#tbody").append("<tr bgcolor=''#f6f6f6'>"+
+					"<td colspan='3' align='center' height='100'>고객 리스트가 존재하지 않습니다.</td></tr>");		
+			}else{
+				for (var i = 0; i < data.length; i++) {
+				$("#tbody").append("<tr><td height='2' bgcolor='#000000' colspan='3'></tr>"
+				+ "<tr><th><input type='checkbox' name='delck' value='"+data[i].id+"'></th>"
+				+ "<td align='center'>"+ data[i].id+"</td>"
+				+ "<td align='center'><a href= 'custuserdetail.jsp?id="+data[i].id+"' >"+ data[i].name+"</a></td></tr>");
+					
+				}
+				
+			}
+		},
+		error: function ( data ) {
+			
+		}
+		
+		
+		
+	});		
+		
+    </script> 
+
+
+</body>
+</html>
