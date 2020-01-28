@@ -32,4 +32,9 @@ ADD CONSTRAINT FK_BBS_ID FOREIGN KEY (ID)
 REFERENCES MEMBER(ID);
 
 
+select * from bbs
+
+INSERT INTO BBS
+VALUES ( SEQ_BBS.NEXTVAL, 'asd', 0, 0, 0, 'asd1', 'asd1', '2020-1-30', 0, 0  )
+
 

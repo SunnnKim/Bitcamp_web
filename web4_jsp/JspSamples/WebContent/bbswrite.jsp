@@ -40,19 +40,19 @@
 <tr>
 	<td>ID</td>
 	<td>
-		<input type="text" disabled="disabled" value="<%=dto.getId()%>">
+		<input type="text" size="30" disabled="disabled" value="<%=dto.getId()%>">
 		<input type="hidden" name="id"  value="<%=dto.getId()%>">
 	</td>
 </tr>
 <tr>
 	<td>Title</td>
 	<td>
-		<input type="text" name="title">
+		<input type="text"  size="30"  name="title">
 	</td>
 </tr>
 <tr>
 	<td colspan="2">
-		<textarea rows="10" cols="30" name="content" class='content'></textarea>
+		<textarea rows="10" cols="40" name="content" class='content'></textarea>
 	</td>
 </tr>
 <tr>

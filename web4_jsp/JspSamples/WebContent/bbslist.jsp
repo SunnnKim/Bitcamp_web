@@ -19,7 +19,22 @@
 <!-- 게시판 -->
 <h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid %>님,</h4>
 <h1>BBS List</h1>
+<form>
+<table>
+<tr>
+	<th>번호</th>
+	<th>제목</th>
+	<th>작성자</th>
+</tr>
+
+</table>
+</form>
+
+
 <a href="bbswrite.jsp">글쓰기</a>
+
+
+
 
 </body>
 </html>
