@@ -1,11 +1,10 @@
     body{ margin: 0;}
+    .font{ font-family: 'Nanum Gothic', sans-serif;}
     header{
         background-color: white;
         height: 100px;
     }
-    a{
-        text-decoration: none;
-    }
+    a{  text-decoration: none;}
     header div{ 
         float: left; 
         height: 100%;
@@ -86,7 +85,108 @@
         margin-right: 5px;
     }
    
-  
+  /* main content */
+
+  main{
+    background-color: #f2f2f2;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+.main-content{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: white;
+    width: 70%;
+    height: 450px;
+    margin-bottom: 30px;
+    /* padding: 20px; */
+    padding-top: 40px;
+    padding-bottom: 0px;
+    /* padding-right: 20px; */
+    /* border: 1px solid red; */
+    box-shadow: 1px 5px 1px 1px lightgray;
+}
+.content-title{
+    margin-left: 30px;
+    font-size: 25px; font-weight: 800; font-family: 'Nanum Gothic', sans-serif;
+    margin-bottom: 20px;
+    /* border: 1px solid green; */
+    
+}
+.content-box{
+    margin-left: 30px;
+    /* border: 1px solid blue; */
+    display:flex;
+    margin-bottom: 10px;
+}
+.main-cbox{
+    /* border: 2px solid red; */
+    margin-right: 15px;
+}
+.main-cbox img{
+    padding-bottom: 20px;
+
+}
+
+/* contents */
+.content-name{
+    font-size: 19px; font-weight: 900;
+    margin-bottom: 10px;
+}
+.content-loc{
+    margin-top: 10px;
+    font-size: 15px;
+    color: dimgray;
+}
+.content-food{
+    color: dimgray;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+.fa-heart{
+    font-size: 18px;
+    float: right;
+}
+.content-button{
+    text-align: center;
+    border: 1px solid;
+    line-height: 35px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+.content-button a:visited, a:link{
+    color: black;
+}
+
+/* content footer */
+.content-footer{
+    background-color: #ededed;
+    height: 70px;
+    padding-bottom: 8px;
+    border-top: 1px solid lightgray;
+    width: 100%;
+    text-align: right;
+    line-height: 70px;
+}
+.circle{
+    background-color: dimgray; color: white; border-radius: 100% ;
+    /* padding-left:5px;
+    padding-right:5px; */
+    padding: 3px 6px 3px 6px;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+.content-linktext{
+    color: black;
+}
+/* sub-content */
+
+
+
+/* footer */
     footer{
         background-color: white;
         height: 110px;
