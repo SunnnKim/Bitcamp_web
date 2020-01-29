@@ -7,10 +7,10 @@ public class BBSDto implements Serializable {
 	private int seq;	// 글의 고유 번호
 	private String id;
 	
-	// 답변이 있는 게시판
-	private int ref;	// 그룹번호
+	// 답변이 있는 게시판 (댓글용)
+	private int ref;	// 그룹번호 (충돌되면 안됨):  (SELECT NVL(MAX(REF), 0) +1 FROM BBS ) --> 서브쿼리 넣기 
 	private int step;	// 행번호 (row)
-	private int depth;	// 깊이
+	private int depth;	// 깊이 : 댓글이 달리면 게시판에서 글의 위치가 조금 다르게 달림
 	
 	private String title;
 	private String content;

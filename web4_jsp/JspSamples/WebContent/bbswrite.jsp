@@ -32,6 +32,14 @@
 --%>
 <%
 	MemberDto dto = (MemberDto)session.getAttribute("loginuser");
+	if(dto==null){	// session 해방
+		%>
+			<script type="text/javascript">
+				alert('로그인 만료!');
+				location.href="login.jsp";
+			</script>
+		<%
+	}
 %>
 <h1 align="center">새글쓰기</h1>
 <div align="center">

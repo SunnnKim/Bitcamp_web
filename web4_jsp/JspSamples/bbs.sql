@@ -37,4 +37,5 @@ select * from bbs
 INSERT INTO BBS
 VALUES ( SEQ_BBS.NEXTVAL, 'asd', 0, 0, 0, 'asd1', 'asd1', '2020-1-30', 0, 0  )
 
-
+INSERT INTO BBS ( SEQ, ID,REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT ) 
+ VALUES ( SEQ_BBS.NEXTVAL, 'asd',  (SELECT NVL(MAX(REF), 0)+1 FROM BBS), 0, 0, 'title', 'content', SYSDATE,  0, 0 );

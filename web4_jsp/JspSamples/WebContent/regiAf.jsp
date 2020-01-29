@@ -12,10 +12,8 @@
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
 	
-//	System.out.println(id);
-//	System.out.println(pwd);
 
-	MemberDto dto = new MemberDto(id, pwd, name, email,3);
+	MemberDto dto = new MemberDto(id, pwd, name, email, 3);
 	
 	// 집어넣기 
 	boolean b = MemberDao.getInstance().addMem(dto);

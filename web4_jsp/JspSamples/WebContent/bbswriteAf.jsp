@@ -9,18 +9,8 @@
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	
-	Calendar cal = Calendar.getInstance();
-	String today = cal.get(Calendar.YEAR) + "-";
-	today += (cal.get(Calendar.MONTH)+1) + "-";
-	today += cal.get(Calendar.DATE) + "";
-	
-	System.out.println(today);
 	
 	BBSDto dto = new BBSDto(id, title, content);
-	dto.setRef(0);
-	dto.setStep(0);
-	dto.setDepth(0);
-	dto.setWdate(today.trim());
 	
 	boolean b = BBSDao.getInstance().writeBbs(dto);
 
