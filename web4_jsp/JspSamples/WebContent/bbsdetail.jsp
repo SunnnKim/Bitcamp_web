@@ -47,27 +47,25 @@ textarea{
 <table border="1">
 	<tr>
 		<td>제목 : </td>
-		<td>
-			<input type="text" value="<%=dto.getTitle()%>" size="30" disabled="disabled">
+		<td><%=dto.getTitle()%>
 		</td>
 	</tr>
 	<tr>
 		<td>작성자 </td>
-		<td>
-			<input type="text" value="<%=dto.getId()%>" size="30" disabled="disabled"> 
+		<td><%=dto.getId()%>
 		</td>
 	</tr>
 	<tr>
 		<td>작성일 </td>
-		<td><input type="text" value="<%=dto.getWdate() %>" size="30" disabled="disabled"> </td>
+		<td><%=dto.getWdate() %>
 	</tr>
 	<tr>
 		<td>조회 </td>
-		<td><input type="text" value="<%=dto.getReadcount() %>" size="30" disabled="disabled"> </td>
+		<td><%=dto.getReadcount() %>
 	</tr>
 	<tr>
-		<td colspan="2">
-			<textarea rows="10" cols="40" disabled="disabled"><%=dto.getContent() %></textarea>
+		<td colspan="2" height="200px">
+		<%=dto.getContent() %>
 		</td>
 	</tr>
 	<%
@@ -94,7 +92,11 @@ textarea{
 	}
 	
 	%>
-	
+	<tr>	
+			<td colspan="2" style="text-align: center">
+				<input type="button" onclick="location.href='answer.jsp?seq=<%=dto.getSeq() %>'" value="댓글">
+			</td>
+		</tr>
 	<tr>
 		<td colspan="2" style=" border:0; border-top: 3px solid; margin: 0; " ></td>
 	</tr>

@@ -74,6 +74,7 @@ public class BBSDao {
 		String sql =  " SELECT SEQ, ID, REF, STEP, DEPTH, "
 					+ " TITLE, CONTENT, WDATE, DEL, READCOUNT "
 					+ " FROM BBS "
+					+ " WHERE DEL = 0 "
 					+ " ORDER BY REF DESC, STEP ASC ";
 		
 		
@@ -235,7 +236,8 @@ public class BBSDao {
 	
 	// delete
 	public boolean deletebbs(int seq) {
-				String sql =  " DELETE FROM BBS "
+				String sql =  " UPDATE BBS "
+							+ " SET DEL = 1 "
 							+ " WHERE SEQ = " + seq;
 						
 				Connection conn = null;
@@ -265,4 +267,109 @@ public class BBSDao {
 				
 		
 	}
+	
+	
+	
+	// 답글 달기
+	public boolean answer(int seq, BBSDto bbs ) {
+						// 부모글의 seq, 답글의 obj
+		
+		// 여기서는 두가지 작업을 해준다. (UPDATE + INSERT)
+		// update =>
+		String sql1=  " UPDATE BBS "
+					+ " SET STEP = STEP + 1 "
+					+ " WHERE REF = ( SELECT REF FROM BBS"
+									+ " WHERE SEQ = ? )"
+					+ "		AND STEP > ( SELECT STEP FROM BBS"
+									+ " WHERE SEQ = ? ) ";
+		
+		
+		// new post insert
+		String sql2 = " INSERT INTO BBS ( SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT )"
+					+ " VALUES ( SEQ_BBS.NEXTVAL, ?, "
+							+" ( SELECT REF FROM BBS WHERE SEQ = ? ), "	// REF
+							+" ( SELECT STEP FROM BBS WHERE SEQ = ? ) + 1,"	// STEP : 부모 글의 STEP+1
+							+" ( SELECT DEPTH FROM BBS WHERE SEQ = ? ) + 1,"	// DEPTH
+							+" ? , ?, SYSDATE, 0, 0 ) ";	
+							
+							
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		int count = 0;
+		
+		try {
+			
+			// 여러 코드 한번에 execute 하기 
+			conn = DBConnection.getConnection();
+			
+			// conn 얻어온 이후에 auto-commit꺼주기
+			conn.setAutoCommit(false);
+			
+			// update execute
+			psmt = conn.prepareStatement(sql1);
+			
+			psmt.setInt(1, seq);
+			psmt.setInt(2, seq);
+			System.out.println("2/6 answer success");
+
+			
+			count = psmt.executeUpdate();
+			System.out.println("3/6 answer success");
+			
+			// psmt 초기화 : 한꺼번에 두개 이상의 쿼리문 실행하고 싶을 때 사용
+			psmt.clearParameters();
+			
+			// insert
+			psmt = conn.prepareStatement(sql2);
+			
+			psmt.setString(1, bbs.getId());
+			psmt.setInt(2, seq);	// ref
+			psmt.setInt(3, seq);	// step
+			psmt.setInt(4, seq);	// depth
+			psmt.setString(5, bbs.getTitle());
+			psmt.setString(6, bbs.getContent());
+			count = psmt.executeUpdate();
+			System.out.println("4/6 answer success");
+			
+			conn.commit();
+			System.out.println("5/6 answer success");
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			try {
+				System.out.println("answer fail");
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+		finally {
+			try {
+				DBClose.close(psmt, conn, null);
+				conn.setAutoCommit(true);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		System.out.println("6/6 answer success");
+		return count>0? true:false;
+				
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
