@@ -29,12 +29,13 @@
 </head>
 <body>
 <!-- 게시판 -->
+
 <h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid %>님,</h4>
 
 <h1>BBS List</h1>
 <div align="center">
 <form>
-<table border="1">
+<table>
 <colgroup>
 	<col width="100">
 	<col width="400">
@@ -43,6 +44,9 @@
 	<th>번호</th>
 	<th>제목</th>
 	<th>작성자</th>
+</tr>
+<tr>
+	<td colspan="3" style="border-bottom: 3px solid;"></td>
 </tr>
 <%
 	if(list== null || list.size() == 0){

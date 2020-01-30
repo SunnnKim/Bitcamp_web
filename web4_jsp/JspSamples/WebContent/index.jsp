@@ -11,7 +11,7 @@
 
 <%
 // start point 
-response.sendRedirect("login.jsp");
+response.sendRedirect("./login/index.html");
 
 
 %>

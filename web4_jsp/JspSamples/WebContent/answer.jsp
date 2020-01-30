@@ -12,6 +12,11 @@
    BBSDto bbs = dao.showBbs(seq);
 
    request.setAttribute("_bbs", bbs);
+   // login user
+   MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
+   String loginid = (String)loginuser.getId();
+
+
 %>
 
 <!DOCTYPE html>
@@ -83,7 +88,7 @@
    <tr>
       <th>아이디</th>
       <td>
-      	<input type="text" name="id" value="${_bbs.id }" readonly="readonly" size="50" > 
+      	<input type="text" name="id" value="${loginuser.id }" readonly="readonly" size="50" > 
       </td>
    </tr>
    <tr>

@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
     
  <%
- 	int seq = Integer.parseInt( request.getParameter("seq"));
+ 	int seq = Integer.parseInt(request.getParameter("seq"));
  	BBSDao dao = BBSDao.getInstance();
  	// readCount - 올리기
 	dao.readCount(seq); 
@@ -110,8 +110,9 @@ textarea{
 </div>
 <script type="text/javascript">
 function delBtn() {
-	if(confirm('삭제하시겠습니까?')){
-	location.href= "deletebbs.jsp?seq=<%=dto.getSeq() %>";
+	if(confirm('삭제하시겠습니까?(답글도 모두 삭제됩니다.)')){
+		// step == 0 => 덧글도 삭제  
+		location.href= "deletebbs.jsp?seq=<%=dto.getSeq() %>&ref=<%=dto.getRef() %>&step=<%=dto.getStep() %>";
 	}
 	
 }

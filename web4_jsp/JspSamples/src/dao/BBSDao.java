@@ -236,6 +236,7 @@ public class BBSDao {
 	
 	// delete
 	public boolean deletebbs(int seq) {
+		
 				String sql =  " UPDATE BBS "
 							+ " SET DEL = 1 "
 							+ " WHERE SEQ = " + seq;
