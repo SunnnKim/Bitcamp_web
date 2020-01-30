@@ -68,16 +68,80 @@ public class BBSDao {
 		
 		return count > 0 ? true : false;
 	}
+	// 전체 글의 개수 구하는 함수
+	public int getAllBbs(String optionpick, String txt) {
+		
+		String sql = " SELECT COUNT(*) FROM BBS "
+				+ " WHERE ( DEL = 0 OR ( DEL = 1 AND  DEPTH = 0 ) ) ";
+		
+		String sqlWord = "";
+		if(optionpick.equals("title")) {
+			sqlWord = "AND TITLE LIKE '%" + txt.trim() + "%' ";
+		}else if(optionpick.equals("id")) {
+			sqlWord = "AND ID='" + txt.trim() + "'";
+		}else if(optionpick.equals("content")) {
+			sqlWord = "AND CONTENT LIKE '%" + txt.trim() + "%' ";
+		}
+		sql += sqlWord;
+		
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		int len = 0;
+		
+		try {
+			
+			conn = DBConnection.getConnection();	
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			if( rs.next()) {
+				len = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		finally {
+			DBClose.close(psmt, conn, null);
+		}
+		return len;
+	}
 	
-	public List<BBSDto> getList(){
+	
+	
+	public List<BBSDto> getBbsPageList(int page){
 		
 		String sql =  " SELECT SEQ, ID, REF, STEP, DEPTH, "
 					+ " TITLE, CONTENT, WDATE, DEL, READCOUNT "
-					+ " FROM BBS "
-					+ " WHERE DEL = 0 "
-					+ " ORDER BY REF DESC, STEP ASC ";
+					+ " FROM ";
 		
+		// PAGING (SUB QUERY)
+				sql += " ( SELECT ROW_NUMBER()OVER( ORDER BY REF DESC, STEP ASC ) AS RNUM,"
+						+ " SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT "
+						+ " FROM BBS "
+						+ " WHERE DEL = 0 OR ( DEL = 1 AND  DEPTH = 0 ) "
+						+ " ORDER BY REF DESC, STEP ASC ) ";
+				sql += " WHERE RNUM >= ? AND RNUM <= ? ";
+				
+		/*
+		 
+			1. ROWNUM
+			2. 검색
+			3. 정렬
+			4. 범위 : 1 ~ 10
+			
+		*/
 		
+		// 글의 갯수
+		int start, end;
+		start = 1 + 10 * page;	// 0 -> 1	1 -> 11
+		end = 10 + 10 * page;	// 0 -> 10  1 -> 20
+
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
@@ -88,6 +152,8 @@ public class BBSDao {
 			
 			conn = DBConnection.getConnection();	
 			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, start);
+			psmt.setInt(2, end);
 			rs = psmt.executeQuery();
 			
 			while( rs.next()) {
@@ -118,6 +184,8 @@ public class BBSDao {
 		
 		return list;
 	}
+	
+	
 	
 	public BBSDto showBbs(int seq) {
 		
@@ -366,11 +434,90 @@ public class BBSDao {
 		
 	}
 	
+	// search
+	public List<BBSDto> searchBbs(String optionpick, String txt, int page){
+		
+		List<BBSDto> slist = new ArrayList<BBSDto>();
+
+	 String sql =  " SELECT SEQ, ID, REF, STEP, DEPTH, "
+					+ " TITLE, CONTENT, WDATE, DEL, READCOUNT "
+					+ " FROM ";
+		
+		// PAGING (SUB QUERY)
+				sql += " ( SELECT ROW_NUMBER()OVER( ORDER BY REF DESC, STEP ASC ) AS RNUM,"
+						+ " SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT "
+						+ " FROM BBS ";
+				
+		String sqlWord = "";
+		if(optionpick.equals("title")) {
+			sqlWord = " WHERE TITLE LIKE '%" + txt.trim() + "%' ";
+		}else if(optionpick.equals("id")) {
+			sqlWord = " WHERE ID ='" + txt.trim() + "'";
+		}else if(optionpick.equals("content")) {
+			sqlWord = " WHERE CONTENT LIKE '%" + txt.trim() + "%' ";
+		}
+		sql += sqlWord;
+		
+						
+		sql += " AND DEL = 0 "
+		+ " ORDER BY REF DESC, STEP ASC ) "
+		+ " WHERE RNUM >= ? AND RNUM <= ? ";
+		
+	 
+		
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		
 	
-	
-	
-	
-	
+		
+		
+		int start, end;
+		start = 1 + 10 * page;	// 0 -> 1	1 -> 11
+		end = 10 + 10 * page;	// 0 -> 10  1 -> 20
+		
+		
+		try {
+			
+			conn = DBConnection.getConnection();	
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, start);
+			psmt.setInt(2, end);
+			rs = psmt.executeQuery();
+			
+			while( rs.next()) {
+				int i = 1;
+				BBSDto dto = new BBSDto(rs.getInt(i++),
+										rs.getString(i++),
+										rs.getInt(i++),
+										rs.getInt(i++),
+										rs.getInt(i++),
+										rs.getString(i++),
+										rs.getString(i++),
+										rs.getString(i++),
+										rs.getInt(i++),
+										rs.getInt(i++));
+				
+				slist.add(dto);
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		finally {
+			DBClose.close(psmt, conn, null);
+		}
+		
+		return slist;
+		
+	}
 	
 	
 }

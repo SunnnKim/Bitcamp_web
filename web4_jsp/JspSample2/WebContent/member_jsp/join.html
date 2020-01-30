@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!----------------------------------------------------------------------------------------------------------->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!----------------------------------------------------------------------------------------------------------->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<!----------------------------------------------------------------------------------------------------------->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!----------------------------------------------------------------------------------------------------------->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!----------------------------------------------------------------------------------------------------------->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<!----------------------------------------------------------------------------------------------------------->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<!-- jquery -->
+
+<!----------------------------------------------------------------------------------------------------------->
+
+
+</head>
+<body>
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+    <form class="login-form" id="frm" action=''>
+      <div class="row">
+        <div class="input-field col s12 center">
+          <h4>Register</h4>
+        </div>
+      </div>
+	<!-- ID -->
+      <div class="row margin">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-social-person-outline prefix"></i> -->
+          <i class="material-icons prefix">account_circle</i>
+          <input id="id" name="id" type="text" />
+          <label for="id">ID</label>
+        </div>
+      </div>
+
+	<!-- userName -->
+      <div class="row margin">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-social-person-outline prefix"></i> -->
+          <i class="material-icons prefix">account_circle</i>
+          <input id="name" name="name" type="text"/>
+          <label for="name">Username</label>
+        </div>
+      </div>
+
+	<!-- email -->
+      <div class="row margin">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-social-person-outline prefix"></i> -->
+          <i class="material-icons prefix">email</i>
+          <input id="email" name="email" type="text" style="cursor: auto;" />
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+	<!-- Password -->
+      <div class="row margin">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="password" name="password" type="password" />
+          <label for="password">Password</label>
+        </div>
+      </div>
+
+      <div class="row margin">
+        <div class="input-field col s12">
+          <!-- <i class="mdi-action-lock-outline prefix"></i> -->
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="password_a" name="cpassword" type="password" />
+          <label for="password_a">Password again</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <button type="button" onclick="submitBtn()" class="btn waves-effect waves-light col s12">REGISTER NOW</button>
+          
+        </div>
+        <div class="input-field col s12">
+          <p class="margin center medium-small sign-up">이미 계정이 있으신가요? <a href="../login_form/index.html"> Login</a></p>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+<script src="js/main.js">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+ // 회원가입버튼 누르기 -> 비동기방식
+function submitBtn() {
+	 
+	 // 아이디 중복 확인하기
+	 
+	 
+	 
+	 
+	// form 데이터를 ajax로 보낸다
+	var formData = $("#frm").serialize();	// form데이터를  json/xml 로 보내기 위해 seriallize 함
+	
+	$.ajax({
+        cache : false,	// 캐쉬 저장 안함
+		url : '../memberinsert',
+		type: 'POST',	
+		data: formData,	
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",	
+		// 전송데이터 인코딩 타입 utf-8로,
+		success: function ( data ) {
+			console.log(data);
+			
+			if(data == 'true' ){
+				alert('회원가입 성공')
+				location.href='../login_form/index.html';		
+			}else{
+				alert('회원가입에 실패했습니다!')
+			}
+		}
+	});
+	 
+ 
+
+}
+</script>
+</body>
+</html>

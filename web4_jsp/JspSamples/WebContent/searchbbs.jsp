@@ -1,21 +1,30 @@
-<%@page import="dto.BBSDto"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.BBSDao"%>
+<%@page import="dto.BBSDto"%>
 <%@page import="dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+  
 <%
 	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
 	// 또는 request.getSession();
 	
 	String loginid = loginuser.getId();
 	
-%>
 
+	
+%>
 
 <%
 // paging 
+	
+String search = request.getParameter("search");
+String optionpick = request.getParameter("optionpick");
+	
+Cookie cookie = new Cookie("optionpick", optionpick);
+response.addCookie(cookie);
+cookie = new Cookie("search", search);
+response.addCookie(cookie);
 
 String spageNumber = request.getParameter("pagenum");
 int pageNumber = 0;
@@ -27,20 +36,24 @@ System.out.println("pagenum: "+pageNumber);
 
 BBSDao dao = BBSDao.getInstance();
 
-List<BBSDto> list = dao.getBbsPageList(pageNumber);
+
 
 // 총 글의 갯수
-int len = dao.getAllBbs("","");
 //System.out.println(len);
+int len = dao.getAllBbs(optionpick, search);
+System.out.println("length: "+len);
 
 int bbsPage = len / 10;
 
 if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다음 페이지도 만들어 준다
 	bbsPage++;
 }
+System.out.println("bbsPage: "+bbsPage);
 
-
+List<BBSDto> list = dao.searchBbs(optionpick, search, pageNumber);
+ 
 %>
+
 
 
 <!DOCTYPE html>
@@ -48,15 +61,24 @@ if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다�
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+a:visited {
+	color: black;
+}
+a:hover{
+	color: olive;
+	
+}
+</style>
 </head>
 <body>
 <!-- 게시판 -->
 
 <h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid %>님,</h4>
 
-<h1>BBS List</h1>
+<h1><a href="bbslist.jsp" style="text-decoration: none;">BBS List</a></h1>
 <div align="center">
-<form>
+<form action='searchbbs.jsp' id="frm">
 <table>
 <colgroup>
 	<col width="100">
@@ -115,6 +137,9 @@ if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다�
 </form>
 </div>
 
+<a href="bbswrite.jsp">글쓰기</a>
+
+<a href="logout.jsp">로그아웃</a>
 
 <div align="center">
 <%
@@ -139,38 +164,53 @@ for( int i = 0 ; i < bbsPage; i++ ){
 
 
 <script type="text/javascript">
+var op = document.querySelector('#optionpick option').value;
+if(op.equals)
+
+
 function goPage( page ) {
-	location.href="bbslist.jsp?pagenum="+page;
+	
+	alert(a);
+
 }
 </script>
 
-<a href="bbswrite.jsp">글쓰기</a>
-
-<a href="logout.jsp">로그아웃</a>
 
 <div align="center">
 <form action='searchbbs.jsp' method='get'>
 
-<select name="optionpick"> 
+<select name="optionpick" id="optionpick"> 
 	<option value="id">아이디</option>
 	<option value="title">제목</option>
 	<option value="content">내용</option>
 </select>
-<input type="text" size="30" name="search" id="searchBox">
+<input type="text" size="30" name="search" value="<%=search %>" id="searchBox">
 <input type="button" id="sbtn" onclick="searchBtn()" value="검색">
 </form>
 
 <script type="text/javascript">
+
 function searchBtn() {
 	var stext = document.querySelector("input[name='search']").value;
 	if( stext == "") {
-		alert('검색어를 입력하시오');
+		location.href="bbslist.jsp";
 	}else{
 		document.querySelector('#sbtn').type = "submit";
 	}
 }
 </script>
 </div>
+<%
+MemberDto dto = (MemberDto)session.getAttribute("loginuser");
+if(dto==null){	// session 해방
+	%>
+		<script type="text/javascript">
+			alert('로그인 만료!');
+			location.href="login.jsp";
+		</script>
+	<%
+}
+%>
 
 <%!
 
@@ -186,20 +226,6 @@ public String arrow (int depth){
 	return depth==0? "": ts+rs ;
 }
 
-%>
-
-
-<%
-MemberDto dto = (MemberDto)session.getAttribute("loginuser");
-if(dto==null){	
-	// session 해방
-	%>
-		<script type="text/javascript">
-			alert('로그인 만료!');
-			location.href="login.jsp";
-		</script>
-	<%
-}
 %>
 
 </body>
