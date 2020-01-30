@@ -1,22 +1,20 @@
-<%@page import="dto.BBSDto"%>
+<%@page import="dto.BbsDto"%>
 <%@page import="dao.BBSDao"%>
 <%@page import="dto.MemberDto"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%
-   String sSeq = request.getParameter("seq");
+	String sSeq = request.getParameter("seq");
    int seq = Integer.parseInt(sSeq);
 
    BBSDao dao = BBSDao.getInstance();
-   BBSDto bbs = dao.showBbs(seq);
+   BbsDto bbs = dao.showBbs(seq);
 
    request.setAttribute("_bbs", bbs);
    // login user
    MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
    String loginid = (String)loginuser.getId();
-
-
 %>
 
 <!DOCTYPE html>

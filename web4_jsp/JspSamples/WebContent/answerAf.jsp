@@ -1,5 +1,5 @@
 <%@page import="dao.BBSDao"%>
-<%@page import="dto.BBSDto"%>
+<%@page import="dto.BbsDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -23,10 +23,10 @@
 
 <%
 	BBSDao dao = BBSDao.getInstance();
-	BBSDto bbs = new BBSDto(id, title, content);
+	BbsDto bbs = new BbsDto(id, title, content);
 	boolean b = dao.answer(seq, bbs);
 	if(b){
-	%>
+%>
 		<script type="text/javascript">
 			alert('답글이 성공적으로 추가되었습니다.')
 			location.href="bbslist.jsp";

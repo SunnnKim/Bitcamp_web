@@ -1,5 +1,5 @@
 <%@page import="dto.MemberDto"%>
-<%@page import="dto.BBSDto"%>
+<%@page import="dto.BbsDto"%>
 <%@page import="dao.BBSDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,16 +11,15 @@
 </head>
 <body>
 <%
- 	int seq = Integer.parseInt( request.getParameter("seq"));
+	int seq = Integer.parseInt( request.getParameter("seq"));
  	BBSDao dao = BBSDao.getInstance();
 	
- 	BBSDto dto = dao.showBbs(seq);
+ 	BbsDto dto = dao.showBbs(seq);
  	
  	// 내가 쓴 글인지 보기
  	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
  	String loginid = (String)loginuser.getId();
- 	
- %>
+%>
 <div align ="center">
  <h1>글 보기 </h1>
 <form action="updatebbsAf.jsp">

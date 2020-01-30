@@ -1,22 +1,21 @@
 <%@page import="dto.MemberDto"%>
-<%@page import="dto.BBSDto"%>
+<%@page import="dto.BbsDto"%>
 <%@page import="dao.BBSDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
  <%
- 	int seq = Integer.parseInt(request.getParameter("seq"));
- 	BBSDao dao = BBSDao.getInstance();
- 	// readCount - 올리기
-	dao.readCount(seq); 
-	
- 	BBSDto dto = dao.showBbs(seq);
- 	
- 	// 내가 쓴 글인지 보기
- 	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
- 	String loginid = (String)loginuser.getId();
- 	
- %>
+     	int seq = Integer.parseInt(request.getParameter("seq"));
+      	BBSDao dao = BBSDao.getInstance();
+      	// readCount - 올리기
+     	dao.readCount(seq); 
+     	
+      	BbsDto dto = dao.showBbs(seq);
+      	
+      	// 내가 쓴 글인지 보기
+      	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
+      	String loginid = (String)loginuser.getId();
+     %>
 <!DOCTYPE html>
 <html>
 <head>

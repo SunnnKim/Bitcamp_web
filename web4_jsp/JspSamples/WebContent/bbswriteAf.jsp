@@ -1,7 +1,7 @@
 <%@page import="dao.BBSDao"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
-<%@page import="dto.BBSDto"%>
+<%@page import="dto.BbsDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -10,7 +10,7 @@
 	String content = request.getParameter("content");
 	
 	
-	BBSDto dto = new BBSDto(id, title, content);
+	BbsDto dto = new BbsDto(id, title, content);
 	
 	boolean b = BBSDao.getInstance().writeBbs(dto);
 
@@ -27,7 +27,6 @@
 
 	
 	*/
-
 %>
 
 <!DOCTYPE html>

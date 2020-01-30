@@ -1,4 +1,4 @@
-<%@page import="dto.BBSDto"%>
+<%@page import="dto.BbsDto"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.BBSDao"%>
 <%@page import="dto.MemberDto"%>
@@ -6,16 +6,15 @@
     pageEncoding="UTF-8"%>
     
 <%
-	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
-	// 또는 request.getSession();
-	
-	String loginid = loginuser.getId();
-	
-%>
+    	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
+    	// 또는 request.getSession();
+    	
+    	String loginid = loginuser.getId();
+    %>
 
 
 <%
-// paging 
+	// paging 
 
 String spageNumber = request.getParameter("pagenum");
 int pageNumber = 0;
@@ -27,7 +26,7 @@ System.out.println("pagenum: "+pageNumber);
 
 BBSDao dao = BBSDao.getInstance();
 
-List<BBSDto> list = dao.getBbsPageList(pageNumber);
+List<BbsDto> list = dao.getBbsPageList(pageNumber);
 
 // 총 글의 갯수
 int len = dao.getAllBbs("","");
@@ -38,8 +37,6 @@ int bbsPage = len / 10;
 if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다음 페이지도 만들어 준다
 	bbsPage++;
 }
-
-
 %>
 
 
@@ -52,7 +49,7 @@ if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다�
 <body>
 <!-- 게시판 -->
 
-<h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid %>님,</h4>
+<h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid%>님,</h4>
 
 <h1>BBS List</h1>
 <div align="center">
@@ -73,18 +70,18 @@ if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다�
 <%
 	if(list== null || list.size() == 0){
 		// 글이 없음
-		%>
+%>
 		<tr>
 			<td colspan="3">작성된 글이 없습니다.</td>
 		</tr>
 		
 		<%
-	}else{
-		// 글이 있음
-		for(int i=0; i < list.size(); i++) {
-			BBSDto bbs = list.get(i);
-			if(bbs.getDel() == 1 ){
-			%>
+					}else{
+						// 글이 있음
+						for(int i=0; i < list.size(); i++) {
+					BbsDto bbs = list.get(i);
+					if(bbs.getDel() == 1 ){
+				%>
 				<tr>
 					<th><%= i+1 %></th>
 					<td>
@@ -172,9 +169,7 @@ function searchBtn() {
 </script>
 </div>
 
-<%!
-
-public String arrow (int depth){
+<%!public String arrow (int depth){
 	String rs = "<img src='./image/arrow.png' width='20px' height='20px'/> ";
 	String nbsp = "&nbsp;&nbsp;&nbsp;&nbsp;";
 	
@@ -184,9 +179,7 @@ public String arrow (int depth){
 	}
 	
 	return depth==0? "": ts+rs ;
-}
-
-%>
+}%>
 
 
 <%

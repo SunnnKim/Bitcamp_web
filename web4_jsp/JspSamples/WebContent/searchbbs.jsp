@@ -1,31 +1,23 @@
 <%@page import="java.util.List"%>
 <%@page import="dao.BBSDao"%>
-<%@page import="dto.BBSDto"%>
+<%@page import="dto.BbsDto"%>
 <%@page import="dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
 <%
-	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
-	// 또는 request.getSession();
-	
-	String loginid = loginuser.getId();
-	
-
-	
-%>
+  	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
+  	// 또는 request.getSession();
+  	
+  	String loginid = loginuser.getId();
+  %>
 
 <%
-// paging 
+	// paging 
 	
 String search = request.getParameter("search");
 String optionpick = request.getParameter("optionpick");
 	
-Cookie cookie = new Cookie("optionpick", optionpick);
-response.addCookie(cookie);
-cookie = new Cookie("search", search);
-response.addCookie(cookie);
-
 String spageNumber = request.getParameter("pagenum");
 int pageNumber = 0;
 if(spageNumber !=null && !spageNumber.equals("")){
@@ -50,8 +42,7 @@ if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다�
 }
 System.out.println("bbsPage: "+bbsPage);
 
-List<BBSDto> list = dao.searchBbs(optionpick, search, pageNumber);
- 
+List<BbsDto> list = dao.searchBbs(optionpick, search, pageNumber);
 %>
 
 
@@ -74,11 +65,11 @@ a:hover{
 <body>
 <!-- 게시판 -->
 
-<h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid %>님,</h4>
+<h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid%>님,</h4>
 
 <h1><a href="bbslist.jsp" style="text-decoration: none;">BBS List</a></h1>
 <div align="center">
-<form action='searchbbs.jsp' id="frm">
+<form action='searchbbs.jsp'>
 <table>
 <colgroup>
 	<col width="100">
@@ -95,18 +86,18 @@ a:hover{
 <%
 	if(list== null || list.size() == 0){
 		// 글이 없음
-		%>
+%>
 		<tr>
 			<td colspan="3">작성된 글이 없습니다.</td>
 		</tr>
 		
 		<%
-	}else{
-		// 글이 있음
-		for(int i=0; i < list.size(); i++) {
-			BBSDto bbs = list.get(i);
-			if(bbs.getDel() == 1 ){
-			%>
+					}else{
+						// 글이 있음
+						for(int i=0; i < list.size(); i++) {
+					BbsDto bbs = list.get(i);
+					if(bbs.getDel() == 1 ){
+				%>
 				<tr>
 					<th><%= i+1 %></th>
 					<td>
@@ -163,21 +154,10 @@ for( int i = 0 ; i < bbsPage; i++ ){
 </div>
 
 
-<script type="text/javascript">
-var op = document.querySelector('#optionpick option').value;
-if(op.equals)
-
-
-function goPage( page ) {
-	
-	alert(a);
-
-}
-</script>
 
 
 <div align="center">
-<form action='searchbbs.jsp' method='get'>
+<form action='searchbbs.jsp' id="frm" method='get'>
 
 <select name="optionpick" id="optionpick"> 
 	<option value="id">아이디</option>
@@ -185,6 +165,7 @@ function goPage( page ) {
 	<option value="content">내용</option>
 </select>
 <input type="text" size="30" name="search" value="<%=search %>" id="searchBox">
+<input type="hidden" name="pagenum">
 <input type="button" id="sbtn" onclick="searchBtn()" value="검색">
 </form>
 
@@ -212,9 +193,7 @@ if(dto==null){	// session 해방
 }
 %>
 
-<%!
-
-public String arrow (int depth){
+<%!public String arrow (int depth){
 	String rs = "<img src='./image/arrow.png' width='20px' height='20px'/> ";
 	String nbsp = "&nbsp;&nbsp;&nbsp;&nbsp;";
 	
@@ -224,9 +203,26 @@ public String arrow (int depth){
 	}
 	
 	return depth==0? "": ts+rs ;
+}%>
+
+<script type="text/javascript">
+// selector value를 지정하기
+var sel = document.querySelector("#optionpick");
+
+for(var i=0; i<3; i++ ){
+	if(sel.options[i].value == '<%=optionpick%>' ){
+		document.querySelector('#optionpick').options[i].selected = true;			
+	}
 }
 
-%>
+function goPage( page ) {
+	
+	document.querySelector("input[name='pagenum']").value = page;
+	document.querySelector('#frm').submit();
+	
+	
+}
+</script>
 
 </body>
 </html>
