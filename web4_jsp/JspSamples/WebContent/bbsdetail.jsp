@@ -109,10 +109,9 @@ textarea{
 </div>
 <script type="text/javascript">
 function delBtn() {
-		location.href= "deletebbs.jsp?seq=<%=dto.getSeq() %>&ref=<%=dto.getRef() %>&step=<%=dto.getStep() %>";
-	
-}
+	 location.href= "deletebbs.jsp?seq=<%=dto.getSeq() %>&ref=<%=dto.getRef() %>&step=<%=dto.getStep() %>";
 
+}
 </script>
 
 </body>

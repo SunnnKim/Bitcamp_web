@@ -19,6 +19,8 @@
  	// 내가 쓴 글인지 보기
  	MemberDto loginuser = (MemberDto)session.getAttribute("loginuser");
  	String loginid = (String)loginuser.getId();
+
+
 %>
 <div align ="center">
  <h1>글 보기 </h1>

@@ -9,7 +9,7 @@ import java.util.List;
 
 import db.DBClose;
 import db.DBConnection;
-import dto.BBSDto;
+import dto.BbsDto;
 
 public class BBSDao {
 
@@ -24,7 +24,7 @@ public class BBSDao {
 	}
 	
 	// write Bbs
-	public boolean writeBbs( BBSDto dto) {
+	public boolean writeBbs( BbsDto dto) {
 		//  seq,  id,  ref,  step,  depth,  title,  content,  wdate,  del, readcount
 		
 		String sql =  " INSERT INTO BBS ( "
@@ -114,7 +114,7 @@ public class BBSDao {
 	
 	
 	
-	public List<BBSDto> getBbsPageList(int page){
+	public List<BbsDto> getBbsPageList(int page){
 		
 		String sql =  " SELECT SEQ, ID, REF, STEP, DEPTH, "
 					+ " TITLE, CONTENT, WDATE, DEL, READCOUNT "
@@ -146,7 +146,7 @@ public class BBSDao {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		List<BBSDto> list = new ArrayList<BBSDto>();
+		List<BbsDto> list = new ArrayList<BbsDto>();
 		
 		try {
 			
@@ -158,7 +158,7 @@ public class BBSDao {
 			
 			while( rs.next()) {
 				int i = 1;
-				BBSDto dto = new BBSDto(rs.getInt(i++),
+				BbsDto dto = new BbsDto(rs.getInt(i++),
 										rs.getString(i++),
 										rs.getInt(i++),
 										rs.getInt(i++),
@@ -187,7 +187,7 @@ public class BBSDao {
 	
 	
 	
-	public BBSDto showBbs(int seq) {
+	public BbsDto showBbs(int seq) {
 		
 		String sql = " SELECT * FROM BBS "
 				+ " WHERE SEQ = " + seq;
@@ -196,7 +196,7 @@ public class BBSDao {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		BBSDto dto = null;
+		BbsDto dto = null;
 		
 		try {
 			
@@ -206,7 +206,7 @@ public class BBSDao {
 			
 			if( rs.next()) {
 				int i = 1;
-				dto = new BBSDto(rs.getInt(i++),
+				dto = new BbsDto(rs.getInt(i++),
 										rs.getString(i++),
 										rs.getInt(i++),
 										rs.getInt(i++),
@@ -340,7 +340,7 @@ public class BBSDao {
 	
 	
 	// 답글 달기
-	public boolean answer(int seq, BBSDto bbs ) {
+	public boolean answer(int seq, BbsDto bbs ) {
 						// 부모글의 seq, 답글의 obj
 		
 		// 여기서는 두가지 작업을 해준다. (UPDATE + INSERT)
@@ -435,9 +435,9 @@ public class BBSDao {
 	}
 	
 	// search
-	public List<BBSDto> searchBbs(String optionpick, String txt, int page){
+	public List<BbsDto> searchBbs(String optionpick, String txt, int page){
 		
-		List<BBSDto> slist = new ArrayList<BBSDto>();
+		List<BbsDto> slist = new ArrayList<BbsDto>();
 
 	 String sql =  " SELECT SEQ, ID, REF, STEP, DEPTH, "
 					+ " TITLE, CONTENT, WDATE, DEL, READCOUNT "
@@ -490,7 +490,7 @@ public class BBSDao {
 			
 			while( rs.next()) {
 				int i = 1;
-				BBSDto dto = new BBSDto(rs.getInt(i++),
+				BbsDto dto = new BbsDto(rs.getInt(i++),
 										rs.getString(i++),
 										rs.getInt(i++),
 										rs.getInt(i++),

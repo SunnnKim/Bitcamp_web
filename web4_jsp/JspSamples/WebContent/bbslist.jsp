@@ -11,6 +11,17 @@
     	
     	String loginid = loginuser.getId();
     %>
+<%!public String arrow (int depth){
+	String rs = "<img src='./image/arrow.png' width='20px' height='20px'/> ";
+	String nbsp = "&nbsp;&nbsp;&nbsp;&nbsp;";
+	
+	String ts = "";
+	for(int i =0; i< depth; i++ ) {
+		ts += nbsp;	// 앞에 부분의 여백
+	}
+	
+	return depth==0? "": ts+rs ;
+}%>
 
 
 <%
@@ -52,6 +63,10 @@ if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다�
 <h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid%>님,</h4>
 
 <h1>BBS List</h1>
+
+<a href="calEx/calendar.jsp">일정관리</a>
+
+
 <div align="center">
 <form>
 <table>
@@ -157,6 +172,9 @@ function goPage( page ) {
 <input type="button" id="sbtn" onclick="searchBtn()" value="검색">
 </form>
 
+
+</div>
+
 <script type="text/javascript">
 function searchBtn() {
 	var stext = document.querySelector("input[name='search']").value;
@@ -167,33 +185,7 @@ function searchBtn() {
 	}
 }
 </script>
-</div>
 
-<%!public String arrow (int depth){
-	String rs = "<img src='./image/arrow.png' width='20px' height='20px'/> ";
-	String nbsp = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	
-	String ts = "";
-	for(int i =0; i< depth; i++ ) {
-		ts += nbsp;	// 앞에 부분의 여백
-	}
-	
-	return depth==0? "": ts+rs ;
-}%>
-
-
-<%
-MemberDto dto = (MemberDto)session.getAttribute("loginuser");
-if(dto==null){	
-	// session 해방
-	%>
-		<script type="text/javascript">
-			alert('로그인 만료!');
-			location.href="login.jsp";
-		</script>
-	<%
-}
-%>
 
 </body>
 </html>

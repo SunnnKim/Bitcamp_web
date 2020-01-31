@@ -2,7 +2,7 @@ package dto;
 
 import java.io.Serializable;
 
-public class BBSDto implements Serializable {
+public class BbsDto implements Serializable {
 
 	private int seq;	// 글의 고유 번호
 	private String id;
@@ -19,11 +19,11 @@ public class BBSDto implements Serializable {
 	private int del;		// 지워졌는지에 대한 인덱스
 	private int readcount;	// 조회수
 	
-	public BBSDto() {
+	public BbsDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BBSDto(int seq, String id, int ref, int step, int depth, String title, String content, String wdate, int del,
+	public BbsDto(int seq, String id, int ref, int step, int depth, String title, String content, String wdate, int del,
 			int readcount) {
 		super();
 		this.seq = seq;
@@ -38,7 +38,7 @@ public class BBSDto implements Serializable {
 		this.readcount = readcount;
 	}
 
-	public BBSDto(String id, String title, String content) {
+	public BbsDto(String id, String title, String content) {
 		super();
 		this.id = id;
 		this.title = title;
