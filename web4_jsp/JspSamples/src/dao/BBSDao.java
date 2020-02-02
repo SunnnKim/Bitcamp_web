@@ -68,6 +68,7 @@ public class BBSDao {
 		
 		return count > 0 ? true : false;
 	}
+	
 	// 전체 글의 개수 구하는 함수
 	public int getAllBbs(String optionpick, String txt) {
 		

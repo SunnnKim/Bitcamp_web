@@ -27,11 +27,57 @@ public class BbsDao {
 	/*
 		SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT
 	 */
-	
+	// 페이징을 위해 전체 글 (all 또는 검색리스트)의 개수 반환하기
+	public int getListSize(String choice, String searchTxt) {
+		
+		String sql =  " SELECT COUNT(*) "
+					+ " FROM BBS "
+					+ " WHERE ( DEL = 0 OR ( DEL = 1 AND DEPTH = 0 ) ) ";	// 삭제된글이 아니거나, 삭제된 글중 답글이 아닌경우 
+		// 검색리스트인 경우
+		if(choice.equals("id")) {
+			sql += " AND LOWER( ID ) = '"+searchTxt.trim().toLowerCase()+"' ";
+			
+		} else if ( choice.equals("title")) {
+			sql += " AND LOWER ( TITLE ) LIKE '%"+searchTxt.trim().toLowerCase()+"%' ";
+			
+		} else if ( choice.equals("content")) {
+			sql += " AND LOWER ( CONTENT ) LIKE '%"+searchTxt+"%' ";
+			
+		}
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		int size = 0; 
+		
+		try {
+
+			conn = DBConnection.getConnection();
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				size = rs.getInt(1);
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			DBClose.close(psmt, conn, rs);
+		}
+		
+		return size;
+
+	}
 	// 모든 글 가져오기 + 페이징
 	public List<BbsDto> getBbsList(int page){
 		
-		String sql =  " SELECT * "
+		String sql =  " SELECT SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT "
 					+ " FROM ( SELECT ROW_NUMBER()OVER( ORDER BY REF DESC, STEP ASC ) AS RNUM,"
 								+ " SEQ, ID, "
 								+ " REF, STEP, DEPTH, "
@@ -138,6 +184,7 @@ public class BbsDao {
 		return count>0? true:false;
 		
 	}
+	
 	
 	
 }

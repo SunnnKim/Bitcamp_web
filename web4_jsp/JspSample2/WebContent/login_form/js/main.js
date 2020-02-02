@@ -30,8 +30,18 @@
                 check=false;
             }
         }
-
+        
+//        $.ajax({
+//        	url:"../logincheck",
+//        	data:"id=asd&pwd=asd",
+//        	success: function( data ) {
+//				console.log(data);
+//			}
+//        });
+//        
+      
         return check;
+        
     });
 
 
@@ -49,6 +59,7 @@
 //          //  }
 //        }
 //        else {
+    	// 위의 코드는 아이디/비밀번호 정규식 검사 
             if($(input).val().trim() == ''){
                 return false;
 //            }

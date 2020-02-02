@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import db.DBClose;
@@ -79,7 +80,7 @@ public class MemberDao {
 	}
 	
 	
-	// id check
+	// 회원가입시 아이디확인 
 	public boolean idCheck() {
 		
 		
@@ -88,7 +89,123 @@ public class MemberDao {
 		
 	}
 	
+	// 로그인시 아이디 비밀번호 확인
+	public boolean checkLogin(String id, String pwd) {
+		
+		String sql =  " SELECT COUNT(*) "
+					+ " FROM MEMBER "
+					+ " WHERE ID = ? AND PWD = ? ";
+		
+		// 기본 세팅 = NULL
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		System.out.println("1/6 check success");
+		
+		int count=0; // 아이디 비밀번호가 맞는지 확인하기
+		
+		try {
+
+			conn = DBConnection.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			// ? 값 세팅하기
+			psmt.setString(1,id);
+			psmt.setString(2,pwd);
+			
+			System.out.println("2/6 check success");
+			
+			rs = psmt.executeQuery();
+			System.out.println("3/6 check success");
+
+			if(rs.next()) {
+				
+				count = rs.getInt(1);
+				
+			}
+			
+			
+			
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("fail");
+		}
+		
+		finally {
+			
+			DBClose.close(psmt, conn, null);
+		}
+		
+		System.out.println("4/6 check success");
+		return count>0? true:false;
+		
+		
+	}
 	
+	// 로그인 정보 가져오기
+	public MemberDto getLoginUser(String id) {
+
+		String sql =  " SELECT ID, NAME, EMAIL "
+					+ " FROM MEMBER "
+					+ " WHERE ID = ? ";
+		
+		// 기본 세팅 = NULL
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		System.out.println("1/6 check success");
+		
+
+		MemberDto dto = new MemberDto();
+		
+		try {
+
+			conn = DBConnection.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			// ? 값 세팅하기
+			psmt.setString(1,id);
+			
+			System.out.println("2/6 check success");
+			
+			rs = psmt.executeQuery();
+			System.out.println("3/6 check success");
+
+			if(rs.next()) {
+				
+				
+				String _id = rs.getString(1);
+				String _name = rs.getString(2);
+				String _email = rs.getString(3);
+				
+				dto.setId(_id);
+				dto.setName(_name);
+				dto.setEmail(_email);
+			}
+			
+			
+			
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("fail");
+		}
+		
+		finally {
+			
+			DBClose.close(psmt, conn, null);
+		}
+		
+		System.out.println("4/6 check success");
+		return dto;
+		
+		
+	}
 	
 	
 }
