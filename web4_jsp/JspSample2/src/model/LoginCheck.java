@@ -34,9 +34,8 @@ public class LoginCheck extends HttpServlet {
 			HttpSession session = req.getSession();
 			session.setAttribute("loginuser", dto);
 		}
-		
-		resp.sendRedirect("login_form/logincheck.jsp?b="+b+"&id="+id);
-		
+			resp.sendRedirect("login_form/logincheck.jsp?b="+b+"&id="+id);
+				
 	}
 	
 }

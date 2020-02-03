@@ -22,7 +22,7 @@ if(b.equals("true")){
 	%>
 		<script type="text/javascript">
 			alert("<%=id%>님, 로그인 성공");
-			location.href="../bbs_jsp/bbslist.jsp?";
+			location.href="../bbslist";
 		</script>
 	<%
 }else{

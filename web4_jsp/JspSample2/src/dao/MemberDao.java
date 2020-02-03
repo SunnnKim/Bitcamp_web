@@ -157,9 +157,6 @@ public class MemberDao {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		System.out.println("1/6 check success");
-		
-
 		MemberDto dto = new MemberDto();
 		
 		try {
@@ -170,10 +167,8 @@ public class MemberDao {
 			// ? 값 세팅하기
 			psmt.setString(1,id);
 			
-			System.out.println("2/6 check success");
 			
 			rs = psmt.executeQuery();
-			System.out.println("3/6 check success");
 
 			if(rs.next()) {
 				
@@ -201,7 +196,7 @@ public class MemberDao {
 			DBClose.close(psmt, conn, null);
 		}
 		
-		System.out.println("4/6 check success");
+		System.out.println("get loginuser success");
 		return dto;
 		
 		
