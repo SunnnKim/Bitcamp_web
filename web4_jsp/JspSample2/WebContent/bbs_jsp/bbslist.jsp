@@ -10,8 +10,8 @@
 
 
 Object obj =  request.getAttribute("list");
+int pages =  Integer.parseInt((String)request.getAttribute("page"));
 List<BbsDto> list = (List<BbsDto>)obj;
-System.out.println(list.get(0));
 
 %>
 
@@ -106,9 +106,11 @@ else {
 		data:"choice=&searchTxt=",
 		success: function(data) {
 			
-			var pages = Math.ceil( data / 10 ) ;	// 페이지 수
+			var page = Math.ceil( data / 10 ) ;	// 페이지 수
 			for(var i=0; i<pages; i++){
-				if(i == "<%=%>")
+				if(i == <%=pages%>){
+					
+				}
 				$(".paging-list").html("<a href='#'></a>")
 			}
 				

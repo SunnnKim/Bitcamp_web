@@ -22,10 +22,15 @@ public class BbsList extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
+		String spage = req.getParameter("page");
+		int page =0;
+		if(!spage.equals("") || spage != null ) {
+			page = Integer.parseInt(spage);
+		}
 		BbsDao dao = BbsDao.getInstance();
-		List<BbsDto> list = dao.getBbsList(0);
+		List<BbsDto> list = dao.getBbsList(page);
 		req.setAttribute("list", list);
+		req.setAttribute("page", page);
 		
 		// forward로 보내기
 		RequestDispatcher dis = req.getRequestDispatcher("./bbs_jsp/bbslist.jsp");
