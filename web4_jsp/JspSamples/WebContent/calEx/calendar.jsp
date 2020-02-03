@@ -112,6 +112,10 @@ if(dto==null){
 %>
 
 <h1>일정관리</h1>
+<ul>
+	<li><a href="bbslist.jsp">게시판</a></li>
+	<li><a href="pdslist.jsp">자료실</a></li>
+</ul>
 <hr>
 <%
 

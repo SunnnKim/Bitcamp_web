@@ -39,6 +39,7 @@
 <body>
 <h1><%=year %>/<%=month %>/<%=day %>  일정</h1>
 
+
 <a href="calwrite.jsp?year=<%=year%>&month=<%=month%>&day=<%=day%>">일정 추가하기</a>
 
 
@@ -92,7 +93,7 @@
 
 </div>
 
-
+ 	
 
 
 

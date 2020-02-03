@@ -63,8 +63,12 @@ if(len % 10 > 0 ) {	// 10(기준) 으로 나눈 나머지가 0 이상이면 다�
 <h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=loginid%>님,</h4>
 
 <h1>BBS List</h1>
+<ul>
+	<li><a href="calEx/calendar.jsp">일정관리</a></li>
+	<li><a href="pdslist.jsp">자료실</a></li>
+</ul>
 
-<a href="calEx/calendar.jsp">일정관리</a>
+
 
 
 <div align="center">
