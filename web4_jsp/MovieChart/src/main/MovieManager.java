@@ -43,7 +43,7 @@ public class MovieManager {
 					
 					
 			// Parsing한 데이터 담기
-			for (int i = 0; i < 7; i++) {
+			for (int i = 0; i < 4; i++) {
 				Element eTitle = titles.get(i);
 				String title = eTitle.text();
 				

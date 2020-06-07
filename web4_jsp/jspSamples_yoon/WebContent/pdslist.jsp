@@ -9,7 +9,7 @@
 PdsDao dao = PdsDao.getInstance();
 List<PdsDto> list = dao.getPdsList();
 
-MemberDto mem = (MemberDto)session.getAttribute("login");
+//MemberDto mem = (MemberDto)session.getAttribute("login");
 %>    
     
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ MemberDto mem = (MemberDto)session.getAttribute("login");
 </head>
 <body>
 
-<h4 align="right" style="background-color: #f0f0f0">환영합니다 <%=mem.getId() %>님 반갑습니다</h4>
+<h4 align="right" style="background-color: #f0f0f0">환영합니다 반갑습니다</h4>
 
 <ul>
 	<li><a href="./bbslist_css.jsp">게시판</a></li>

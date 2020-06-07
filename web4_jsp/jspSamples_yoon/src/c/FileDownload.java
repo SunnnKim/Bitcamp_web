@@ -1,4 +1,4 @@
-package filedown;
+package c;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class FileDownLoader extends HttpServlet {
+public class FileDownload extends HttpServlet {
 	
 	ServletConfig mConfig = null;
 	static final int BUFFER_SIZE = 8192;	// 8 kbyte
